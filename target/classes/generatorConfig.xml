@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 引入外部配置文件 -->
+	<properties resource="mysql.properties" />
+	<classPathEntry
+		location="D:\apache-tomcat-9.0.12\lib\mysql-connector-java-5.1.36-bin.jar" />
+	<context id="context1">
+		<jdbcConnection driverClass="${jdbc.driverClassName}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}">
+		</jdbcConnection>
+		<javaModelGenerator targetPackage="com.love.movie.model" targetProject="LoveMovie/src/main/java" />
+		<sqlMapGenerator targetPackage="mapper" targetProject="LoveMovie/src/main/resources" />
+		<javaClientGenerator targetPackage="com.love.movie.mapper" targetProject="LoveMovie/src/main/java" type="XMLMAPPER" />
+		<table tableName="%"></table>		<!-- 写%意味着当前数据库所有表都生成实体类 -->
+	</context>
+</generatorConfiguration>
