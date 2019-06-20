@@ -1,0 +1,202 @@
+/*-------------------header------------------------*/
+#header {
+    background-color: #343a40;
+    height: 60px;
+    width: 100%;
+}
+.v-center {
+    text-align: center;
+    line-height: 50px;
+}
+.header-title {
+    height: 50px;
+    width: 80px;
+    float: left;
+    font-size: 20px;
+    margin-left: 50px;
+    color: white;
+}
+.header-select {
+    height: 50px;
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+}
+a:hover {
+    color: #E1D363;
+    text-decoration: none;
+}
+
+.header-mainpage {
+    height: 50px;
+    width: 80px;
+    float: left;
+}
+.header-type {
+    height: 50px;
+    width: 80px;
+    float: left;
+}
+.header-comment {
+    height: 50px;
+    width: 80px;
+    float: left;
+}
+/*-------------------top------------------------*/
+#top {
+    height: 100px;
+    background-color: #F8EA21;
+    padding: 15px;
+    width: 100%;
+}
+.nav {
+    height: 70px;
+    width: 800px;
+    margin-left: 100px;
+}
+/*----------------------选电影--------------------------*/
+#select-movie {
+    height: 200px;
+    background-color: #343a40;
+    padding: 15px;
+}
+.title {
+    height: 30px;
+    width: 100px;
+    margin-left: 115px;
+    color: aliceblue;
+    font-size: 20px;
+}
+.tags {
+    width: 750px;
+    color: aliceblue;
+    margin-left: 107px;
+    margin-top: 20px;
+}
+.tag {
+    display: none;
+}
+.change-background {
+    background-color: #E1D363 ;
+    border-radius: 10%;
+    padding: 2px 8px;
+}
+.tags ul li{
+    float: left;
+    margin: 8px 6px;
+    padding: 2px 8px;
+}
+.type{
+    display: inline-block;
+    padding: 2px 8px;
+}
+.tags ul {
+    list-style: none;
+}
+
+.tags ul li:hover{
+    background-color: rgb(231, 214, 214);
+    border-radius: 10%;
+}
+
+/* label {
+    margin: 8px 6px;
+    padding: 2px 8px;
+} */
+/* label:hover {
+    background-color: rgb(231, 214, 214);
+    border-radius: 10%;
+} */
+
+.active{
+    background-color: #E1D363;
+    color: #212529;
+}
+
+/*------------------------展示列表----------------------*/
+#movie-lists {
+    background-color: #212529;
+    padding: 15px;
+}
+.sort {
+    width: 750px;
+    height: 50px;
+    color: aliceblue;
+    margin-left: 120px;
+}
+a{
+	text-decoration: none;
+	color: white;
+	font-family: "黑体";
+}
+
+#hot-movie-content{
+    width: 800px;
+    margin-left: 115px;
+}
+
+/* #hot-movies{
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+} */
+
+#hot-movies .movie-item{
+	display: inline-block;
+    margin: 20px 15px;
+	float: left;
+	display:inline-block; 
+ 	vertical-align:top;
+
+}
+.item-cover img{
+	width: 90%;
+}
+.item-info{
+	background-color: #F8EA21;
+	width: 90%;
+	height: 40px;
+	color: black;
+}
+
+.item-name{
+	font-size: 20px;
+	font-family: "百度综艺";
+	font-weight: bold;
+	color: black;
+	display:inline;
+}
+
+.item-degree{
+	font-weight: none;
+	font-size: 12px;
+	background-color: #343a40;
+	color: white;
+	display:inline;
+	padding: 0 8px;
+	border-radius: 0.5rem;
+	margin: 10px 8px;
+}
+
+.card-body{
+    background-color: #F8EA21;
+    padding: 0.5rem;
+}
+
+.item-br{
+    clear: both;
+}
+
+/*清除浮动*/
+/* 适应IE浏览器 使用 zoom:1 触发 hasLayout */
+.clearfix {
+    *zoom: 1;
+}
+.clearfix::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+

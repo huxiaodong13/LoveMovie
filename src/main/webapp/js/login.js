@@ -1,0 +1,26 @@
+$(document).ready(function(){
+    $(".click-message").click(function(){
+        $("#login-password").hide();
+        $("#login-message").show();
+    });
+    $(".click-password").click(function(){
+        $("#login-message").hide();
+        $("#login-password").show();
+    });
+    $(".register-a").click(function(){
+        $("#login-message").hide();
+        $("#login-password").hide();
+        $("#register").show();
+    });
+    $(".register-btn").click(function(){
+        $("#login-message").hide();
+        $("#login-password").show();
+        $("#register").hide();
+    });
+    $(".cancel-register-btn").click(function(){
+        $("#login-message").hide();
+        $("#login-password").show();
+        $("#register").hide();
+    });
+
+})
