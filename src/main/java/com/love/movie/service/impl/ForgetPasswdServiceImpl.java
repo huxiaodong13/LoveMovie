@@ -59,15 +59,18 @@ public class ForgetPasswdServiceImpl implements com.love.movie.service.ForgetPas
 		boolean sendOk = true; // 标记邮件是否发送成功
 
 		try {
+			
 			// 获取系统当前时间
 			Date now = new Date();
 			String currentTime = "" + now.getTime();
-
 			// 重置密码链接
 			String urlStr = "http://localhost:8080/LoveMovie/forgetPassword/resetPassword?key=";
-			String plainText = currentTime + "@" + userEmail; // 加密的明文
+			String plainText = currentTime + "@" + userEmail; // 当前时间加上用户邮箱     
 			String desKey = "LOVEMOIVE"; // des算法中的密钥
 			String link = urlStr + DESUtil.encrypt(desKey, plainText);
+			
+			
+			
 			System.out.println("加密后的链接link:" + link);
 			String adminEmail = "15114075724@163.com";
 			String contents = this.setContent(userEmail, link, adminEmail);
@@ -94,13 +97,17 @@ public class ForgetPasswdServiceImpl implements com.love.movie.service.ForgetPas
 	@Override
 	public String setContent(String userEmail, String link, String adminEmail) {
 
-//		String content = "<a href=" + userEmail + ">" + userEmail + "</a>，您好：<br>\r\n"
-//				+ "您收到这封电子邮件是因为您(也可能是某人冒充您的名义)申请了一个找回密码的请求。<br>\r\n" + "假如这不是您本人所申请，或者您曾持续收到这类的信件骚扰，请您尽快联络管理员。<br>\r\n"
+//		String content = "<a href='#'>" + userEmail + "</a>，您好：<br>\r\n"
+//				+ "您收到这封电子邮件是因为您(也可能是某人冒充您的名义)申请了一个找回密码的请求。<br>\r\n" + 
+//		"假如这不是您本人所申请，或者您曾持续收到这类的信件骚扰，请您尽快联络管理员。<br>\r\n"
 //				+ "您可以点击如下链接重新设置您的密码，如果点击无效,请把下面的代码拷贝到浏览器的地址栏中:<br>\r\n" + "<a href=" + link + ">" + link
-//				+ "</a><br>\r\n" + "请在2小时之内访问链接，访问链接后，您可以重新设置新的密码。<br>\r\n" + "如果您还有任何的疑问，请与我们联系。邮箱地址: <a href="
-//				+ adminEmail + ">" + adminEmail + "</a><br>\r\n" + "请不要直接回复本邮件。<br>";
+//				+ "</a><br>\r\n" + "请在2小时之内访问链接，访问链接后，您可以重新设置新的密码。<br>\r\n" + 
+//		"如果您还有任何的疑问，请与我们联系。邮箱地址: <a href='#'>" + adminEmail + "</a><br>\r\n" + "请不要直接回复本邮件。<br>";
 		
-		String content = "请在两小时内 ，请访问如下链接，进行密码重置<br>" + "<a href=" + link + ">" + link +"</a>";
+		
+		String content = "<a href='#'>" + userEmail + "</a>，您好：<br>\r\n"+
+				"请在两小时内 ，请访问如下链接，进行密码重置<br>" + "<a href=" + link + ">" + link +"</a>"+
+				"如果您还有任何的疑问，请与我们联系。邮箱地址: <a href='#'>" + adminEmail + "</a><br>\r\n" + "请不要直接回复本邮件。<br>";
 
 		return content;
 	}

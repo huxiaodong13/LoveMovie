@@ -1,0 +1,213 @@
+/* #header {
+    border-bottom: 6px solid #F8EA21;
+} */
+
+.navbar{
+    margin-bottom: 0;
+}
+/*------------中间部分（整体）-------------*/
+#userpage-center {
+    background-color: #212529;
+    padding: 15px;
+}
+.userpage-wrap {
+    width: 950px;
+    background-color: #343a40;
+    margin: 0 auto;
+}
+/*-------------------中间部分(头部）--------------------*/
+.wrap-header {
+    height: 250px;
+}
+.wrap-header-left {
+    height: 180px;
+    width: 150px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 45px;
+}
+.avatar {
+    height: 150px;
+    margin-top: 20px;
+}
+.change-avatar {
+    height: 36px;
+    background-color: #F8EA21;
+}
+.wrap-header-right {
+    height: 200px;
+    width: 710px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.username-edit {
+    height: 45px;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+}
+.username {
+    width: 200px;
+    line-height: 45px;
+    float: left;
+    color: white;
+}
+.edit {
+    width: 110px;
+    float: right;
+    margin-top: 4px;
+    
+}
+.self-introduce {
+    height: 30px;
+    line-height: 30px;
+    color: white;
+}
+#self-introduce-edit {
+    height: 120px;
+    margin-top: 5px;
+}
+#self-introduce-text {
+    height: 120px;
+    margin-top: 5px;
+    background-color: #212529;
+    color: white;
+    font-size: 15px;
+}
+/*----------------中间部分（中间内容）------------------*/
+.block {
+    height: 30px;
+    width: 150px;
+    background-color: #F8EA21;
+    text-align: center;
+    line-height: 30px;
+}
+.user-comment {
+    height: 100px;
+    width: 800px;
+    background-color: #F8EA21;
+    margin-top: 20px;
+}
+/*编辑个人资料页*/
+.edit-message-wrap {
+    width: 950px;
+    height: 800px;
+    background-color: #343a40;
+    margin: 0 auto;
+    padding: 20px;
+}
+.set {
+    width: 100px;
+    height:42px;
+    float: left;
+    text-align: center;
+    line-height: 42px;
+}
+.btns {
+    width: 150px;
+    height:42px;
+    float: right;
+    text-align: center;
+    line-height: 42px;
+    right: 5px;
+}
+.edit-message-title {
+    height: 40px;
+    width: 800px;
+    margin: 0 auto;
+    color: white;
+    margin-top: 10px;
+    border-bottom: 2px solid #F8EA21;
+}
+.input-edit-message {
+    width: 450px;
+    margin-top: 50px;
+    margin-left: 75px;
+    float: left;
+}
+.input-style {
+    width: 350px;
+    height: 40px;
+    background-color: #343a40;
+    color: white;
+    border: 1px solid  rgb(161, 155, 155);
+    margin-left: 20px;
+}
+.div-brief {
+    height: 130px;
+    margin-top: 15px;
+}
+.div-brief-text {
+    height: 20px;
+    color: white;
+    float: left;
+}
+.div-brief-input {
+    width: 355px;
+    height: 130px;
+    float: left;
+    margin-left: 28px;  
+}
+/*性别*/
+.itm {
+    color: white;
+    margin-top: 10px;
+}
+.f-cb {
+    float: left;
+}
+.check {
+    margin-left: 25px;
+}
+/*选择日期*/
+.bootstrap-datetimepicker-widget {
+    background-color: #fff;
+}
+.edit-birth {
+    float: left;
+}
+.date {
+    float: left;
+}
+.div-hr {
+    height: 20px;
+    margin-top: 50px;
+}
+.edit-registertime {
+    float: left;
+}
+.change-avatar {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 50px;
+    background-color: #343a40;
+}
+.avatar-display {
+    width: 150px;
+    height: 150px;
+    margin-left: 75px;
+    margin-top: 30px;
+}
+.avatar-put {
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-left: 75px;
+    color: #fff;
+    
+}
+/*清除浮动*/
+/* 适应IE浏览器 使用 zoom:1 触发 hasLayout */
+.clearfix {
+    *zoom: 1;
+}
+.clearfix::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}

@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>链接失效</title>
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/vaildlink.css">
-    <link rel="stylesheet" href="css/findpassword.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/vaildlink.css">
+    <link rel="stylesheet" href="../css/findpassword.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="clearfix top">

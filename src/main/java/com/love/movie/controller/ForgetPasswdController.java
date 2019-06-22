@@ -71,7 +71,7 @@ public class ForgetPasswdController {
 
 		//检查重置链接的合法性
 		boolean isVaildLink = FPService.checkResetPasswdLink(key);
-		
+		isVaildLink = false;
 		if (isVaildLink) {
 			mv = new ModelAndView("resetPassword");
 			String userEmail = FPService.getUserEmailFromLink(key);

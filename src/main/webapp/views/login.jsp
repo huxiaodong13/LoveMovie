@@ -4,20 +4,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>登录</title>
-<link
-	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="http://localhost:8080/LoveMovie/css/login.css">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script
-	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="http://localhost:8080/LoveMovie/js/login.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel=
+    "stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/login.js"></script>
 </head>
+
 <body>
 	<div id="all">
 		<div id="top" class="clearfix">
@@ -92,25 +90,27 @@
 				</div>
 				<div class="descrption" style="margin-top: 40px">
 					登录表示同意使用协议、隐私政策</div>
-
+					
+				<!----------------- 账户用户名登录 ------------------->
 				<div class="input-phonenumber-captcha"
 					style="margin-top: 10px; margin-bottom: px">
 					<form class="bs-example bs-example-form form-password-login"
-						role="form">
+						role="form" id="lform">
 						<div class="form-group">
 							<span class="glyphicon glyphicon-user"></span> <input type="text"
-								class="form-control" placeholder="请输入用户名" name="login-username">
+								class="form-control" placeholder="请输入用户名"  name = "username" id="l-username" >
 						</div>
 						<div class="input-group">
 							<input type="password" class="form-control" placeholder="请输入密码"
-								name="login-password"> 
+								 name ="password" id="l-password">   
+								
 							<a href="../forgetPassword/findPassword" class="input-group-addon" style="text-decoration: none">找回密码</a>
 						</div>
 					</form>
 				</div>
 
-				<button type="button" class="btn btn-success btn-md btn-block"
-					id="btn-login">登录</button>
+				<button type="button" class="btn btn-success btn-md btn-block loginBtn" id="btn-login" >登录</button>
+					
 				<div class="login-auto clearfix">
 					<div class="login-auto-left checkbox">
 						<label> <input type="checkbox">下次自动登录
@@ -143,27 +143,33 @@
 				<div class="descrption" style="margin-top: 10px">
 					注册表示同意使用协议、隐私政策</div>
 				<div class="input-register-message">
-					<form class="bs-example bs-example-form" role="form">
+					<form class="bs-example bs-example-form" role="form" id="register-form">
 						<div class="input-group">
 							<span class="input-group-addon">用户名称</span> <input type="text"
-								class="form-control" name="register-username">
+								class="form-control" id="register-username" name="username">
+								
 						</div>
+						<span class="username-error"></span>
 						<br>
 						<div class="input-group">
 							<span class="input-group-addon">用户密码</span> <input
-								type="password" class="form-control" name="register-password">
+								type="password" class="form-control" id="register-password" name="password">
 						</div>
+						<span class="password-error"></span>
 						<br>
 						<div class="input-group">
 							<span class="input-group-addon">确认密码</span> <input
 								type="password" class="form-control"
-								name="register-password-again">
+								id="register-password-again" name="repassword">
 						</div>
+						<span class="repassword-error"></span>
 						<br>
 						<div class="input-group">
 							<span class="input-group-addon">您的邮箱</span> <input type="text"
-								class="form-control" name="register-email">
+								class="form-control" id="register-email" name="email">
 						</div>
+						<span class="email-error"></span>
+						
 					</form>
 				</div>
 				<div class="register-btns clearfix">
