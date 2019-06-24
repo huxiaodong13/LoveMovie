@@ -35,5 +35,13 @@ public interface UserService {
 	public User getUserByName(String name);
 	
 	
+	/**
+	 * 更新用户信息
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public boolean updateUserInfo(User user);
+	
 	
 }

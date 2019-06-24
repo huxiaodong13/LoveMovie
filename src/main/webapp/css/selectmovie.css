@@ -1,4 +1,7 @@
 /*-------------------header------------------------*/
+body {
+    background-color: #212529;
+}
 #header {
     background-color: #343a40;
     height: 60px;
@@ -114,9 +117,13 @@ a:hover {
 }
 
 /*------------------------展示列表----------------------*/
+.movielists-ad {
+    background-color: #212529;
+}
 #movie-lists {
     background-color: #212529;
     padding: 15px;
+    float: left;
 }
 .sort {
     width: 750px;
@@ -185,6 +192,36 @@ a{
 
 .item-br{
     clear: both;
+}
+/*广告*/
+.ad {
+    height: 250px;
+    width: 250px;
+    background-color: #fff;
+    float: left;
+    position: fixed;
+    left: 1000px;
+    top: 360px;
+    text-align: center;
+    line-height: 250px;
+    font-size: 30px;
+    color: #F8EA21;
+}
+.ad-title {
+    height: 30px;
+    background-color: #343a40;
+}
+.close {
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    float: right;
+}
+.page {
+    height: 60px;
+    width: 400px;
+    margin-left: 310px;
+    margin-top: 50px;
 }
 
 /*清除浮动*/

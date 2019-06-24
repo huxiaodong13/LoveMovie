@@ -62,6 +62,10 @@ public class LoginController {
 		String userInputPassword = Hex.encodeHexString(passwordByte);
 		User user2 = userServiceId.getUserByName(user.getUsername());
 		
+		
+		System.out.println("1234567" + Hex.encodeHexString(md.digest("123456".getBytes())));
+		
+		
 		// 密码错误
 		if (!user2.getPassword().equals(userInputPassword)) {
 			return "0";
@@ -69,7 +73,7 @@ public class LoginController {
 
 		// 设置session
 		HttpSession session = request.getSession();
-		session.setAttribute("userLogin", user2);
+		session.setAttribute("user", user2);
 		session.setAttribute("login", true);
 
 		return "1"; // 密码不正确
@@ -81,12 +85,14 @@ public class LoginController {
 	 * @param request
 	 * @return
 	 */
+	@RequestMapping("logout")
 	public String doLogout(HttpServletRequest request) {
+		
 		// 销毁会话
 		request.getSession().invalidate();
 
 		// 重定向至首页
-		return "redirect:index/index";
+		return "redirect:login";
 	}
 
 	/**

@@ -30,6 +30,9 @@
     height: 150px;
     margin-top: 20px;
 }
+.avatar img {
+    border-radius: 5px;
+}
 .change-avatar {
     height: 36px;
     background-color: #F8EA21;
@@ -81,6 +84,15 @@
     background-color: #F8EA21;
     text-align: center;
     line-height: 30px;
+    float: left;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.block-collect {
+   margin-top: 70px;
+}
+.block:hover {
+    background-color: grey;
 }
 .user-comment {
     height: 100px;
@@ -198,6 +210,14 @@
     margin-left: 75px;
     color: #fff;
     
+}
+/* 分页 */
+.page {
+    height: 60px;
+    width: 300px;
+    margin-left: 260px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 /*清除浮动*/
 /* 适应IE浏览器 使用 zoom:1 触发 hasLayout */

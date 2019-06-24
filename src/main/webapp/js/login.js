@@ -95,7 +95,7 @@ $(document).ready(function() {
 					alert("密码不正确");
 				}else{
 					alert("成功登录");
-					window.open('../index/LMindex');
+					window.open('../index/userInfo');
 				}
 			}
 		});
