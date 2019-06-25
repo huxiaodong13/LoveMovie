@@ -1,0 +1,186 @@
+.card-header{
+	background-color: #F8EA21;
+	/*font-weight: bold;*/
+}
+
+.card-body{
+	position: relative;
+}
+
+
+#review-card{
+	width: 60%;
+	padding: 2rem 0;
+}
+/*.review-response{
+	margin: 0 auto;
+}*/
+.review-response img{
+	width: 1.25rem;
+}
+
+.review-response .btn{
+	margin-right: 1rem;
+	width: 6rem;
+
+}
+/*
+.report{
+	margin-left: 70%;
+	font-size: 0.75rem;
+	width: 3rem !important;
+}
+
+.favorites{
+	font-size: 0.75rem;
+	/*width: 3rem !important;*/
+/*}*/
+
+#review-action{
+	/*position: relative;
+	right: 1rem;*/
+	width: 12.5rem;
+	margin-left: 70% ;
+}
+
+#review-action .btn{
+	font-size: 0.75rem;
+	min-width: 3rem;
+	margin: 0.25rem 0.5rem;
+}
+
+#report_value ul {
+	list-style: none;
+	margin: 0;
+
+}
+
+.modal-content{
+	background-color: #F8EA21;
+}
+
+.modal-header{
+	border-bottom:1px solid #7b7b7b;
+}
+
+.modal-footer{
+	border-top:1px solid #7b7b7b;
+}
+
+
+
+/*————————————————————————————————————————————————————评论————————————————————————————————————————————*/
+#comments-card{
+	width: 60%;
+	padding: 2rem 0;
+}
+
+.comment_meta {
+	color: #666667;
+}
+.comment_meta a{
+	color: black;
+	margin-left:0.75rem;
+	margin-right: 0.25rem;
+}
+
+.comment_content{
+	margin-left: 5rem;
+	margin-bottom: 0.25rem;
+}
+
+.comment_action{
+	width: 6rem;
+	margin-left: 85%;
+	font-size: 0.8rem;
+	visibility: hidden;
+}
+.comment_action span{
+	padding: 0.1rem 0.5rem;
+	border-radius: 0.5rem;
+	color: white;
+	background-color: #343a40;
+}
+
+.reply-editor .btn{
+	padding:0.325rem 0.5rem;
+	line-height: 1.25;
+}
+
+.reply-editor input{
+	width: 70%;
+	margin-left: 5rem;
+	margin-top: 0.5rem;
+}
+
+.reply-editor{
+	display: none;
+}
+
+
+.comment_reply{
+	margin-left: 5rem;
+}
+
+.reply_meta{
+	color: #666667;
+}
+
+.reply_meta a{
+	color: black;
+	margin-right: 0.25rem;
+}
+
+.reply_meta img{
+	width: 2rem;
+}
+
+.reply_content{
+	margin-left:2.5rem;
+}
+
+
+.reply_action {
+	width: 6rem;
+	margin-left: 83%;
+	font-size: 0.8rem;
+	visibility: hidden;
+}
+
+.reply_action span{
+	padding: 0.1rem 0.5rem;
+	border-radius: 0.5rem;
+	color: white;
+	background-color: #343a40;
+}
+
+.comment_reply .reply-editor input{
+	margin: 0.25rem 0;
+	width: 75%;
+}
+
+
+/*------------------------------------------添加回复------------------------------------------------*/
+
+#add-comment-card{
+	width: 60%;
+	padding: 2rem 0;
+}
+
+
+.comment_user_avatar{
+	float: left;
+	margin-right: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+#comment-text{
+	width: 85%;
+	background-color: #fffef3;
+	float: left;
+}
+
+.add-comment-btn{
+	margin-left: 87%;
+	margin-top: 0.5rem;
+}

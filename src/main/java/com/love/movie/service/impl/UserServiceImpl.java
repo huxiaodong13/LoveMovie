@@ -1,11 +1,17 @@
 package com.love.movie.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.love.movie.mapper.CustomedSakuraUserMapper;
+import com.love.movie.mapper.SeenmovieMapper;
 import com.love.movie.mapper.UserMapper;
+import com.love.movie.model.Movie;
+import com.love.movie.model.Seenmovie;
+import com.love.movie.model.SeenmovieExample;
 import com.love.movie.model.User;
 import com.love.movie.model.UserExample;
 import com.love.movie.model.UserExample.Criteria;
@@ -18,6 +24,14 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private SeenmovieMapper seenMMapper;
+	
+	@Autowired
+	private CustomedSakuraUserMapper csUserMapper;
+	
+	
 	
 	
 	@Override
@@ -65,10 +79,28 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean updateUserInfo(User user) {
-		
 		int n = userMapper.updateByPrimaryKeySelective(user);
-		
 		return false;
 	}
 
+
+	@Override
+	public List<Map<String, Object>> getSeenMovies(int uid) {
+		return csUserMapper.getUserSeenMovies(uid);
+	}
+
+
+	@Override
+	public List<Map<String, Object>> getWantSeeMovie(int uid) {
+		return csUserMapper.getUserWSeenMovies(uid);
+	}
+
+
+	@Override
+	public List<Map<String, Object>> getCommentByUserId(int uid) {
+		return csUserMapper.getUserComments(uid);
+	}
+	
+
+	
 }

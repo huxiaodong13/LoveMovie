@@ -10,20 +10,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="referrer" content="never">
+
 <title>用户主页</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link
-	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
-	rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/userpage.css">
+<link rel="stylesheet" href="../css/jquery-ui.min.css">
+
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script
-	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
 <script src="../js/moment-with-locales.js"></script>
 <script
 	src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
@@ -44,9 +41,7 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#">主页<span
 							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#">电影</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">分类</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">排行榜</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">选电影</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">影评</a></li>
 
 				</ul>
@@ -57,26 +52,21 @@
 				</form>
 
 				<ul class="navbar-nav">
-					<!-- <li class="nav-item" id="regist-login">
-	        		<a class="nav-link" href="#">注册/登录</a>
-	     		</li> -->
-					<li class="nav-item dropdown" id="user-drop"><a
+					<li class="nav-item" id="regist-login" hidden><a
+						class="nav-link" href="#">注册/登录</a></li>
+					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> 用户名 </a>
+						aria-expanded="false"> ${userInfo.username } </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">个人中心</a>
+							<a class="dropdown-item" href="userInfo">个人中心</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">账号管理</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">退出</a>
+							<a class="dropdown-item" href="logout">退出</a>
 						</div></li>
 				</ul>
 			</div>
 		</nav>
 	</div>
-
-
 	<div id="userpage-center">
 		<!--编辑个人资料页-->
 		<div class="edit-message-wrap clearfix" style="display: none">
@@ -84,37 +74,35 @@
 				<div class="set">
 					<h4>个人设置</h4>
 				</div>
-				<div class="btns">
-					<!-- <button type="button" id="edit-savebtn"class="btn btn-success btn-sm">保存</button>
-                    <button type="button" id="edit-cancelbtn" class="btn btn-secondary btn-sm" style="margin-left: 25px;">取消</button> -->
-				</div>
+				<div class="btns"></div>
 			</div>
 
 			<!-- ------------------------个人信息编辑start------------------------ -->
-			<form id="set-form" action="updateUserInfo" method="post" enctype="multipart/form-data">
+			<form id="set-form" action="updateUserInfo" method="post"
+				enctype="multipart/form-data">
+
 				<div class="input-edit-message clearfix">
 
-					<!----------------------- 用户信息表单 --------------------->
 					<label style="color: white">昵称:&nbsp&nbsp&nbsp&nbsp</label> <input
 						class="input-style" type="text" name="username"
-						value="${userInfo.username }" disabled> <br>
-					<br> <label style="color: white; margin-top: 25px;">邮箱:&nbsp&nbsp&nbsp&nbsp</label>
+						value="${userInfo.username }" disabled> <br> <br>
+					<label style="color: white; margin-top: 25px;">邮箱:&nbsp&nbsp&nbsp&nbsp</label>
 					<input class="input-style" type="email" name="email"
-						value="${userInfo.email }">
-					<p style="color: red">邮箱用于找回密码，请谨慎修改哦~</p>
-					<br>
-					<br>
+						value="${userInfo.email }"> <span class="hint">邮箱用于找回密码，请谨慎修改。</span>
+					<br> <br>
 					<div class="div-brief">
 						<div class="div-brief-text">简介：</div>
 						<div class="div-brief-input">
 							<textarea name="brief"
-								style="height: 120px; width: 350px; background-color: #343a40; color: white;">${userInfo.brief }</textarea>
+								style="height: 120px; width: 346px; background-color: #343a40; color: white; border-radius: 4px;">${userInfo.brief }</textarea>
 						</div>
 					</div>
 
 					<br>
+
 					<div class="itm clearfix">
 						<label class="lab" style="float: left">性别：</label>
+
 						<c:if test="${userInfo.gender eq 2}">
 							<div class="f-cb">
 								<label class="check"><input name="gender" type="radio"
@@ -142,30 +130,38 @@
 									name="gender" type="radio" class="u-rdi" value="2"> 保密</label>
 							</div>
 						</c:if>
-
 					</div>
+
 					<br> <label class="edit-birth"
 						style="color: white; margin-top: 10px;">生日:&nbsp&nbsp&nbsp&nbsp</label>
-					<!--指定 date标记-->
-					<div class='input-group date' id='datetimepicker1'
-						style="width: 350px; background-color: #343a40;">
-						<input type='text' class="form-control" name="birth"
-							placeholder="${userInfo.birth }"
-							style="background-color: #343a40; margin-left: 28px; width: 276px; border-radius: 0; color: white;"
-							value="${userInfo.username }" /> <span class="input-group-addon"
-							style="width: 50px; background-color: #343a40; color: white; padding-left: 0px; border-radius: 0;">
-							<span class="glyphicon glyphicon-calendar"
-							style="margin-left: 10px;"></span>
-						</span>
+					<div class='input-group date'
+						style="width: 342px; background-color: #343a40;">
+						<input type='text' id="datepicker" class="form-control"
+							value="${userInfo.birth }" name="birth" placeholder="点击选择日期"
+							style="background-color: #343a40; margin-left: 32px; width: 100px; border-radius: 0; color: white; border-radius: 4px;" />
 					</div>
+
 					<div class="div-hr"></div>
+
+					<label class="edit-registertime"
+						style="color: white; margin-top: 10px;">注册时间:&nbsp&nbsp&nbsp&nbsp</label>
+					<div class='input-group date'
+						style="width: 311px; background-color: #343a40;">
+						<input type='text' class="form-control" name="udate"
+							style="background-color: #343a40; color: white"
+							value="${userInfo.udate }" disabled />
+					</div>
+
+
 					<input type="submit" id="edit-savebtn" name="edit-savebtn"
 						value="保存修改"
-						style="margin-left: 130px; margin-top: 30px; background-color: #F8EA21;">
+						style="margin-left: 50px; margin-top: 30px; background-color: #F8EA21;">
 					<input type="button" id="edit-cancelbtn" value="取消修改"
 						style="margin-left: 30px; background-color: gery;">
+
 				</div>
-				
+
+
 				<div class="change-avatar">
 					<div class="avatar-display">
 						<p style="color: white; margin-left: 45px;">更换头像</p>
@@ -176,12 +172,12 @@
 						<input type="file" name="putavatar" style="width: 180px;">
 					</div>
 				</div>
+
 			</form>
 		</div>
-
 		<!-- ------------------------个人信息编辑end------------------------ -->
 
-		<!------------------------------用户展示页-------------------------------->
+		<!--------------------------用户展示页-------------------------->
 		<div class="userpage-wrap clearfix">
 			<div class="wrap-header clearfix">
 				<div class="wrap-header-left">
@@ -215,6 +211,7 @@
 				</div>
 			</div>
 
+
 			<!-- -------------------------看过的电影 想看的电影 参与的评论 start---------------------------------- -->
 			<hr style="background-color: gray;">
 			<div class="block">
@@ -226,355 +223,201 @@
 			<div class="block">
 				<label class="block-comment">参与的评论</label>
 			</div>
+
+			<!-- -----------------------------看过的电影------------------------------->
 			<div class="block-collect saw">
 				<div id="hot-movie-content" style="background-color: #343a40;">
 					<div id="hot-movies" style="margin: 0; width: 100%">
-						<div class="clearfix">
-							<a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<span class="card-title item-name">绿皮书</span> <strong
-											class="item-degree card-text">8.9</strong>
+						<div class="clearfix" id="seen-movies-items">
+
+							<c:forEach items="${smPageInfo.list }" var="item">
+								<a href="#" class="movie-item" target="_blank"
+									style="margin-left: 5px;">
+									<div class="card" style="width: 10rem;">
+										<img class="card-img-top" src="${item.img }"
+											alt="Card image cap">
+										<div class="card-body">
+											<span class="card-title item-name" title="${item.mname }">${item.mname }</span>
+											<strong class="item-degree card-text">${item.mscore }</strong>
+										</div>
+
+										<div class="item-info-summary">
+											<h4>${item.mname }</h4>
+											<strong class="item-degree card-text">${item.mscore }</strong>
+											<div class="item-tags">
+												<span class="item-tag">${item.mlong }</span> <span
+													class="item-tag">${item.mcountry }</span> <span
+													class="item-tag">${item.mtag }</span> <span
+													class="item-tag">${item.mdirect }</span> <span
+													class="item-tag">${item.mactor }</span>
+											</div>
+										</div>
 									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<span class="card-title item-name">绿皮书</span> <strong
-											class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<span class="card-title item-name">绿皮书</span> <strong
-											class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item item-br" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a>
+								</a>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
-				<div class="page">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									<span class="sr-only">Previous</span>
-							</a></li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">4</a></li>
-							<li class="page-item"><a class="page-link" href="#">5</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-									class="sr-only">Next</span>
-							</a></li>
-						</ul>
-					</nav>
-				</div>
+
+				<!-- --------------------------看过的电影分页------------------------------->
+				<nav aria-label="" class="page" style="margin-bottom: 20px;">
+					<ul class="pagination h-center v-center" id="seen-movie-pagination">
+						<c:if test="${smPageInfo.hasPreviousPage==true}">
+							<li class="page-item " id="pre-page-sm"
+								value=${ smPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+						</c:if>
+						<c:if test="${smPageInfo.hasPreviousPage==false}">
+							<li class="page-item disabled" tabindex="-1"><a
+								class="page-link" href="#">上页</a></li>
+						</c:if>
+
+						<li class="page-item disabled"><a class="page-link" href="#">${smPageInfo.pageNum}
+								/ ${ smPageInfo.pages}</a></li>
+
+						<c:if test="${smPageInfo.hasNextPage==true}">
+							<li class="page-item " id="next-page-sm"
+								value=${ smPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+						</c:if>
+						<c:if test="${smPageInfo.hasNextPage==false}">
+							<li class="page-item disabled" tabindex="-1"><a
+								class="page-link" href="#">下页</a></li>
+						</c:if>
+
+					</ul>
+				</nav>
 			</div>
-			<!-- <div class="block">
-                    想看的电影
-                </div> -->
+
+			<!-- -----------------------------想看的电影------------------------------->
 			<div class="block-collect plan" style="display: none;">
 				<div id="hot-movie-content" style="background-color: #343a40;">
 					<div id="hot-movies" style="margin: 0; width: 100%">
-						<div class="clearfix">
+						<div class="clearfix" id="ws-movies-items">
+							<c:forEach items="${wmPageInfo.list }" var="item">
+								<a href="#" class="movie-item" target="_blank"
+									style="margin-left: 5px;">
+									<div class="card" style="width: 10rem;">
+										<img class="card-img-top" src="${item.img }"
+											alt="Card image cap">
+										<div class="card-body">
+											<span class="card-title item-name" title="${item.mname }">${item.mname }</span>
+											<strong class="item-degree card-text">${item.mscore }</strong>
+										</div>
+										<div class="item-info-summary">
+											<h4>${item.mname }</h4>
+											<strong class="item-degree card-text">${item.mscore }</strong>
+											<div class="item-tags">
+												<span class="item-tag">${item.mlong }</span> <span
+													class="item-tag">${item.mcountry }</span> <span
+													class="item-tag">${item.mtag }</span> <span
+													class="item-tag">${item.mdirect }</span> <span
+													class="item-tag">${item.mactor }</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</c:forEach>
 
-							<a href="#" class="movie-item item-br" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a> <a href="#" class="movie-item" target="_blank"
-								style="margin-left: 5px;">
-								<div class="card" style="width: 10rem;">
-									<img class="card-img-top" src="img/p2549177902.jpg"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title item-name">绿皮书</h5>
-										<strong class="item-degree card-text">8.9</strong>
-									</div>
-								</div>
-							</a>
 						</div>
 					</div>
 				</div>
-				<div class="page">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									<span class="sr-only">Previous</span>
-							</a></li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">4</a></li>
-							<li class="page-item"><a class="page-link" href="#">5</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-									class="sr-only">Next</span>
-							</a></li>
+
+				<!-- --------------------------想看的电影分页------------------------------->
+				<nav aria-label="" class="page" style="margin-bottom: 20px;">
+					<ul class="pagination h-center v-center" id="ws-movie-pagination">
+						<c:if test="${wmPageInfo.hasPreviousPage==true}">
+							<li class="page-item" id="pre-page-ws"
+								value=${ wmPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+						</c:if>
+
+						<c:if test="${wmPageInfo.hasPreviousPage==false}">
+							<li class="page-item disabled" tabindex="-1"><a
+								class="page-link" href="#">上页</a></li>
+						</c:if>
+
+						<li class="page-item disabled"><a class="page-link" href="#">${wmPageInfo.pageNum}
+								/ ${ wmPageInfo.pages}</a></li>
+
+						<c:if test="${wmPageInfo.hasNextPage==true}">
+							<li class="page-item " id="next-page-ws"
+								value=${ wmPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+						</c:if>
+						<c:if test="${wmPageInfo.hasNextPage==false}">
+							<li class="page-item disabled" tabindex="-1"><a
+								class="page-link" href="#">下页</a></li>
+						</c:if>
+					</ul>
+				</nav>
+
+			</div>
+
+
+			<!-- -----------------------------参与的评论------------------------------->
+			<div id="comments-content"
+				style="background-color: #343a40; display: none;">
+				<div id="comments" style="margin-left: 0px">
+					<div id="comment-items">
+						<c:forEach items="${cPageInfo.list }" var="item">
+							<div class="comment-item" style="margin-left: 0px; width: 830px;">
+								<div class="media" style="width: 830px;">
+									<div class="media-left">
+										<a href="#" class="comment-cover " target="_blank"
+											style="width: 10rem"> <img class="media-object"
+											src="${item.img }" alt="">
+										</a>
+									</div>
+									<div class="media-body comment-info">
+
+										<h4 class="media-heading">
+											<a href="#">${item.ctitle }</a>
+										</h4>
+										<div id="review-meta">
+											<a href="#">${userInfo.username }</a> &nbsp;评论&nbsp; <a
+												href="#">${item.mname }</a> <strong class="item-degree">${item.mscore }</strong>
+										</div>
+										<p style="color: #666667;">
+											${item.content } <a href="#" class="btn btn-link">全文</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+
+					<!-- --------------------------参与的影评分页------------------------------->
+					<nav aria-label="" class="page" style="margin-bottom: 20px;">
+						<ul class="pagination h-center v-center" id="comment-pagination">
+							<c:if test="${cPageInfo.hasPreviousPage==true}">
+								<li class="page-item " id="pre-page-comment"
+									value=${ cPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+							</c:if>
+
+							<c:if test="${cPageInfo.hasPreviousPage==false}">
+								<li class="page-item disabled" tabindex="-1"><a
+									class="page-link" href="#">上页</a></li>
+							</c:if>
+
+							<li class="page-item"><a class="page-link" href="#">${cPageInfo.pageNum}
+									/ ${ cPageInfo.pages}</a></li>
+
+							<c:if test="${cPageInfo.hasNextPage==true}">
+								<li class="page-item " id="next-page-comment"
+									value=${ cPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+							</c:if>
+							<c:if test="${cPageInfo.hasNextPage==false}">
+								<li class="page-item disabled" tabindex="-1"><a
+									class="page-link" href="#">下页</a></li>
+							</c:if>
 						</ul>
 					</nav>
 				</div>
 			</div>
-			<!-- <div class="block">
-                参与的评论
-            </div> -->
-			<div id="comments-content"
-				style="background-color: #343a40; display: none;">
-				<div id="comments" style="margin-left: 0px">
-					<div class="comment-item" style="margin-left: 0px; width: 830px;">
-						<div class="media" style="width: 830px;">
-							<div class="media-left">
-								<a href="#" class="comment-cover " target="_blank"
-									style="width: 10rem"> <img class="media-object"
-									src="img/p2221319641.webp" alt="">
-								</a>
-							</div>
-							<div class="media-body comment-info">
 
-								<h4 class="media-heading">
-									<a href="#">此味只有天上有</a>
-								</h4>
-								<div id="review-meta">
-									<a href="#">可惜没如果</a> &nbsp;评论&nbsp; <a href="#">《小森林》</a> <strong
-										class="item-degree">8.9</strong>
-								</div>
-								<p style="color: #666667;">
-									假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽...
-									<a href="#" class="btn btn-link">全文</a>
-								</p>
-							</div>
-						</div>
-
-
-					</div>
-
-					<div class="comment-item" style="margin-left: 0px; width: 830px;">
-						<div class="media" style="width: 830px;">
-							<div class="media-left">
-								<a href="#" class="comment-cover " target="_blank"
-									style="width: 10rem"> <img class="media-object"
-									src="img/p2221319641.webp" alt="">
-								</a>
-							</div>
-							<div class="media-body comment-info">
-
-								<h4 class="media-heading">
-									<a href="#" s>此味只有天上有</a>
-								</h4>
-								<div id="review-meta">
-									<a href="#">可惜没如果</a> &nbsp;评论&nbsp; <a href="#">《小森林》</a> <strong
-										class="item-degree">8.9</strong>
-								</div>
-								<p style="color: #666667;">
-									假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽...
-									<a href="#" class="btn btn-link">全文</a>
-								</p>
-							</div>
-						</div>
-
-
-					</div>
-					<div class="comment-item" style="margin-left: 0px; width: 830px;">
-						<div class="media" style="width: 830px;">
-							<div class="media-left">
-								<a href="#" class="comment-cover " target="_blank"
-									style="width: 10rem"> <img class="media-object"
-									src="img/p2221319641.webp" alt="">
-								</a>
-							</div>
-							<div class="media-body comment-info">
-
-								<h4 class="media-heading">
-									<a href="#" s>此味只有天上有</a>
-								</h4>
-								<div id="review-meta">
-									<a href="#">可惜没如果</a> &nbsp;评论&nbsp; <a href="#">《小森林》</a> <strong
-										class="item-degree">8.9</strong>
-								</div>
-								<p style="color: #666667;">
-									假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽...
-									<a href="#" class="btn btn-link">全文</a>
-								</p>
-							</div>
-						</div>
-
-
-					</div>
-
-					<div class="comment-item" style="margin-left: 0px; width: 830px;">
-						<div class="media" style="width: 830px;">
-							<div class="media-left">
-								<a href="#" class="comment-cover " target="_blank"
-									style="width: 10rem"> <img class="media-object"
-									src="img/p2221319641.webp" alt="">
-								</a>
-							</div>
-							<div class="media-body comment-info">
-
-								<h4 class="media-heading">
-									<a href="#">此味只有天上有</a>
-								</h4>
-								<div id="review-meta">
-									<a href="#">可惜没如果</a> &nbsp;评论&nbsp; <a href="#">《小森林》</a> <strong
-										class="item-degree">8.9</strong>
-								</div>
-								<p style="color: #666667;">
-									假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽...
-									<a href="#" class="btn btn-link">全文</a>
-								</p>
-							</div>
-						</div>
-						<div class="page">
-							<nav aria-label="Page navigation example">
-								<ul class="pagination">
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-											<span class="sr-only">Previous</span>
-									</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">4</a></li>
-									<li class="page-item"><a class="page-link" href="#">5</a></li>
-									<li class="page-item"><a class="page-link" href="#">6</a></li>
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-											<span class="sr-only">Next</span>
-									</a></li>
-								</ul>
-							</nav>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- <div class="block" style="margin-top: 20px;margin-bottom: 20px;">
-                留言板
-            </div>
-            <div class="wrap-note">
-                <textarea id="note" name="note-input" style="width:600px;height:120px;background-color: #fff;"></textarea>
-            </div>
-            <button type="button" id="note-submit" class="btn btn-secondary btn-sm" style="margin-left: 10px;margin-top: 95px;">发表</button> -->
-			<!-- <div class="page">
-                    <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                  <span aria-hidden="true">&laquo;</span>
-                                  <span class="sr-only">Previous</span>
-                                </a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                  <span aria-hidden="true">&raquo;</span>
-                                  <span class="sr-only">Next</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
-            </div> -->
 		</div>
 	</div>
 	<div id="footer">
 		<div class="my-hr">
 			<div id="copyright" class="h-center v-center">
-				<p>想看电影 @第7小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
+				<p>想看电影 &copy;第7小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
 			</div>
 		</div>
 	</div>

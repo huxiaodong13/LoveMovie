@@ -1,0 +1,195 @@
+/*———————————————————————————————————信息——————————-————————————————————*/
+#movie-info-box{
+	background-color: #212529;
+	padding: 2rem 0;
+}
+
+#movie-info-card{
+	width: 70%;
+	margin: 0 auto;
+}
+
+h2{
+	padding: 0.5rem 1rem;
+	background-color: #F8EA21;
+	border: 1px white solid;
+    border-radius: 0.5rem;	
+
+}
+
+.year{
+	color: #666667e6;
+}
+
+.media-body{
+	width: 60%;
+	padding: 3%;
+}
+
+#watch-tag {
+	padding: 0 1.25rem;
+}
+
+
+
+#movie-info .p1{
+	color: white;
+	display: inline-block;
+	border-radius: 0.25rem;
+	padding:0 0.25rem;
+	border:1px solid #b3ab9b94;
+	background-color: #343a40;
+	margin: 0.1rem 0.2rem;
+}
+
+#movie-info span{
+	color: #666667;
+}
+
+#movie-info span a{
+	color: black;
+}
+/*——---------------------------------评分----------------------------------*/
+
+.degree-card h4{
+	float: left;
+}
+.degree-card .write-degree{
+	float:right;
+	margin: 0;
+}
+
+.degree-card .write-degree img{
+	margin-bottom: 0.3rem;
+}
+
+
+
+#movie-degree{
+	padding-bottom: 1rem;
+	/*border-bottom: 1px solid rgba(0,0,0,.125);*/
+}
+
+#movie-degree span{
+	display: inline-block;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	font-size: 2rem;
+	background-color: #343a40;
+	color: white;
+
+}
+
+#movie-degree p{
+	display: inline-block;	
+	margin: 0 2rem;
+	
+
+}
+
+#degree-detail{
+	margin: 1rem 0;
+	padding: 0 0.5rem;
+	border: 1px solid rgba(0,0,0,.125);
+}
+.progress-bar{
+	/*display: inline-block;*/
+}
+
+.percent{
+	float: left;
+	padding: 0rem 0.3rem;
+	border-radius: 0.25rem;
+	background-color: #343a40;
+	color: white;
+	margin: 0.2rem 0;
+	width: 3.5rem;
+
+}
+
+.progress{
+	background-color: #F8EA21;
+	width: 40%;
+	float: left;
+	margin: 0.5rem 2rem;
+}
+
+.progress-bar{
+	margin-right: 1rem;
+}
+
+/*——————————————————————————————————————评分对话框————————————————————————————————*/
+
+
+
+.modal-content{
+	background-color: #fff671;
+}
+.modal-header{
+	border-bottom:1px solid #6c757d82;
+}
+
+.modal-footer{
+	border-top: 1px solid #6c757d82;
+}
+
+/*----------------------------------简介-----------------------------------*/
+.card{
+	border-radius: 0.5rem;
+	margin: 1.5rem 0;
+}
+.card-header{
+	background-color: #F8EA21;
+	/*border-radius: 0.5rem;*/
+}
+
+.card-header:first-child {
+    border-radius: calc(.5rem - 1px) calc(.5rem - 1px) 0 0;
+}
+
+.blockquote{
+	color: #666667;
+	font-size: 1rem;
+}
+
+.card-body{
+	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+
+
+
+/*————————————————————————————————————————————————————————————————————————————————*/
+
+#comment-box{
+	background-color: #212529;
+	padding: 2rem 0;
+}
+
+#comments-cards{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.comment-card-item .card-body{
+	border-radius: 0.5rem;
+}
+
+.selector{
+	position: relative;
+}
+
+
+
+#write-review-icon{
+	float: right;
+	margin: 2rem 3rem;
+
+}
+#write-review-icon a{
+	display: inline-block;
+	color: black;
+
+}
+
+/*————————————————————————————writeReview————————————————————————————————————---*/

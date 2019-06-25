@@ -1,5 +1,9 @@
 package com.love.movie.service;
 
+import java.util.List;
+import java.util.Map;
+
+import com.love.movie.model.Movie;
 import com.love.movie.model.User;
 
 /**
@@ -43,5 +47,30 @@ public interface UserService {
 	 */
 	public boolean updateUserInfo(User user);
 	
+	
+	/**
+	 * 获取用户看过的电影
+	 * 
+	 * @param uid
+	 * @return
+	 */
+	public List<Map<String, Object>> getSeenMovies(int uid);
+	
+	
+	/**
+	 * 获取用户想看的电影
+	 * 
+	 * @param uid
+	 * @return
+	 */
+	public List<Map<String, Object>> getWantSeeMovie(int uid);
+	
+	/**
+	 * 获取参与的评论
+	 * 
+	 * @param uid
+	 * @return
+	 */
+	public List<Map<String, Object>> getCommentByUserId(int uid);
 	
 }

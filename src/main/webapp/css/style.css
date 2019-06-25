@@ -1,15 +1,6 @@
-/*@media only screen and (max-width: 4000px) {
-	.badge{
-		font-size: 16px;
-	}
-}*/
-
-/*ol{
-	margin: 0;
+#content{
+	background-color:#212529;
 }
-ul{
-	margin: 0;
-}*/
 /*——————————————————————————————————————————导航————————————————————————————————————*/
 .navbar-inverse .brand,.navbar-inverse .nav>li>a{
 	color: white;
@@ -78,6 +69,11 @@ ul{
 	margin: 0 40px;
 }
 
+#user-drop{
+	margin: 0 4.5rem;
+}
+
+
 /*——————————————————————————————————————————轮播————————————————————————————————————*/
 .carousel-item img{
 	width: auto;
@@ -119,7 +115,7 @@ ul{
 	list-style: none;
 	margin: 0;
 	height:5.5rem;
-	width: 90rem; 
+/*	width: 90rem; */
 
 
 }
@@ -205,8 +201,9 @@ a{
 	display: inline-block;
 	margin: 20px 6%;
 	float: left;
-	display:inline-block; 
+	/*display:inline-block; */
  	vertical-align:top;
+ 	position: relative;
 
 }
 
@@ -215,22 +212,28 @@ a{
 .item-cover img{
 	width: 90%;
 }
-.item-info{
+/*.item-info{
 	background-color: #F8EA21;
 	width: 90%;
 	height: 40px;
 	color: black;
-}
+}*/
 .item-br{
 	clear: both;
 }
 
 .item-name{
-	font-size: 20px;
+	font-size: 1rem;
 	font-family: "百度综艺";
 	font-weight: bold;
 	color: black;
-	display:inline;
+	display:inline-block;
+	overflow: hidden;
+	/*height: 1.4rem;*/
+	line-height: 1.25rem;
+	height: 1.25rem;
+	width: 95%;
+	margin-bottom: 0;
 }
 
 .item-degree{
@@ -238,15 +241,55 @@ a{
 	font-size: 12px;
 	background-color: #343a40;
 	color: white;
-	display:inline;
+	display:inline-block;
 	padding: 0 8px;
 	border-radius: 0.5rem;
-	margin: 10px 8px;
+	line-height: 1rem;
+	padding-left: 0.5rem; 
 }
 
 .card-body{
 	background-color: #F8EA21;
 }
+
+.movie-info{
+	
+	height: 3rem;
+	padding: 1rem;
+}
+
+.card-img-top {
+    height: 17.25rem;
+}
+
+.item-info-summary{
+	background-color: white;
+	position: absolute;
+	width: 150%;
+	left: 12.5rem;
+	top: 0rem;
+	margin: 0;
+	z-index: 1;
+	padding:1rem;
+	display: none;
+
+}
+
+.item-info-summary h4{
+	color: black;
+
+}
+
+.item-info-summary .item-tag{
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.5rem;
+	color: #2a2a2ac9;
+	border: 1px solid #343a4066;
+	background-color: #f8ea2147;
+	margin: 0.25rem;
+	display: inline-block;
+}
+
 /*_______________________________影评——————————————————————————————————————————*/
 #comments{
 	
@@ -288,9 +331,74 @@ a{
 	color: black;
 }
 
-#review-meta a{
+#review-meta{
 	color: #666667e6;
 }
+
+#review-meta a{
+	color: black;
+}
+.btn-link{
+	color: black;
+}
+
+.btn-link:hover{
+	color: black;
+}
+/*==============================================================================*/
+#review-meta a img{
+	width: 2rem;
+	height: 2rem;
+}
+
+.action a{
+	color: white;
+	display: inline-block;
+	border-radius: 0.25rem;
+	padding:0 0.25rem;
+	border:1px solid #b3ab9b94;
+	background-color: #343a40;
+	margin: 0 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------翻页------------------------------------*/
+.page{
+	position: relative;
+	padding: 2rem;
+}
+.page-link{
+	color: black;
+}
+
+.page-link:hover{
+	color: black;
+}
+
+
+.page-item.active .page-link{
+	background-color: #343a40;
+	border:	#343a40;
+}
+
+
+
+
+
+
+
 /*++++++++++++++++++++++++++++++++++++=footer++++++++++++++++++++++++++++++++++++*/
 #copyright{
 	color: white;
@@ -309,18 +417,4 @@ a{
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-}
-
-.myclearfix{
-	*zoom:1;
-}
-
-.myclearfix::after{
-	content: ".";
-	display: block;
-	clear: both;
-	font-size:0;
-
-	height: 0;
-	visibility: hidden;
 }

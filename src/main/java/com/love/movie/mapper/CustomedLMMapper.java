@@ -11,6 +11,4 @@ public interface CustomedLMMapper {
 	public List<Map<String, Object>> getAllUsers();
 	
 	
-	
-	
 }

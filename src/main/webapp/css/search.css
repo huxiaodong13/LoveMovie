@@ -1,0 +1,31 @@
+#search-results{
+	width: 60%;
+	margin: 2rem auto;
+	margin-bottom: 0;
+	padding-bottom: 2rem;
+}
+
+.movie-cover img{
+	margin: 1rem;
+}
+
+.media-body{
+	margin: 1rem;
+}
+
+.media-body p{
+	color: #666667;
+	margin-bottom: 0.25rem;
+}
+
+.media-body .item-tag{
+	display: inline-block;
+	background-color: #212529; 
+	color: white;
+	padding:0 0.5rem;
+	border-radius: 0.25rem;
+}
+
+.movie{
+	margin: 1.5rem 0;
+}

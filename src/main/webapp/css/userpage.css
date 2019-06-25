@@ -1,6 +1,42 @@
-/* #header {
-    border-bottom: 6px solid #F8EA21;
-} */
+/* header部分 */
+#header {
+    height: 60px;
+    background-color: #343a40;
+} 
+.div-title {
+    height: 100%;
+    width: 100px;
+    float: left;
+    margin-left: 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+}
+.div-links {
+    height: 100%;
+    width: 400px;
+    float: left;
+    margin-left: 20px;
+    line-height: 60px;
+    font-size: 15px;
+}
+.links {
+    margin-left: 15px;
+}
+.a-color {
+    color: grey;
+}
+.div-searchbar {
+    width: 280px;
+    float: left;
+    margin-top: 12px;
+    margin-left: 350px;
+}
+.dropdown {
+    float: left;
+
+}
 
 .navbar{
     margin-bottom: 0;
@@ -100,6 +136,58 @@
     background-color: #F8EA21;
     margin-top: 20px;
 }
+img.card-img-top {
+    height: 240px;
+}
+.card-body {
+    height: 60px;
+    padding: 0px;
+    text-align: center;
+    line-height: 60px;
+}
+.card-title {
+    display: block;
+    font-size: 10px;
+    width: 110px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 16px;
+    float: left;
+    overflow: hidden;
+    margin-left: 5px;
+}
+.item-degree {
+    margin: 0;
+}
+.item-info-summary{
+	background-color: white;
+	position: absolute;
+	width: 150%;
+	left: 12.5rem;
+	top: 0rem;
+	margin: 0;
+	z-index: 1;
+	padding:1rem;
+	display: none;
+
+}
+
+.item-info-summary h4{
+	color: black;
+
+}
+
+.item-info-summary .item-tag{
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.5rem;
+	color: #2a2a2ac9;
+	border: 1px solid #343a4066;
+	background-color: #f8ea2147;
+	margin: 0.25rem;
+	display: inline-block;
+}
+
 /*编辑个人资料页*/
 .edit-message-wrap {
     width: 950px;
@@ -144,6 +232,12 @@
     color: white;
     border: 1px solid  rgb(161, 155, 155);
     margin-left: 20px;
+    border-radius: 4px;
+}
+.hint {
+    color: red;
+    margin-left: 80px;
+    font-size: 15px;
 }
 .div-brief {
     height: 130px;
@@ -178,6 +272,12 @@
 .edit-birth {
     float: left;
 }
+
+.ui-corner-all {
+    background-color: rgb(207, 207, 199) ;
+}
+    
+
 .date {
     float: left;
 }
@@ -212,13 +312,21 @@
     
 }
 /* 分页 */
-.page {
-    height: 60px;
-    width: 300px;
-    margin-left: 260px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+.page{
+	position: relative;
+	padding: 2rem;
 }
+.page-link{
+	color: black;
+}
+.page-link:hover{
+	color: black;
+}
+.page-item.active .page-link{
+	background-color: #343a40;
+	border:	#343a40;
+}
+
 /*清除浮动*/
 /* 适应IE浏览器 使用 zoom:1 触发 hasLayout */
 .clearfix {

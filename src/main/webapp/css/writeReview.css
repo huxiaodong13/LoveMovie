@@ -1,0 +1,64 @@
+#movie-summary-card{
+	display:inline-block;
+	/*background-color: white;*/
+}
+
+.media{
+	width: 64%;
+	background-color: #343a40;
+	border-radius: 0.5rem;
+	margin: 2rem auto;
+
+}
+
+.media-left img{
+	margin: 0.5rem;
+	
+}
+
+.media-body{
+	margin: 2rem;
+}
+
+.media-body h4 a{
+	color: white;
+}
+
+.media-body p{
+	color: #999;
+}
+
+.card{
+	width: 64%;
+	/*background-color: #343a40;*/
+	border-radius: 0.5rem;
+	margin: 2rem auto;
+}
+
+.card-body{
+	background-color: #F7F7F7;
+	margin: 0;
+	padding: 0;
+}
+
+.card-header h4 img{
+	margin-bottom: 0.4rem;
+}
+
+#Main{
+	margin: 0;
+}
+
+#scrollBar{
+	width: 50%;
+	margin: 0;
+	margin-left: 2rem;
+	margin-top: 2rem;
+}
+
+.cke_chrome{
+	height: 50rem;
+}
+.card-footer .btn{
+	margin-left: 90%;
+}
