@@ -59,9 +59,6 @@ $(function(){
 	});
 
 
-
-
-
 	$('.response-btn').click(function () {
 		
 		$(this).parent().parent().find('.reply-editor').show();
@@ -104,13 +101,8 @@ $(function(){
 
 	$('#myModal').modal();
 
-	
-	
-
-
-
-
 });
+
 var ScrollBar = {
     value: 0,
     maxValue: 100,
@@ -153,7 +145,7 @@ var ScrollBar = {
                 } else {
                     ScrollBar.value = parseInt(currentValue*100/ $("#scrollBar").width());
                 }
-                $("#scrollBarTxt").html(ScrollBar.value + "/" + ScrollBar.maxValue);
+                $("#scrollBarTxt").text(ScrollBar.value + "/" + ScrollBar.maxValue);
             });
         });
         $(document).mouseup(function () {

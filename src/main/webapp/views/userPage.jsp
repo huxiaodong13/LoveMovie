@@ -41,7 +41,7 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#">主页<span
 							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#">选电影</a></li>
+					<li class="nav-item"><a class="nav-link" href="selectMovie">选电影</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">影评</a></li>
 
 				</ul>

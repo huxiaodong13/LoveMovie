@@ -62,3 +62,19 @@
 .card-footer .btn{
 	margin-left: 90%;
 }
+
+#review-heading{
+	background-color: rgba(0,0,0,.03);
+	padding: 1rem;
+	padding-left: 1.25rem;
+}
+
+#review-heading label{
+	margin-right: 1rem;
+	font-weight: bold;
+}
+
+#review-heading input{
+	width: 90%;
+	border:1px solid #c5c5c5;
+}

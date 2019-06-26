@@ -121,11 +121,11 @@ public interface SakuraMovieService {
 	public List<Map<String, Object>> getScienceFictionMovies();
 	
 	/**
-	 * 获取治愈电影
+	 * 获取动画电影
 	 * 
 	 * @return
 	 */
-	public List<Map<String, Object>> getCureMovies();
+	public List<Map<String, Object>> getCartoonMovies();
 	
 	/**
 	 *获取悬电影
@@ -140,5 +140,8 @@ public interface SakuraMovieService {
 	 * @return
 	 */
 	public List<Map<String, Object>> getHorribleMovies();
+	
+	
+	
 	
 }

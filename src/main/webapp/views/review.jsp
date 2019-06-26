@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,14 +18,14 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/script.js"></script>
-	
-	
+	<script src="../js/xscript.js"></script>
+	<meta name="referrer" content="never">
 
 </head>
 <body>
 	<div id="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">想看电影</a>
+		<a class="navbar-brand" href="../index/index">想看电影</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 		</button>
@@ -27,19 +33,16 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 	    		<li class="nav-item active">
-	    			<a class="nav-link" href="#">主页<span class="sr-only">(current)</span></a>
+	    			<a class="nav-link" href="../index/index">主页</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">电影</a>
-	     		</li>
-	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">分类</a>
+	        		<a class="nav-link" href="../smovie/selectMovie">选电影</a>
 	     		</li>
 	     		<li class="nav-item">
-	        		<a class="nav-link" href="#">排行榜</a>
+	        		<a class="nav-link" href="../Rank/NewRank">排行榜</a>
 	     		</li>
 	     		<li class="nav-item">
-	        		<a class="nav-link" href="#">影评</a>
+	        		<a class="nav-link" href="../review/Review">影评<span class="sr-only">(current)</span></a>
 	     		</li>
 	     		
 	    	</ul>
@@ -82,13 +85,15 @@
 						<span class="badge badge-dark" id="main-badge">最受欢迎的</span>
 					</li>
 					<li>
-						<span class="badge badge-yellow" >热门影评
+						<span class="badge badge-yellow" id="hotReview">
+							热门影评</a>
 							<input type="radio" name="tag" value="热门" class="tag">
 						</span>
 					</li>
 
 					<li>
-						<span class="badge badge-yellow" >新片影评
+						<span class="badge badge-yellow" id="newReview">
+							新片影评
 							<input type="radio" name="tag" value="最新" class="tag">
 						</span>
 						
@@ -104,119 +109,39 @@
 
 		<div id="comments-content">
 			<div id="comments">
+			<c:forEach items="${comments}" var="comment">
 				<div class="comment-item">
 					<div class="media">
 					  	<div class="media-left">
 						    <a href="#" class="comment-cover " target="_blank" style="width: 10rem">
-						      <img class="media-object" src="img/p2221319641.webp" alt="" >
+						      <img class="media-object" src="${comment.img }" alt="" >
 						    </a>
 					  	</div>
 					  	<div class="media-body comment-info">
 							<div id="review-meta">
-								<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
-						    	<a href="#">可惜没如果</a>
-						    	<strong class="item-degree" title="推荐">8.9</strong>
-						    	<p>2018-09-23 12:22:22</p>
+								<a href="#"><img src="${comment.uimg }" alt=""></a>
+						    	<a href="#">${comment.username }</a>
+						    	<strong class="item-degree" title="推荐">${comment.mscore }</strong>
+						    	<p>${comment.cdate }</p>
 						    </div>
-					    	<h4 class="media-heading"><a href="#">此味只有天上有</a></h4>
+					    	<h4 class="media-heading"><a href="#">${comment.ctitle }</a></h4>
 					
-					    	<p style="color: #666667;">假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽... <a href="#" class="btn btn-link">全文</a></p>
+					    	<p style="color: #666667;">${fn:substring(comment.content, 0, 100)} <a href="#" class="btn btn-link">全文</a></p>
 
 					    	<div class="action">
-						    	<a href="#" title="有用" >▲ 123</span></a>
-						    	<a href="#" title="无用">▼ 11</span></a> 
+						    	<a href="#" title="有用" >▲ ${comment.clike }</span></a>
+						    	<a href="#" title="无用">▼ ${comment.cdislike }</span></a> 
 						    	<a href="" class="reply" style="margin: 0 1rem;">28回复</a>
 						    </div>
 					  	</div>
 					</div>
 				</div>
-
-				<div class="comment-item">
-					<div class="media">
-					  	<div class="media-left">
-						    <a href="#" class="comment-cover " target="_blank" style="width: 10rem">
-						      <img class="media-object" src="../img/p2221319641.webp" alt="" >
-						    </a>
-					  	</div>
-					  	<div class="media-body comment-info">
-							<div id="review-meta">
-								<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
-						    	<a href="#">可惜没如果</a>
-						    	<strong class="item-degree" title="推荐">8.9</strong>
-						    	<p>2018-09-23 12:22:22</p>
-						    </div>
-					    	<h4 class="media-heading"><a href="#">此味只有天上有</a></h4>
-					
-					    	<p style="color: #666667;">假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽... <a href="#" class="btn btn-link">全文</a></p>
-
-					    	<div class="action">
-						    	<a href="#" title="有用" >▲ 123</span></a>
-						    	<a href="#" title="无用">▼ 11</span></a> 
-						    	<a href="" class="reply" style="margin: 0 1rem;">28回复</a>
-						    </div>
-					  	</div>
-					</div>
-				</div>
-
-				<div class="comment-item">
-					<div class="media">
-					  	<div class="media-left">
-						    <a href="#" class="comment-cover " target="_blank" style="width: 10rem">
-						      <img class="media-object" src="../img/p2221319641.webp" alt="" >
-						    </a>
-					  	</div>
-					  	<div class="media-body comment-info">
-							<div id="review-meta">
-								<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
-						    	<a href="#">可惜没如果</a>
-						    	<strong class="item-degree" title="推荐">8.9</strong>
-						    	<p>2018-09-23 12:22:22</p>
-						    </div>
-					    	<h4 class="media-heading"><a href="#">此味只有天上有</a></h4>
-					
-					    	<p style="color: #666667;">假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽... <a href="#" class="btn btn-link">全文</a></p>
-
-					    	<div class="action">
-						    	<a href="#" title="有用" >▲ 123</span></a>
-						    	<a href="#" title="无用">▼ 11</span></a> 
-						    	<a href="" class="reply" style="margin: 0 1rem;">28回复</a>
-						    </div>
-					  	</div>
-					</div>
-				</div>
-
-
-				<div class="comment-item">
-					<div class="media">
-					  	<div class="media-left">
-						    <a href="#" class="comment-cover " target="_blank" style="width: 10rem">
-						      <img class="media-object" src="../img/p2221319641.webp" alt="" >
-						    </a>
-					  	</div>
-					  	<div class="media-body comment-info">
-							<div id="review-meta">
-								<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
-						    	<a href="#">可惜没如果</a>
-						    	<strong class="item-degree" title="推荐">8.9</strong>
-						    	<p>2018-09-23 12:22:22</p>
-						    </div>
-					    	<h4 class="media-heading"><a href="#">此味只有天上有</a></h4>
-					
-					    	<p style="color: #666667;">假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽... <a href="#" class="btn btn-link">全文</a></p>
-
-					    	<div class="action">
-						    	<a href="#" title="有用" >▲ 123</span></a>
-						    	<a href="#" title="无用">▼ 11</span></a> 
-						    	<a href="" class="reply" style="margin: 0 1rem;">28回复</a>
-						    </div>
-					  	</div>
-					</div>
-				</div>
+			</c:forEach>
 			</div>
 
 
 
-			<!----------------------------- 分页布局不对------------------------ -->
+
 			<nav aria-label="" class="page">
 			  	<ul class="pagination h-center v-center">
 			    	<li class="page-item disabled">
@@ -232,17 +157,26 @@
 			    	</li>
 			  	</ul>
 			</nav>
-			
 		</div>
 		
 	</div>
 	<div id="footer">
 		<div class="my-hr" >
 			<div id="copyright" class="h-center v-center">
-				<p>想看电影   &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
+				<p>想看电影   @第八小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
 			</div>
 		</div>
 	</div>
+	
+
+
+	
+
+
+
+	
+
+
 
 	<script type="text/javascript">
 	</script>

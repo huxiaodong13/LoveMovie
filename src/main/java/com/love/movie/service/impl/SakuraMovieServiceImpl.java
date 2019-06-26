@@ -33,6 +33,7 @@ public class SakuraMovieServiceImpl implements SakuraMovieService {
 		return movieMapper.selectByPrimaryKey(mid);
 	}
 	
+	
 	@Override
 	public List<Map<String, Object>> getHotMovies() {
 		return csMovieMapper.getHotMovies();
@@ -41,113 +42,96 @@ public class SakuraMovieServiceImpl implements SakuraMovieService {
 
 	@Override
 	public List<Map<String, Object>> getNewMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getNewMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getClassicMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getClassicMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getPalyableMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getPalyableMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getHighScoreMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getHighScoreMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getDarkHorseMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getDarkHorseMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getChineseMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getChineseMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getKoreanMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getKoreanMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getEuropeanAndAmericanMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getEuropeanAndAmericanMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getJapaneseMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getJapaneseMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getActionMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getActionMovies();
 	}
-
 
 	@Override
 	public List<Map<String, Object>> getComedyMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getComedyMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getLoveMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getLoveMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getScienceFictionMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getScienceFictionMovies();
 	}
 
 
 	@Override
-	public List<Map<String, Object>> getCureMovies() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Map<String, Object>> getCartoonMovies() {
+		return csMovieMapper.getCartoonMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getSuspenseMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getSuspenseMovies();
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getHorribleMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return csMovieMapper.getHorribleMovies();
 	}
 	
 	

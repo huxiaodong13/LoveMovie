@@ -36,13 +36,5 @@ public class SakuraUserSQL {
 	}
 	
 	
-	/**
-	 * 热门电影
-	 * 
-	 * @return
-	 */
-	public String selectHotMovies() {
-		String sql = "SELECT * FROM movie ORDER BY mcount DESC";
-		return sql;
-	}
+
 }

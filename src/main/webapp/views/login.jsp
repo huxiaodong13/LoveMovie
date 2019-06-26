@@ -182,7 +182,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="bottom">想看电影 @第八小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
+		<div id="bottom">想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
 	</div>
 </body>
 </html>
