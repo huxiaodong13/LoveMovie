@@ -100,6 +100,12 @@ public class UserServiceImpl implements UserService {
 	public List<Map<String, Object>> getCommentByUserId(int uid) {
 		return csUserMapper.getUserComments(uid);
 	}
+
+
+	@Override
+	public User getUserByUid(int uid) {
+		return userMapper.selectByPrimaryKey(uid);
+	}
 	
 
 	

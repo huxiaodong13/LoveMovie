@@ -1,5 +1,6 @@
 $(function(){
 	$('.dropdown-toggle').dropdown();
+	
 	$('.carousel').carousel();
 	$('.badge').click(function () {
 		if ($(this).attr('class') == 'badge badge-yellow') {
@@ -21,6 +22,7 @@ $(function(){
 		$(this).find('.item-info-summary').hide();
 	});
 
+	// 点赞
 	$('.review-response .btn-outline-dark').mouseover(function () {
 		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-up-3x.png'){
 			$(this).find('img').attr('src','img/open-iconic-master/thumb-up-white-3x.png')
@@ -32,10 +34,67 @@ $(function(){
 
 	$('.review-response .btn-outline-dark').mouseleave(function () {
 		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-up-white-3x.png'){
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-up-3x.png')
+			if ($('#thumb-up').attr('class') == 'btn btn-outline-dark') {
+				$(this).find('img').attr('src','img/open-iconic-master/thumb-up-3x.png')
+			}
+			
 		}
 		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-down-white-3x.png'){
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-down-3x.png')
+			if ($('#thumb-down').attr('class') == 'btn btn-outline-dark') {
+				$(this).find('img').attr('src','img/open-iconic-master/thumb-down-3x.png')
+			}
+		}
+	});
+
+	$('#thumb-up').click(function () {
+		if ($(this).attr('class') == 'btn btn-outline-dark') {
+			$(this).removeClass('btn-outline-dark');
+			$(this).addClass('btn-dark');
+			$(this).find('img').attr('src','img/open-iconic-master/thumb-up-white-3x.png')
+			var count = $(this).find('span').text();
+			count = parseInt(count)+1;
+			$(this).find('span').text(count);
+		}else{
+			$(this).removeClass('btn-dark');
+			$(this).addClass('btn-outline-dark');
+			var count = $(this).find('span').text();
+			count = parseInt(count)-1;
+			$(this).find('span').text(count);
+		}
+		if($("#thumb-down").attr('class') == 'btn btn-dark'){
+			$("#thumb-down").removeClass('btn-dark');
+			$("#thumb-down").addClass('btn-outline-dark');
+			$("#thumb-down").find('img').attr('src','img/open-iconic-master/thumb-down-3x.png')
+			var count = $("#thumb-down").find('span').text();
+			count = parseInt(count)-1;
+			$("#thumb-down").find('span').text(count);
+		}	
+	});
+
+
+
+	$('#thumb-down').click(function () {
+		if ($(this).attr('class') == 'btn btn-outline-dark') {
+			$(this).removeClass('btn-outline-dark');
+			$(this).addClass('btn-dark');
+			$(this).find('img').attr('src','img/open-iconic-master/thumb-down-white-3x.png')
+			var count = $(this).find('span').text();
+			count = parseInt(count)+1;
+			$(this).find('span').text(count);
+		}else{
+			$(this).removeClass('btn-dark');
+			$(this).addClass('btn-outline-dark');
+			var count = $(this).find('span').text();
+			count = parseInt(count)-1;
+			$(this).find('span').text(count);
+		}
+		if($("#thumb-up").attr('class') == 'btn btn-dark'){
+			$("#thumb-up").removeClass('btn-dark');
+			$("#thumb-up").addClass('btn-outline-dark');
+			$("#thumb-up").find('img').attr('src','img/open-iconic-master/thumb-up-3x.png')
+			var count = $("#thumb-up").find('span').text();
+			count = parseInt(count)-1;
+			$("#thumb-up").find('span').text(count);
 		}
 	});
 
@@ -92,6 +151,25 @@ $(function(){
 		}	
 	});
 
+	
+	
+	// 收藏电影
+
+	$('.favorites').click(function () {
+		$(this).hide();
+		var count = $(this).find('span').text();
+		count = parseInt(count)+1;
+		$('.isfavorites').find('span').text(count);	
+		$('.isfavorites').show();	
+	});
+
+	$('.isfavorites').click(function () {
+		$(this).hide();
+		var count = $(this).find('span').text();
+		count = parseInt(count)-1;
+		$('.favorites').find('span').text(count);	
+		$('.favorites').show();	
+	});
 
 
 	//设置最大值
@@ -100,6 +178,7 @@ $(function(){
     ScrollBar.Initialize();
 
 	$('#myModal').modal();
+	
 
 });
 
@@ -158,4 +237,12 @@ var ScrollBar = {
         this.currentX = $("#scrollBar").width() * (this.value / this.maxValue);
     }
 }
+
+function toTime(time = +new Date()) {
+    var date = new Date(time + 8 * 3600 * 1000);
+    return date.toJSON().substr(0, 11).replace('T', ' ');
+}
+
+
 	
+

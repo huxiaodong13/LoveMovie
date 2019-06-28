@@ -171,5 +171,4 @@ public class SakuraMovieSQL {
 		return sql;
 	}
 	
-	
 }

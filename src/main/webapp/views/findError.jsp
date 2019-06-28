@@ -26,7 +26,7 @@
 		<div class="main">
 			<div class="main-content">
 				<div>
-					<p>有些页面可能已经被删除了，么么哒~</p>
+					<p>有些页面可能已经被删除~</p>
 					<div id="showtime"></div>
 				</div>
 			</div>

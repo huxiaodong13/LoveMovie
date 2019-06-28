@@ -24,17 +24,6 @@
 	width: 6rem;
 
 }
-/*
-.report{
-	margin-left: 70%;
-	font-size: 0.75rem;
-	width: 3rem !important;
-}
-
-.favorites{
-	font-size: 0.75rem;
-	/*width: 3rem !important;*/
-/*}*/
 
 #review-action{
 	/*position: relative;
@@ -43,11 +32,26 @@
 	margin-left: 70% ;
 }
 
+.isfavorites{
+	display: none;
+}
+
 #review-action .btn{
 	font-size: 0.75rem;
-	min-width: 3rem;
+	min-width: 2rem;
 	margin: 0.25rem 0.5rem;
 }
+
+#review-action .favorites{
+	min-width: 3.8rem;
+}
+
+#review-action .isfavorites{
+	min-width: 3.8rem;
+}
+
+
+
 
 #report_value ul {
 	list-style: none;

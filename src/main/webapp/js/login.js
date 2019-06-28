@@ -83,7 +83,7 @@ $(document).ready(function() {
 	$(".loginBtn").click(function() {
 		console.log("login===" + $("#lform").serialize());
 		$.ajax({
-			url : "doLogin",
+			url : "../index/doLogin",
 			type : "post",
 			data : $("#lform").serialize(),
 			async : false,

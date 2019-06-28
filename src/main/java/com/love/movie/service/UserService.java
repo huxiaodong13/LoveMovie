@@ -73,4 +73,15 @@ public interface UserService {
 	 */
 	public List<Map<String, Object>> getCommentByUserId(int uid);
 	
+	
+	/**
+	 * 根据用户id 获取用户信息
+	 * 
+	 * @param uid
+	 * @return
+	 */
+	public User getUserByUid(int uid);
+	
+	
+	
 }

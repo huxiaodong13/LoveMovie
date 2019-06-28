@@ -27,16 +27,16 @@ public class SakuraReviewController {
 	@Autowired
 	private SakuraReviewService SakuraReviewServiceId;
 
-	/**
-	 * 评论详情
-	 * 
-	 * @return
-	 */
-	@RequestMapping("reviewDetail")
-	public ModelAndView reviewDetail() {
-		ModelAndView mv = new ModelAndView("reviewDetails");
-		return mv;
-	}
+//	/**
+//	 * 评论详情
+//	 * 
+//	 * @return
+//	 */
+//	@RequestMapping("reviewDetail")
+//	public ModelAndView reviewDetail() {
+//		ModelAndView mv = new ModelAndView("reviewDetails");
+//		return mv;
+//	}
 
 	/**
 	 * 写影评
@@ -48,7 +48,7 @@ public class SakuraReviewController {
 
 		// 登录验证
 		if (!UserUtil.isLogin(request)) {
-			return new ModelAndView("error");
+			return new ModelAndView("login");
 		}
 
 		HttpSession session = request.getSession();
@@ -85,6 +85,7 @@ public class SakuraReviewController {
 		comment.setUid(uid);
 		comment.setCdate(new Date());
 		comment.setClike(0);
+		comment.setCdislike(0);
 		comment.setReport(0);
 		
 		boolean addOK = SakuraReviewServiceId.addComment(comment);

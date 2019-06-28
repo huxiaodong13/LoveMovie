@@ -28,7 +28,7 @@
 			<a href="../index/index">主页</a>
 		</div>
 		<div class="header-mainpage v-center">
-			<a href="../smovie/selectMovie">选电影</a>
+			<a href="../smovie/selectMovie"> 选电影</a>
 		</div>
 		
 		<div class="header-mainpage v-center">
@@ -223,6 +223,7 @@
 
 			</ul>
 		</nav>
+		
 	</div>
 
 	<div class="ad">

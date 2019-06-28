@@ -394,9 +394,25 @@ a{
 }
 
 
+.pre-page{
+	border-bottom-left-radius: 0.25rem;
+	border-top-left-radius: 0.25rem;
+}
+
+.next-page{
+	border-bottom-right-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+}
 
 
+.disabled{
+	color: #6c757d;
+	background-color: #f3f3f3;
+}
 
+.disabled:hover{
+	color: #6c757d;
+}
 
 
 /*++++++++++++++++++++++++++++++++++++=footer++++++++++++++++++++++++++++++++++++*/

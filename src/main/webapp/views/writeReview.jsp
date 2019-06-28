@@ -50,9 +50,9 @@
 		        		${user.username }
 		    		</a>
 		    		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		      			<a class="dropdown-item" href="userInfo">个人中心</a>
+		      			<a class="dropdown-item" href="../index/userInfo">个人中心</a>
 		      			<div class="dropdown-divider"></div>
-		      			<a class="dropdown-item" href="logout">退出</a>
+		      			<a class="dropdown-item" href="../index/logout">退出</a>
 		        	</div>
 		      	</li>
 	      	</ul>

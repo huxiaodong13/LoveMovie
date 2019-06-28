@@ -106,24 +106,25 @@ public class IndexController {
 		return mv;
 	}
 	
-	/**
-	 * 电影详情
-	 * 
-	 * @param mid
-	 * @return
-	 */
-	@RequestMapping("movieDetail")
-	public ModelAndView movieDetail(int mid) {
-		ModelAndView mv = null;
-		Movie movie = movieService.getMovieById(mid);
-		if(movie != null) {
-			mv = new ModelAndView("moviedetails");
-			mv.addObject(movie);
-		}else {
-			mv = new ModelAndView("fail");
-		}
-		return mv;
-	}
+//	/**
+//	 * 电影详情
+//	 * 
+//	 * @param mid
+//	 * @return
+//	 */
+//	@RequestMapping("movieDetail")
+//	public ModelAndView movieDetail(int mid) {
+//		ModelAndView mv = null;
+//		Movie movie = movieService.getMovieById(mid);
+//		if(movie != null) {
+//			mv = new ModelAndView("moviedetails");
+//			mv.addObject(movie);
+//		}else {
+//			mv = new ModelAndView("failError");
+//		}
+//		return mv;
+//	}
+	
 
 	/**
 	 * 异步请求热门的电影

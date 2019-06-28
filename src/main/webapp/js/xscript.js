@@ -393,7 +393,7 @@ $(document).ready(function() {
 		});
 	});
 
-	//金典排行榜10
+	//经典排行榜10
 	$("#classicsRank").on("click",function(){
 		$.ajax({
 			url : "classicsRankMovies",
