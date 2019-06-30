@@ -54,6 +54,16 @@ $(document).ready(function() {
 		$(".plan").hide();
 		$("#comments-content").show();
 	});
+	//模块被点击后更换背景颜色
+    $(".block").click(function(){
+        if($(this).attr('class') == 'block'){
+            $(this).addClass('userpage-clicked');
+        }else{
+            $(this).removeClass('userpage-clicked');
+        }
+        $(this).siblings().removeClass('userpage-clicked');
+        
+    });
     $( "#datepicker" ).datepicker();
     
     

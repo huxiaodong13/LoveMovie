@@ -7,7 +7,7 @@
     height: 45px;
     width: 60px;
     float: left;
-    margin-left: 300px;
+    margin-left:270px;
 }
 /* 顶部用户关注数与粉丝数 */
 .fans {
@@ -15,7 +15,7 @@
     font-size: 14px;
     text-align: center;
     margin-top: 8px;
-    margin-left: 10px;
+    margin-left: 20px;
     color: white;
 }
 label:hover {

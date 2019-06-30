@@ -327,6 +327,12 @@ img.card-img-top {
 	border:	#343a40;
 }
 
+/* 看过的电影 想看的电影 参与的评论 */
+.userpage-clicked{
+    background-color: grey;
+    color: white;
+}
+
 /*清除浮动*/
 /* 适应IE浏览器 使用 zoom:1 触发 hasLayout */
 .clearfix {

@@ -21,7 +21,7 @@
 
 .review-response .btn{
 	margin-right: 1rem;
-	width: 6rem;
+	min-width: 6rem;
 
 }
 

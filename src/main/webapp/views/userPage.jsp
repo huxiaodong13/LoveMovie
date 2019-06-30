@@ -228,7 +228,7 @@
 
 			<!-- -------------------------看过的电影 想看的电影 参与的评论 start---------------------------------- -->
 			<hr style="background-color: gray;">
-			<div class="block">
+			<div class="block userpage-clicked">
 				<label class="block-saw">看过的电影</label>
 			</div>
 			<div class="block">
