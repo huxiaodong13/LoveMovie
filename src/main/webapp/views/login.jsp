@@ -28,7 +28,7 @@
 		<div id="top" class="clearfix">
 			<div class="top-title">想看电影</div>
 			<div class="top-back">
-				<a href="#" style="color: aliceblue">返回主页</a>
+				<a href="../index/index" style="color: aliceblue">返回主页</a>
 			</div>
 		</div>
 		<div id="center">

@@ -34,7 +34,7 @@
 			<div class="input-group mb-3"
 				style="width: 400px; margin-left: 47px; margin-top: 22px;">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1">用户名</span>
+					<span class="input-group-text" id="basic-addon1">用户名邮箱</span>
 				</div>
 				<input type="text" class="form-control" aria-label="Username"
 					aria-describedby="basic-addon1" name="username" disabled placeholder="${userEmail }">
@@ -62,14 +62,13 @@
 				style="width: 200px; margin-left: 140px; margin-top: 30px;">确定</button>
 		</div>
 	</div>
-	<div class="fpw-footer">想看电影 @第八小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
+	<div class="fpw-footer">想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
 	<script>
 		$(document).ready(function() {
 			$("#ok-btn").click(function() {
 				alert("密码修改成功！");
 				window.open('../index/login');
 			});
-
 		})
 	</script>
 </body>

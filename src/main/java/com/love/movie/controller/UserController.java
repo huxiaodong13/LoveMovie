@@ -282,6 +282,7 @@ public class UserController {
 //		//获取当前用户
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+		int uid = user.getUid();
 //		
 		System.out.println("user info ===== " + user);
 
@@ -357,7 +358,7 @@ public class UserController {
 //		//调用服务更新用户信息
 		userServiceId.updateUserInfo(user);
 
-		return "forward:userInfo";
+		return "forward:userInfo?uid="+ uid;
 	}
 
 }

@@ -19,7 +19,7 @@
 	<div class="clearfix top">
 		<div class="top-title">重置密码</div>
 		<div class="top-back">
-			<a href="#" style="color: #fff">返回主页</a>
+			<a href="../index/index" style="color: #fff">返回主页</a>
 		</div>
 	</div>
 	<div class="center">

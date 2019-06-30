@@ -72,7 +72,7 @@
 						aria-expanded="false"> ${userInfo.username } </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item"
-								href="../index/userInfo?uid=${userInfo.username }">个人中心</a>
+								href="../index/userInfo?uid=${userInfo.uid }">个人中心</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="../index/logout">退出</a>
 						</div></li>

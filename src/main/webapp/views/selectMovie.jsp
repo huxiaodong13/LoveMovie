@@ -93,7 +93,7 @@
 				<form class="form-inline" action="../index/search" method="post">
 					<input class="form-control mr-sm-2" type="search"
 						placeholder="搜索电影、分类、导演、演员" aria-label="Search"
-						style="width: 400px">
+						style="width: 400px" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
 				</form>
 			</nav>
@@ -243,7 +243,7 @@
 						value="showHotMovies?page=${ infoPage.nextPage}">下页</li>
 				</c:if>
 				<c:if test="${infoPage.hasNextPage==false}">
-					<li class="page-item disabled page-link next-page " tabindex="-1">1111下页</li>
+					<li class="page-item disabled page-link next-page " tabindex="-1">下页</li>
 				</c:if>
 
 			</ul>
@@ -257,7 +257,7 @@
 				<p id="close-ad">x</p>
 			</div>
 		</div>
-		广告
+		<img alt="" src="../img/ad.jpg">
 	</div>
 </body>
 </html>

@@ -332,6 +332,8 @@ public class IndexController {
 		PageInfo<Map<String, Object>> resultsPageInfo = new PageInfo<Map<String,Object>>(results);
 		
 		mv.addObject("resultsPageInfo", resultsPageInfo);
+		mv.addObject("keyword", keyword);
+		
 		System.out.println("resultsPageInfo===" + resultsPageInfo);
 		
 		

@@ -33,8 +33,7 @@ $(document).ready(function() {
 					alert("评论成功");
 					
 					//-----------跳转到影评详情页-----------
-					
-					
+					window.open("../movie/movieDetail?mid="+mid);
 				}else{
 					alert("评论失败");
 				}
