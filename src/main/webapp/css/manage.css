@@ -1,0 +1,87 @@
+/* 中间内容部分 */
+#content-display {
+    height: 520px;
+    background-color: #212529;
+    padding-top: 5px;
+}
+/* 中间部分-左边 */
+.left-side {
+    width: 82px;
+    height: 98%;
+    margin-left: 41px;
+    border: 1px solid grey;
+    float: left;
+}
+.font-center {
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 15px;
+}
+.hr-manage {
+    height: 48.5px;
+    border-bottom: 1px solid grey;
+}
+.left-manage {
+    height: 48.5px;
+}
+.left-manage-active {
+    background-color: grey;
+    color: white;
+}
+label:hover {
+    color: #F8EA21;
+}
+/* 中间部分-右边 */
+.right-side {
+    width: 1200px;
+    height: 98%;
+    float: left;
+    border: 1px solid grey;
+}
+.right-title {
+    background-color: #F8EA21;
+    color: black;
+}
+button {
+    border-radius: 5px;
+}
+.right-side-page {
+    height: 40px;
+    width: 250px;
+    position: absolute;
+    left: 1080px;
+    top: 510px;
+} 
+/* 分页 */
+.page{
+	position: relative;
+    padding: 2rem;
+    left: 480px;
+    bottom: 15px;
+}
+.page-link{
+	color: black;
+}
+.page-link:hover{
+	color: black;
+}
+.page-item.active .page-link{
+	background-color: #343a40;
+	border:	#343a40;
+}
+
+.hr-manage {
+    height: 48.5px;
+    border-bottom: 1px solid grey;
+}
+.left-manage {
+    height: 48.5px;
+}
+.left-manage-active {
+    background-color: grey;
+    color: white;
+}
+
+
+

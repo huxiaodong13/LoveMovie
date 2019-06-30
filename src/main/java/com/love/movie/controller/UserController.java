@@ -77,39 +77,80 @@ public class UserController {
 			mv.addObject("smPageInfo", smPageInfo);
 			mv.addObject("wmPageInfo", wmPageInfo);
 			mv.addObject("cPageInfo", cPageInfo);
+			
+			mv.addObject("isLogin", false);
 			return mv;
 		}
+		
+		int userId = Integer.parseInt(request.getParameter("uid"));
+		
 
 		HttpSession session = request.getSession();
 		User userLogin = (User) session.getAttribute("user"); // 获取登录用户信息
+		
+		//访问别人的页面
+		if(userLogin.getUid() != userId) {
+			
+			int uid = Integer.parseInt(request.getParameter("uid"));
+			User others = userServiceId.getUserByUid(uid);
+			// 若是没有找到指定用户
+			if (others == null) {
+				return new ModelAndView("error");
+			}
+			ModelAndView mv = new ModelAndView("userDisplay");
+			mv.addObject("userInfo", others);
+			
+			//登录的用户
+			mv.addObject("userLogin", userLogin);
+			mv.addObject("isLogin", true);
+			
+			// 看过的电影 想看的电影 参与的评论
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> seenMovies = userServiceId.getSeenMovies(uid);
+			PageInfo<Map<String, Object>> smPageInfo = new PageInfo<Map<String, Object>>(seenMovies);
 
-		ModelAndView mv = new ModelAndView("userPage");
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> wSeenMovies = userServiceId.getWantSeeMovie(uid);
+			PageInfo<Map<String, Object>> wmPageInfo = new PageInfo<Map<String, Object>>(wSeenMovies);
 
-		// 个人资料
-		mv.addObject("userInfo", userLogin);
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> userComments = userServiceId.getCommentByUserId(uid);
+			PageInfo<Map<String, Object>> cPageInfo = new PageInfo<Map<String, Object>>(userComments);
 
-		int uid = userLogin.getUid();
+			mv.addObject("smPageInfo", smPageInfo);
+			mv.addObject("wmPageInfo", wmPageInfo);
+			mv.addObject("cPageInfo", cPageInfo);
+			return mv;
+			
+		}else {
+			
+			ModelAndView mv = new ModelAndView("userPage");
+			// 个人资料
+			mv.addObject("userInfo", userLogin);
 
-		// 看过的电影 想看的电影 参与的评论
-		PageHelper.startPage(page, pageSize);
-		List<Map<String, Object>> seenMovies = userServiceId.getSeenMovies(uid);
-		PageInfo<Map<String, Object>> smPageInfo = new PageInfo<Map<String, Object>>(seenMovies);
+			int uid = userLogin.getUid();
 
-		PageHelper.startPage(page, pageSize);
-		List<Map<String, Object>> wSeenMovies = userServiceId.getWantSeeMovie(uid);
-		PageInfo<Map<String, Object>> wmPageInfo = new PageInfo<Map<String, Object>>(wSeenMovies);
+			// 看过的电影 想看的电影 参与的评论
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> seenMovies = userServiceId.getSeenMovies(uid);
+			PageInfo<Map<String, Object>> smPageInfo = new PageInfo<Map<String, Object>>(seenMovies);
 
-		PageHelper.startPage(page, pageSize);
-		List<Map<String, Object>> userComments = userServiceId.getCommentByUserId(uid);
-		PageInfo<Map<String, Object>> cPageInfo = new PageInfo<Map<String, Object>>(userComments);
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> wSeenMovies = userServiceId.getWantSeeMovie(uid);
+			PageInfo<Map<String, Object>> wmPageInfo = new PageInfo<Map<String, Object>>(wSeenMovies);
 
-		mv.addObject("smPageInfo", smPageInfo);
-		mv.addObject("wmPageInfo", wmPageInfo);
-		mv.addObject("cPageInfo", cPageInfo);
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> userComments = userServiceId.getCommentByUserId(uid);
+			PageInfo<Map<String, Object>> cPageInfo = new PageInfo<Map<String, Object>>(userComments);
 
-		System.out.println(smPageInfo);
+			mv.addObject("smPageInfo", smPageInfo);
+			mv.addObject("wmPageInfo", wmPageInfo);
+			mv.addObject("cPageInfo", cPageInfo);
 
-		return mv;
+			System.out.println(smPageInfo);
+
+			return mv;
+		}
 	}
 
 	/**

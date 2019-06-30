@@ -93,9 +93,12 @@ $(document).ready(function() {
 					alert("用户名不正确");
 				}else if(msg =="0"){
 					alert("密码不正确");
-				}else{
+				}else if(msg=="1"){
 					alert("成功登录");
-					window.open('../index/userInfo');
+					window.open('../index/index');
+				}else if(msg=="2"){
+					alert("成功登录");
+					window.open('../manager/manager');
 				}
 			}
 		});

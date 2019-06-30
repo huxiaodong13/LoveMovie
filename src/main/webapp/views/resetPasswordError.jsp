@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+	<script type="text/javascript">
+		$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+		/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+		/*．．．*/
+		$youziku.draw();
+</script>
 </head>
 <body>
     <div class="clearfix top">
@@ -29,7 +36,7 @@
         </div>
     </div>
     <div class="fpw-footer">
-            想看电影   @第八小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴
+            想看电影   &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴
     </div>
 </body>
 </html>

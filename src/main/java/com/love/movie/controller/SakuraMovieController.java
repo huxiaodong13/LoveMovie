@@ -57,7 +57,8 @@ public class SakuraMovieController {
 
 		List<Map<String, Object>> hotMovies = sakuraMovieServiceId.getHotMovies();
 		PageInfo<Map<String, Object>> hotMoviesPage = new PageInfo<Map<String, Object>>(hotMovies);
-		System.out.println("hot movies====" + hotMovies);
+		System.out.println("hot movies====" + hotMoviesPage);
+		
 		mv.addObject("infoPage", hotMoviesPage);
 		
 		//为登录用户查询电影是否看过

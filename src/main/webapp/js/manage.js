@@ -1,0 +1,61 @@
+$(document).ready(function(){
+    $(".user-manage").click(function(){
+        $(".right-side-user").show();
+        $(".right-side-moviecomment").hide();
+        $(".right-side-comment").hide();
+        $(".right-side-movie").hide();
+        $(".right-side-badcomment").hide();
+        $(".right-side-badmoviecomment").hide();
+    });
+    $(".moviecomment-manage").click(function(){
+        $(".right-side-user").hide();
+        $(".right-side-moviecomment").show();
+        $(".right-side-comment").hide();
+        $(".right-side-movie").hide();
+        $(".right-side-badcomment").hide();
+        $(".right-side-badmoviecomment").hide();
+    });
+    $(".comment-manage").click(function(){
+        $(".right-side-user").hide();
+        $(".right-side-moviecomment").hide();
+        $(".right-side-comment").show();
+        $(".right-side-movie").hide();
+        $(".right-side-badcomment").hide();
+        $(".right-side-badmoviecomment").hide();
+    });
+    $(".movie-manage").click(function(){
+        $(".right-side-user").hide();
+        $(".right-side-moviecomment").hide();
+        $(".right-side-comment").hide();
+        $(".right-side-movie").show();
+        $(".right-side-badcomment").hide();
+        $(".right-side-badmoviecomment").hide();
+    });
+    $(".badcomment-manage").click(function(){
+        $(".right-side-user").hide();
+        $(".right-side-moviecomment").hide();
+        $(".right-side-comment").hide();
+        $(".right-side-movie").hide();
+        $(".right-side-badcomment").show();
+        $(".right-side-badmoviecomment").hide();
+    });
+    $(".badmoviecomment-manage").click(function(){
+        $(".right-side-user").hide();
+        $(".right-side-moviecomment").hide();
+        $(".right-side-comment").hide();
+        $(".right-side-movie").hide();
+        $(".right-side-badcomment").hide();
+        $(".right-side-badmoviecomment").show();
+    });
+
+    $(".left-manage").click(function(){
+        if($(this).attr('class') == 'left-manage font-center'){
+            $(this).addClass('left-manage-active');
+        }else{
+            $(this).removeClass('left-manage-active');
+        }
+        $(this).siblings().removeClass('left-manage-active');
+        
+    });
+
+})

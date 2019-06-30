@@ -74,6 +74,18 @@ public interface MovieService {
 	 * @return
 	 */
 	public List<Map<String, Object>> getSearchResult(String keyword);
+	
+	//管理员获取所有电影
+	public List<Map<String, Object>> getMAllMovie();
+	
+	//管理员修改电影信息
+	public boolean updateMovie(Movie movie);
+	
+	//下架(删除电影)
+	public boolean delMovieByMid(int mid);
+	
+	//上架(插入电影)
+	public boolean insertMovie(Movie movie);
 
 	
 }

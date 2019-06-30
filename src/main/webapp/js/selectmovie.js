@@ -39,11 +39,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -61,6 +56,7 @@ $(document).ready(function() {
 								value=showHotMovies?page='+info.prePage+'>上页</li>';
 				 }else{
 					 prePage = '<li class="page-item disabled pre-page page-link" tabindex="-1">上页</li>';
+					 console.log("热门电影没有上一页");
 				 }
 				 
 				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
@@ -118,11 +114,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -198,11 +189,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -280,11 +266,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -302,6 +283,7 @@ $(document).ready(function() {
 								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
 					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
+					 console.log("没有前一页");
 				 }
 				 
 				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
@@ -362,11 +344,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -444,11 +421,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -526,11 +498,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -608,11 +575,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -690,11 +652,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -772,11 +729,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -854,11 +806,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -936,11 +883,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1018,11 +960,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1100,11 +1037,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1122,6 +1054,7 @@ $(document).ready(function() {
 								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
 					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
+					 console.log("爱情电影的上一页没有");
 				 }
 				 
 				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
@@ -1182,11 +1115,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1264,11 +1192,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1346,11 +1269,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1428,11 +1346,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1512,11 +1425,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';
@@ -1597,11 +1505,6 @@ $(document).ready(function() {
 								<span class="item-tag">'+value.mdirect +'</span> <span class="item-tag">'+value.mactor +'</span>\
 							</div>\
 							<hr>\
-								<div class="isWatched">\
-									<span class="item-tag"\
-										style="background-color: #212529; color: white;">这里为登录用户标记是否看过\
-										想看</span>\
-								</div>\
 						</div>\
 					</div>\
 				</a>';

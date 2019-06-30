@@ -24,6 +24,14 @@
 <script src="../js/script.js"></script>
 <script src="../js/xscript.js"></script>
 <script src="../js/movieDetail.js"></script>
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
+
 
 
 </head>
@@ -123,7 +131,7 @@
 		<div id="movie-info-box">
 			<div id="movie-info-card">
 
-				<h2>
+				<h2 style="font-weight:bold;">
 					<span>${movie.mname }</span>
 				</h2>
 

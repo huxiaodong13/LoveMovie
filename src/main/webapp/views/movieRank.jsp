@@ -15,6 +15,13 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/movieDetail.css">
 <link rel="stylesheet" href="../css/rank.css">
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
 
 
 
@@ -39,7 +46,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						href="../index/index">主页</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="../smovie/selectMovie">选电影</a></li>
@@ -69,7 +76,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> ${user.username } </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<a class="dropdown-item" href="../index/userInfo?uid=${user.uid }">个人中心</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
@@ -115,11 +122,11 @@
 
 		<div id="movie-info-box">
 			<div id="movie-info-card">
-				<h2>
+				<h2 style="font-weight:bold;">
 					<span>想看电影排行榜</span>
 				</h2>
 				<h5>
-					<span id="NewRank"><a>新片排行榜</a></span> / <span id="classicsRank"><a>经典TOP10</a></span>
+					<span id="NewRank" class="active">新片排行榜</span> / <span id="classicsRank" class="">经典TOP10</span>
 				</h5>
 				<div id="moviesRankItems">
 					<c:forEach items="${moviesRankPageInfo.list}" var="movieRank">
@@ -153,13 +160,14 @@
 						</div>
 					</c:forEach>
 				</div>
-
-				<nav aria-label="" class="page">
+				
+			</div>
+			<nav aria-label="" class="page">
 					<ul class="pagination h-center v-center" id="moviesRank-pagination">
 
 						<c:if test="${moviesRankPageInfo.hasPreviousPage==true}">
 							<li class="page-item page-link pre-page"
-								value="getNewMovieRandData?page=${ moviesRankPageInfo.prePage}"
+								value="getNewMovieRankData?page=${ moviesRankPageInfo.prePage}"
 								id="pre-page-movieRank">上页</li>
 						</c:if>
 
@@ -172,7 +180,7 @@
 
 						<c:if test="${moviesRankPageInfo.hasNextPage==true}">
 							<li class="page-item  page-link next-page"
-								value="getNewMovieRandData?page=${ moviesRankPageInfo.nextPage}"
+								value="getNewMovieRankData?page=${ moviesRankPageInfo.nextPage}"
 								id="next-page-movieRank">下页</li>
 						</c:if>
 
@@ -183,7 +191,6 @@
 				</nav>
 			</div>
 
-
 			<div id="footer">
 				<div class="my-hr">
 					<div id="copyright" class="h-center v-center">
@@ -193,14 +200,14 @@
 			</div>
 
 			<script type="text/javascript">
-				$('#movie-info-card h5 a').click(
+				$('#movie-info-card h5 span').click(
 						function() {
 							if ($(this).attr('class') == '') {
 								$(this).addClass('active');
 							} else {
 								$(this).removeClass('active');
 							}
-							$(this).parent().siblings().find('a').removeClass(
+							$(this).siblings().removeClass(
 									"active");
 
 						});

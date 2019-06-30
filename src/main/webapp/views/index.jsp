@@ -18,6 +18,14 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/xscript.js"></script>
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
+
 </head>
 
 <body>
@@ -63,7 +71,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> ${user.username } </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<a class="dropdown-item" href="../index/userInfo?uid=${user.uid }">个人中心</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
@@ -86,40 +94,27 @@
 					<img class="d-block w-100" src="../img/lunbo01.jpg"
 						alt="First slide">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>Second Thumbnail label</h5>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-							quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-							dolor id nibh ultricies vehicula ut id elit.</p>
+						<h5>蜘蛛侠：英雄远征 Spider-Man: Far From Home</h5>
+	    				<p>这是一个结束，也是一个开始。</p>
 					</div>
 				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="../img/lunbo02.jpg"
-						alt="Second slide">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Second Thumbnail label</h5>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-							quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-							dolor id nibh ultricies vehicula ut id elit.</p>
-					</div>
-				</div>
+
 				<div class="carousel-item">
 					<img class="d-block w-100" src="../img/lunbo04.jpg"
 						alt="Third slide">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>Second Thumbnail label</h5>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-							quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-							dolor id nibh ultricies vehicula ut id elit.</p>
+						<h5>请以你的名字呼唤我 Call Me by Your Name</h5>
+	    				<p>那个吻和你的衬衫，是我从你那里得到的一切。</p>
+
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img class="d-block w-100" src="../img/lunbo05.jpg"
 						alt="Third slide">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>Second Thumbnail label</h5>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-							quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-							dolor id nibh ultricies vehicula ut id elit.</p>
+						<h5>少年的你</h5>
+	    				<p>你保护世界，我保护你。</p>
+
 					</div>
 				</div>
 			</div>

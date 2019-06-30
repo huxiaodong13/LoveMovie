@@ -27,6 +27,6 @@
 			邮件发送失败，请稍后重试！<a href="findPassword">点击返回找回密码页面</a>
 		</div>
 	</div>
-	<div class="fpw-footer">想看电影 @第八小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
+	<div class="fpw-footer">想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</div>
 </body>
 </html>

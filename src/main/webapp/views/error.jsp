@@ -7,13 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>想看电影</title>
+<title>页面不存在</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/style.css">
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/script.js"></script>
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
+
 </head>
 
 <body>
@@ -56,7 +64,7 @@
 	<div id="error-content" style="height: 32rem;" align="center">
 
 		<h4 style="margin: 4rem;">
-			<img src="img/open-iconic-master/warning-4x.png" alt=""> 啊哦~
+			<img src="../img/open-iconic-master/warning-4x.png" alt=""> 啊哦~
 			您访问的页面不存在哦
 		</h4>
 

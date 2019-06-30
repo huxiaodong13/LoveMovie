@@ -22,6 +22,21 @@
 <script src="../js/script.js"></script>
 <script src="../js/selectmovie.js"></script>
 
+
+
+<script type="text/javascript"
+	src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1",
+			"Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
+
+
+
+
 </head>
 <body>
 	<div id="header">
@@ -36,18 +51,17 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item "><a class="nav-link" href="../index/index">主页</a></li>
-					<li class="nav-item"><a class="nav-link" href="../smovie/selectMovie">选电影<span
-							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="../Rank/NewRank">排行榜</a></li>
-					<li class="nav-item"><a class="nav-link" href="../review/Review">影评</a></li>
+					<li class="nav-item "><a class="nav-link"
+						href="../index/index">主页</a></li>
+					<li class="nav-item "><a class="nav-link"
+						href="../smovie/selectMovie" style="color: white">选电影<span class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../Rank/NewRank">排行榜</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../review/Review">影评</a></li>
 
 				</ul>
-				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search" name="keyword">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+
 
 				<ul class="navbar-nav">
 					<c:if test="${isLogin == false}">
@@ -61,7 +75,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> ${user.username } </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<a class="dropdown-item" href="../index/userInfo?uid=${user.uid }">个人中心</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
@@ -76,7 +90,7 @@
 			<nav class="navbar navbar-light  justify-content-between">
 				<a class="navbar-brand"
 					style='margin-right: 60px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";'>搜你所想，看你想看</a>
-				<form class="form-inline">
+				<form class="form-inline" action="../index/search" method="post">
 					<input class="form-control mr-sm-2" type="search"
 						placeholder="搜索电影、分类、导演、演员" aria-label="Search"
 						style="width: 400px">
@@ -95,60 +109,60 @@
 						checked="checked">
 				</span></li>
 
-				<li id="snew-movie" ><span class="type"> 最新<input class="tag"
-						type="radio" name="tag" value="最新">
+				<li id="snew-movie"><span class="type"> 最新<input
+						class="tag" type="radio" name="tag" value="最新">
 				</span></li>
-				<li id="sclassic-movie"><span class="type"> 经典<input class="tag"
-						type="radio" name="tag" value="经典">
+				<li id="sclassic-movie"><span class="type"> 经典<input
+						class="tag" type="radio" name="tag" value="经典">
 				</span></li>
-				<li id="splayable-movie"><span class="type"> 可播放 <input class="tag"
-						type="radio" name="tag" value="可播放">
-				</span></li>
-
-				<li id="shighscore-movie"><span class="type"> 高分系列 <input class="tag"
-						type="radio" name="tag" value="高分系列"> </label>
-				</span></li>
-				<li id="sdarkHouse-movie"><span class="type"> 冷门佳片 <input class="tag"
-						type="radio" name="tag" value="冷门佳片"> </label>
+				<li id="splayable-movie"><span class="type"> 可播放 <input
+						class="tag" type="radio" name="tag" value="可播放">
 				</span></li>
 
-				<li id="sChinese-movie"><span class="type"> 华语 <input class="tag"
-						type="radio" name="tag" value="华语">
+				<li id="shighscore-movie"><span class="type"> 高分系列 <input
+						class="tag" type="radio" name="tag" value="高分系列"> </label>
+				</span></li>
+				<li id="sdarkHouse-movie"><span class="type"> 冷门佳片 <input
+						class="tag" type="radio" name="tag" value="冷门佳片"> </label>
 				</span></li>
 
-				<li id="skorean-movie"><span class="type"> 韩国 <input class="tag"
-						type="radio" name="tag" value="韩国">
+				<li id="sChinese-movie"><span class="type"> 华语 <input
+						class="tag" type="radio" name="tag" value="华语">
 				</span></li>
 
-				<li id="sea-movie"><span class="type"> 欧美 <input class="tag"
-						type="radio" name="tag" value="欧美">
-				</span></li>
-				<li id="sJanpanse-movie"><span class="type"> 日本 <input class="tag"
-						type="radio" name="tag" value="日本">
-				</span></li>
-				<li id="saction-movie"><span class="type"> 动作 <input class="tag"
-						type="radio" name="tag" value="动作">
-				</span></li>
-				<li id="scomedy-movie"><span class="type"> 喜剧 <input class="tag"
-						type="radio" name="tag" value="喜剧">
-				</span></li>
-				<li id="slove-movie"><span class="type"> 爱情 <input class="tag"
-						type="radio" name="tag" value="爱情">
-				</span></li>
-				<li id="ssf-movie"><span class="type"> 科幻 <input class="tag"
-						type="radio" name="tag" value="科幻">
+				<li id="skorean-movie"><span class="type"> 韩国 <input
+						class="tag" type="radio" name="tag" value="韩国">
 				</span></li>
 
-				<li id="scartoon-movie"><span class="type"> 动画 <input class="tag"
-						type="radio" name="tag" value="动画">
+				<li id="sea-movie"><span class="type"> 欧美 <input
+						class="tag" type="radio" name="tag" value="欧美">
+				</span></li>
+				<li id="sJanpanse-movie"><span class="type"> 日本 <input
+						class="tag" type="radio" name="tag" value="日本">
+				</span></li>
+				<li id="saction-movie"><span class="type"> 动作 <input
+						class="tag" type="radio" name="tag" value="动作">
+				</span></li>
+				<li id="scomedy-movie"><span class="type"> 喜剧 <input
+						class="tag" type="radio" name="tag" value="喜剧">
+				</span></li>
+				<li id="slove-movie"><span class="type"> 爱情 <input
+						class="tag" type="radio" name="tag" value="爱情">
+				</span></li>
+				<li id="ssf-movie"><span class="type"> 科幻 <input
+						class="tag" type="radio" name="tag" value="科幻">
 				</span></li>
 
-				<li id="ssuspense-movie"><span class="type"> 悬疑 <input class="tag"
-						type="radio" name="tag" value="悬疑">
+				<li id="scartoon-movie"><span class="type"> 动画 <input
+						class="tag" type="radio" name="tag" value="动画">
 				</span></li>
 
-				<li id="shorriable-movie"><span class="type"> 恐怖 <input class="tag"
-						type="radio" name="tag" value="恐怖">
+				<li id="ssuspense-movie"><span class="type"> 悬疑 <input
+						class="tag" type="radio" name="tag" value="悬疑">
+				</span></li>
+
+				<li id="shorriable-movie"><span class="type"> 恐怖 <input
+						class="tag" type="radio" name="tag" value="恐怖">
 				</span></li>
 			</ul>
 		</div>
@@ -164,11 +178,12 @@
 		</div>
 		<div id="hot-movie-content">
 			<div id="hot-movies">
-			
+
 				<div class="clearfix" id="select-movie-items">
 
 					<c:forEach items="${infoPage.list }" var="item">
-						<a href="../movie/movieDetail?mid=${item.mid }" class="movie-item" target="_blank">
+						<a href="../movie/movieDetail?mid=${item.mid }" class="movie-item"
+							target="_blank">
 							<div class="card" style="width: 10rem;">
 								<img class="card-img-top" src="${item.img }"
 									alt="Card image cap">
@@ -181,9 +196,10 @@
 									<h4>${item.mname }</h4>
 									<strong class="item-degree card-text">${item.mscore }</strong>
 									<div class="item-tags">
-										<span class="item-tag">${item.mlong }</span> <span class="item-tag">${item.mcountry }</span>
-										<span class="item-tag">${item.mtag } </span> 
-										<span class="item-tag">${item.mdirect }</span> <span class="item-tag">${item.mactor }</span>
+										<span class="item-tag">${item.mlong }</span> <span
+											class="item-tag">${item.mcountry }</span> <span
+											class="item-tag">${item.mtag } </span> <span class="item-tag">${item.mdirect }</span>
+										<span class="item-tag">${item.mactor }</span>
 									</div>
 									<!--  
 									<hr>
@@ -200,18 +216,21 @@
 								</div>
 							</div>
 						</a>
-						
+
 					</c:forEach>
 				</div>
-				
+
 			</div>
 		</div>
-		
+
 		<nav aria-label="" class="page">
-			<ul class="pagination h-center v-center" id="select-movie-pagination">
+			<ul class="pagination h-center v-center"
+				id="select-movie-pagination">
+				
 				<c:if test="${infoPage.hasPreviousPage==true}">
-				<li class="page-item page-link pre-page" id="pre-page-selectMovie" value="showHotMovies?page=${ infoPage.prePage}">上页</li>
+					<li class="page-item page-link pre-page" id="pre-page-selectMovie" value="showHotMovies?page=${ infoPage.prePage}">上页</li>
 				</c:if>
+				
 				<c:if test="${infoPage.hasPreviousPage==false}">
 					<li class="page-item disabled page-link pre-page " tabindex="-1">上页</li>
 				</c:if>
@@ -224,7 +243,7 @@
 						value="showHotMovies?page=${ infoPage.nextPage}">下页</li>
 				</c:if>
 				<c:if test="${infoPage.hasNextPage==false}">
-					<li class="page-item disabled page-link next-page " tabindex="-1">下页</li>
+					<li class="page-item disabled page-link next-page " tabindex="-1">1111下页</li>
 				</c:if>
 
 			</ul>

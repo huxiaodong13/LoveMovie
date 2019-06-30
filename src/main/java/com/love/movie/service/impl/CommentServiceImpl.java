@@ -89,12 +89,6 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getMAllComment() {
-		List<Map<String, Object>> commentsList = customedCommentMapper.getMAllComment();
-		return commentsList;
-	}
-
-	@Override
 	public List<Map<String, Object>> getAllHotComment() {
 		List<Map<String, Object>> commentsList = customedCommentMapper.getAllHotComment();
 		return commentsList;
@@ -379,4 +373,37 @@ public class CommentServiceImpl implements CommentService {
 	public List<Map<String, Object>> getReplyToCommentByCid(int cid) {
 		return customedCommentMapper.getReplyToCommentByCid(cid);
 	}
+	
+	@Override
+	public List<Map<String, Object>> getMAllComment() {
+		List<Map<String, Object>>  commentsList = customedCommentMapper.getMAllComment();
+		return commentsList;
+	}
+	
+	@Override
+	public Boolean delCommentByCid(int cid) {
+		int n = commentMapper.deleteByPrimaryKey(cid);
+		if(n == 1) {
+			//删除相应的回复评论
+			//int r = xcustomedReplyMapper.;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public List<Map<String, Object>> getMBadAllComment() {
+		List<Map<String, Object>>  commentsList = customedCommentMapper.getMBadAllComment();
+		return commentsList;
+	}
+
+	@Override
+	public Boolean delCommentByMid(int mid) {
+		int n = customedCommentMapper.delCommentByMid(mid);
+		if(n == 1) {
+			return true;
+		}
+		return false;
+	}
+	
 }

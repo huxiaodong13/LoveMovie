@@ -9,6 +9,7 @@ $(function(){
 		
 		console.log("经典top10");
 		
+		
 		$.ajax({
 			url : "getClassicMovieRankData",
 			type : "post",
@@ -55,8 +56,6 @@ $(function(){
 	//---排行榜----新片排行榜 新片排行 ---
  	$("#NewRank").on("click",function(){
  		
-// 		var url = $(this).attr('value');
-// 		console.log("点击了电影排行榜新片下一页" + url);
  		
  		console.log("新片");
  		var requestUrl = "getNewMovieRankData?page=";
@@ -110,7 +109,7 @@ $(function(){
 					 prePage = '<li class="page-item disabled page-link pre-page"  tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+'/'+infoPage.pages+'</li>'
+				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+' / '+infoPage.pages+'</li>'
 				 
 				 if(infoPage.hasNextPage){
 					 nextPage = '<li class="page-item page-link next-page" id="next-page-movieRank"\
@@ -188,7 +187,7 @@ $(function(){
 					 prePage = '<li class="page-item disabled page-link pre-page"  tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+'/'+infoPage.pages+'</li>'
+				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+' / '+infoPage.pages+'</li>'
 				 
 				 if(infoPage.hasNextPage){
 					 nextPage = '<li class="page-item page-link next-page" id="next-page-movieRank"\
@@ -266,7 +265,7 @@ $(function(){
 					 prePage = '<li class="page-item disabled page-link pre-page"  tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+'/'+infoPage.pages+'</li>'
+				 var nowPage = '<li class="page-item disabled page-link">'+infoPage.pageNum+' / '+infoPage.pages+'</li>'
 				 
 				 if(infoPage.hasNextPage){
 					 nextPage = '<li class="page-item page-link next-page" id="next-page-movieRank"\

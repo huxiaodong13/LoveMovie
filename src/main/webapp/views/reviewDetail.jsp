@@ -23,6 +23,13 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/reviewDetail.js"></script>
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
 
 </head>
 <body>
@@ -44,8 +51,10 @@
 						href="../smovie/selectMovie">选电影</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="../Rank/NewRank">排行榜</a></li>
+					<li class="nav-item "><a class="nav-link"
+						href="../review/Review">影评</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="../review/Review">影评<span class="sr-only">(current)</span></a></li>
+						href="#">影评详情<span class="sr-only">(current)</span></a></li>
 
 				</ul>
 				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
@@ -257,7 +266,7 @@
 						<div class="review-comment">
 							<div class="comment_meta">
 								<a href="../index/userInfo?uid=${item.uid }"><img src="${item.uimg }" alt="" style="width: 50px; height: 50px;"></a>
-								<a href="../index.userInfo?uid=${item.uid }">${item.username }</a> <span>${item.rdate }</span>
+								<a href="../index/userInfo?uid=${item.uid }">${item.username }</a> <span>${item.rdate }</span>
 							</div>
 							<blockquote class="comment_content" style="color: #666667;">
 								<span>${item.rcontent }</span>

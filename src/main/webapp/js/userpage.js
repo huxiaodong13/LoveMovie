@@ -54,7 +54,6 @@ $(document).ready(function() {
 		$(".plan").hide();
 		$("#comments-content").show();
 	});
-	
     $( "#datepicker" ).datepicker();
     
     

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-	
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +20,15 @@
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/userpagedisplay.js"></script>
+<script type="text/javascript"
+	src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+	$youziku.load("body", "8a1f6c8a889447e29321a784b1d855b1",
+			"Source-Han-Light");
+	/*$youziku.load("#id1,.class1,h1", "8a1f6c8a889447e29321a784b1d855b1", "Source-Han-Light");*/
+	/*．．．*/
+	$youziku.draw();
+</script>
 
 </head>
 <body>
@@ -45,15 +54,34 @@
 					<li class="nav-item active"><a class="nav-link"
 						href="../review/Review">用户详情<span class="sr-only">(current)</span></a></li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
+				<form class="form-inline my-2 my-lg-0" action="../index/search"
+					method="post">
 					<input class="form-control mr-sm-2" type="search"
 						placeholder="Search" aria-label="Search" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
 				<ul class="navbar-nav">
-					<li class="nav-item" id="regist-login"><a class="nav-link"
-						href="../index/login">注册/登录</a></li>
+
+					<c:if test="${isLogin == false}">
+						<li class="nav-item" id="regist-login"><a class="nav-link"
+							href="../index/login">注册/登录</a></li>
+					</c:if>
+
+					<c:if test="${isLogin == true }">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> ${userLogin.username } </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+									href="../index/userInfo?uid=${userLogin.uid }">个人中心</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../index/logout">退出</a>
+							</div></li>
+					</c:if>
+
+
 				</ul>
 
 			</div>
@@ -86,7 +114,8 @@
 								id="attention-num">关注:20</label>
 						</div>
 					</div>
-					<div class="self-introduce">简介</div>
+					<
+					<div class="self-introduce"></div>
 					<div id="self-introduce-text">
 						<p style="font-size: 15px; color: white; margin-left: 20px;">${userInfo.brief }</p>
 					</div>
@@ -298,7 +327,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!---------------------------关注页面------------------------------------------->
 		<div class="center-bottom-attention clearfix">
 			<div class="list clearfix">
@@ -527,7 +556,7 @@
 	<div id="footer">
 		<div class="my-hr">
 			<div id="copyright" class="h-center v-center">
-				<p>想看电影 @第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
+				<p>想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
 			</div>
 		</div>
 	</div>

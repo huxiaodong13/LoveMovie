@@ -37,7 +37,7 @@ public interface CommentService {
 
 	public List<Map<String, Object>> getAllComment();
 
-	public List<Map<String, Object>> getMAllComment();
+	
 
 	/**
 	 * 获取指定mid的电影的最受欢迎的影评
@@ -187,6 +187,14 @@ public interface CommentService {
 	 * @return
 	 */
 	public List<Map<String, Object>> getReplyToCommentByCid(int cid);
+	
+	public List<Map<String, Object>> getMAllComment();
+	
+	public Boolean delCommentByCid(int cid);
+	
+	public Boolean delCommentByMid(int mid);
+
+	public List<Map<String, Object>> getMBadAllComment();
 	
 
 }

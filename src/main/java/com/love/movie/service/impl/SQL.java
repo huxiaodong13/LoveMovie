@@ -102,7 +102,7 @@ public class SQL {
 		String sql = "UPDATE `love_movie`.`score` SET `sscore` = #{sscore} WHERE `mid` =  #{mid} AND `uid` =  #{uid}";
 		return sql;
 	}
-	
+
 	/**
 	 * 更新电影评分人数SQL
 	 * 
@@ -113,7 +113,7 @@ public class SQL {
 		String sql = "UPDATE movie SET movie.mcount = movie.mcount + 1 WHERE mid = " + mid;
 		return sql;
 	}
-	
+
 	/**
 	 * 更新电影的的分数SQL
 	 * 
@@ -121,81 +121,77 @@ public class SQL {
 	 * @return
 	 */
 	public String updateMovieScore(int mid) {
-		String sql = "UPDATE movie SET movie.mscore = (SELECT FLOOR(AVG(sscore))/10 FROM score WHERE score.mid = "+mid+") WHERE movie.mid = " + mid;
+		String sql = "UPDATE movie SET movie.mscore = (SELECT FLOOR(AVG(sscore))/10 FROM score WHERE score.mid = " + mid
+				+ ") WHERE movie.mid = " + mid;
 		return sql;
 	}
-	
+
 	/**
 	 * 获取指定电影最受欢迎评论SQL
 	 * 
 	 * @param mid
 	 * @return
 	 */
-	public String	selectPopularCommentByMid(int mid) {
-		String sql = "SELECT * FROM comment, user WHERE comment.uid = user.uid AND comment.mid = "+mid+" ORDER BY comment.clike DESC";
+	public String selectPopularCommentByMid(int mid) {
+		String sql = "SELECT * FROM comment, user WHERE comment.uid = user.uid AND comment.mid = " + mid
+				+ " ORDER BY comment.clike DESC";
 		return sql;
 	}
-	
+
 	/**
 	 * 获取指定电影热门评论SQL
 	 * 
 	 * @param mid
 	 * @return
 	 */
-	public String	selectHotCommentByMid(int mid) {
-		String sql = "SELECT DISTINCT\r\n" + 
-				"comment.uid, comment.mid, comment.content, comment.clike, comment.cdislike, comment.cdate, comment.ctitle,comment.cscore,comment.cid,\r\n" + 
-				"count(*) replyCount\r\n" + 
-				"FROM comment , reply WHERE comment.cid = reply.cid and reply.replytype = 0  AND mid = "+mid+"\r\n" + 
-				"GROUP BY comment.cid\r\n" + 
-				"ORDER BY replyCount DESC";
+	public String selectHotCommentByMid(int mid) {
+		String sql = "SELECT DISTINCT\r\n"
+				+ "comment.uid, comment.mid, comment.content, comment.clike, comment.cdislike, comment.cdate, comment.ctitle,comment.cscore,comment.cid,\r\n"
+				+ "count(*) replyCount\r\n"
+				+ "FROM comment , reply WHERE comment.cid = reply.cid and reply.replytype = 0  AND mid = " + mid
+				+ "\r\n" + "GROUP BY comment.cid\r\n" + "ORDER BY replyCount DESC";
 		return sql;
 	}
-	
-	
+
 	/**
 	 * 获取所有热门评论SQL
 	 * 
 	 * @return
 	 */
 	public String selectHotComment() {
-		String sql = "SELECT comment.uid as comuid\r\n" + 
-				", `mid`, `content`, `cdate`, `clike`, comment.cid comcid,  `ctitle`, `cscore`, `cdislike`\r\n" + 
-				",reply.cid as repcid,COUNT(*) replyCount \r\n" + 
-				"FROM reply,comment\r\n" + 
-				"WHERE reply.cid = comment.cid\r\n" + 
-				"GROUP BY reply.cid \r\n" + 
-				"ORDER BY replyCount DESC";
-		
+		String sql = "SELECT comment.uid as comuid\r\n"
+				+ ", `mid`, `content`, `cdate`, `clike`, comment.cid comcid,  `ctitle`, `cscore`, `cdislike`\r\n"
+				+ ",reply.cid as repcid,COUNT(*) replyCount \r\n" + "FROM reply,comment\r\n"
+				+ "WHERE reply.cid = comment.cid\r\n" + "GROUP BY reply.cid \r\n" + "ORDER BY replyCount DESC";
+
 		return sql;
 	}
-	
+
 	/**
 	 * 获取指定电影最新评论SQL
 	 * 
 	 * @param mid
 	 * @return
 	 */
-	public String	selectNewCommentByMid(int mid) {
-		String sql = "SELECT * FROM comment, user WHERE comment.uid = user.uid AND comment.mid = "+ mid+" ORDER BY comment.cdate DESC";
+	public String selectNewCommentByMid(int mid) {
+		String sql = "SELECT * FROM comment, user WHERE comment.uid = user.uid AND comment.mid = " + mid
+				+ " ORDER BY comment.cdate DESC";
 		return sql;
 	}
-	
+
 	/**
 	 * 获取指定电影好友评论SQL
 	 * 
 	 * @param mid
 	 * @return
 	 */
-	public String	selectFriendCommentByMid(Comment comment) {
-		String sql = "SELECT * from comment  \r\n" + 
-				"WHERE comment.uid in\r\n" + 
-				"(SELECT followee.use_uid FROM followee WHERE followee.uid = #{uid}) \r\n" + 
-				"AND comment.mid = #{mid}";
+	public String selectFriendCommentByMid(Comment comment) {
+		String sql = "SELECT * from comment  \r\n" + "WHERE comment.uid in\r\n"
+				+ "(SELECT followee.use_uid FROM followee WHERE followee.uid = #{uid}) \r\n"
+				+ "AND comment.mid = #{mid}";
 		return sql;
 	}
-	
-	
+
 	/**
 	 * 查询指定影评的回复数SQL
 	 * 
@@ -206,7 +202,7 @@ public class SQL {
 		String sql = "SELECT COUNT(*) FROM reply WHERE reply.cid = " + cid;
 		return sql;
 	}
-	
+
 	/**
 	 * 获取指定cid影评被收藏的次数
 	 * 
@@ -217,8 +213,7 @@ public class SQL {
 		String sql = "SELECT COUNT(*) FROM storeup GROUP BY storeup.cid HAVING storeup.cid = " + cid;
 		return sql;
 	}
-	
-	
+
 	/**
 	 * 获取对指定影评的回复SQL
 	 * 
@@ -226,11 +221,11 @@ public class SQL {
 	 * @return
 	 */
 	public String selectReplyToCommentByCid(int cid) {
-		String sql = " SELECT `rid`, `cid`, `replyid`, `replytype`, `rcontent`, reply.uid, `touid`, `report`, `rdate`,  `username`,  `gender`,`uimg`\r\n" + 
-				" FROM reply , user WHERE reply.uid = user.uid AND reply.cid = " + cid;
+		String sql = " SELECT `rid`, `cid`, `replyid`, `replytype`, `rcontent`, reply.uid, `touid`, `report`, `rdate`,  `username`,  `gender`,`uimg`\r\n"
+				+ " FROM reply , user WHERE reply.uid = user.uid AND reply.cid = " + cid;
 		return sql;
 	}
-	
+
 	/**
 	 * 根据关键词获取电影信息 SQL
 	 * 
@@ -238,11 +233,22 @@ public class SQL {
 	 * @return
 	 */
 	public String selectSearchResult(String keyword) {
-		
-		String sql="SELECT * FROM movie WHERE CONCAT(\r\n" + 
-				"movie.mname, movie.mactor, movie.mwriter, movie.mtag, movie.mlanguage, movie.mdirect, movie.mcountry) REGEXP " + "'"+keyword+"'";
-		
+
+		String sql = "SELECT * FROM movie WHERE CONCAT(\r\n"
+				+ "movie.mname, movie.mactor, movie.mwriter, movie.mtag, movie.mlanguage, movie.mdirect, movie.mcountry) REGEXP "
+				+ "'" + keyword + "'";
+
 		return sql;
 	}
-	
+
+	public String delReplyByCid(int cid) {
+		String sql = "delete from reply where cid = " + cid;
+		return sql;
+	}
+
+	public String delCommentByMid(int mid) {
+		String sql = "delete from comment where mid = " + mid;
+		return sql;
+	}
+
 }

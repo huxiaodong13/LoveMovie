@@ -75,7 +75,14 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user2);
 		session.setAttribute("login", true);
-
+		
+		//管理员
+		if(user2.getLevel() == 1) {
+			System.out.println("他是管理员");
+			
+			return  "2";
+		}
+		
 		return "1"; // 密码不正确
 	}
 
@@ -127,11 +134,4 @@ public class LoginController {
 		}
 	}
 	
-	
-	//临时的主页
-	@RequestMapping("LMindex")
-	public ModelAndView goLMindex() {
-		ModelAndView mv = new ModelAndView("indexr");
-		return mv;
-	}
 }

@@ -107,10 +107,7 @@ public interface CustomedCommentMapper {
 	@SelectProvider(method = "selectCommentReplyCountByCid", type = com.love.movie.service.impl.SQL.class)
 	public int getCommentReplyCountByCid(int cid);
 
-	// 管理员 所有影评 按时间处理
-	@Select(value = "select * from movie,comment,user where user.uid = comment.uid and movie.mid = comment.mid ORDER BY cdate DESC")
-	public List<Map<String, Object>> getMAllComment();
-	
+
 	/**
 	 * 查询指定影评被收藏的次数
 	 * 
@@ -119,17 +116,16 @@ public interface CustomedCommentMapper {
 	 */
 	@SelectProvider(method = "selectCommentStroeCount", type = com.love.movie.service.impl.SQL.class)
 	public Integer getCommentStroeCount(int cid);
-	
-	
+
 	/**
 	 * 获取用户对评论的态度
 	 * 
 	 * @param attitude
 	 * @return
 	 */
-	@Select(value="select attitude.attitude from  attitude where uid=#{uid} and cid=#{cid}")
+	@Select(value = "select attitude.attitude from  attitude where uid=#{uid} and cid=#{cid}")
 	public Integer getUserAttitudeToComment(Attitude attitude);
-	
+
 	/**
 	 * 获取对指定影评的直接回复
 	 * 
@@ -138,8 +134,16 @@ public interface CustomedCommentMapper {
 	 */
 	@SelectProvider(method = "selectReplyToCommentByCid", type = com.love.movie.service.impl.SQL.class)
 	public List<Map<String, Object>> getReplyToCommentByCid(int cid);
-	
 
-	
-	
+	// 管理员 所有影评 按时间处理
+	@Select(value = "select cid,mname,ctitle,content,cdate,username,report,cscore,cdate from movie,comment,user where user.uid = comment.uid and movie.mid = comment.mid ORDER BY cdate DESC")
+	public List<Map<String, Object>> getMAllComment();
+
+	// 管理员 获取所有被举报的影评 按时间处理
+	@Select(value = "select * from comment,user,movie where comment.mid=movie.mid and comment.uid=user.uid  and report = 1 ORDER BY cdate DESC")
+	public List<Map<String, Object>> getMBadAllComment();
+
+	@SelectProvider(method = "delCommentByMid", type = com.love.movie.service.impl.SQL.class)
+	public int delCommentByMid(int mid);
+
 }
