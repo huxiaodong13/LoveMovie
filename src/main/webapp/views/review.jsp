@@ -41,14 +41,14 @@
 						href="../smovie/selectMovie">选电影</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="../Rank/NewRank">排行榜</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item active"><a class="nav-link"
 						href="../review/Review">影评<span class="sr-only">(current)</span></a>
 					</li>
 
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
+						placeholder="Search" aria-label="Search" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
@@ -65,12 +65,14 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> ${user.username } </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<a class="dropdown-item" href="../index/userInfo?uid=${user.uid }">个人中心</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
 					</c:if>
 				</ul>
+				
+				
 			</div>
 		</nav>
 	</div>
@@ -118,7 +120,7 @@
 									<a href="../review/reviewDetail?cid=${comment.cid }">${comment.ctitle }</a>
 								</h4>
 
-								<p style="color: #666667;">${fn:substring(comment.content, 0, 100)}
+								<p style="color: #666667;">${fn:substring(comment.content, 0, 60)}..
 									<a href="../review/reviewDetail?cid=${comment.cid }" class="btn btn-link">全文</a>
 								</p>
 

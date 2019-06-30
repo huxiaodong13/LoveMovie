@@ -22,13 +22,20 @@ public interface CustomedMovieMapper {
 	@Select(value = "select * from movie ORDER BY mtime DESC limit 9")
 	public List<Map<String, Object>> getNewDateMovie();
 
+	/**
+	 * 电影排行榜----最新电影（所有）
+	 * 
+	 * @return
+	 */
 	@Select(value = "select * from movie ORDER BY mtime DESC")
 	public List<Map<String, Object>> getAllNewDateMovie();
 
 	/**
-	 * *经典电影(评分高且是老电影)
+	 * 电影排行榜----经典电影排行榜 
+	 *
+	 * @return
 	 */
-	@Select(value = "select * from movie where mtime < '2019' ORDER BY mscore DESC limit 9")
+	@Select(value = "SELECT * FROM movie WHERE mscore > 7.8 AND mtime < '2019' ORDER  BY mscore DESC limit 10")
 	public List<Map<String, Object>> getClassicsMovie();
 
 	/**
@@ -137,6 +144,15 @@ public interface CustomedMovieMapper {
 	 */
 	@SelectProvider(method = "updateMovieScore", type = com.love.movie.service.impl.SQL.class)
 	public void modifyMovieScore(int mid);
+	
+	/**
+	 *根据关键词获取电影信息
+	 * 
+	 * @param keyword
+	 * @return
+	 */
+	@SelectProvider(method = "selectSearchResult", type = com.love.movie.service.impl.SQL.class)
+	public List<Map<String, Object>> getSearchResult(String keyword);
 	
 	
 }

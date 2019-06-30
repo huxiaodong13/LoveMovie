@@ -305,6 +305,27 @@ img.card-img-top {
 	border:	#343a40;
 }
 
+.pre-page{
+	border-bottom-left-radius: 0.25rem;
+	border-top-left-radius: 0.25rem;
+}
+
+.next-page{
+	border-bottom-right-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+}
+
+
+.disabled{
+	color: #6c757d;
+	background-color: #f3f3f3;
+}
+
+.disabled:hover{
+	color: #6c757d;
+}
+
+
 /*清除浮动*/
 /* 适应IE浏览器 使用 zoom:1 触发 hasLayout */
 .clearfix {

@@ -16,34 +16,41 @@
 <title>选电影</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/selectmovie.css">
+
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/script.js"></script>
 <script src="../js/selectmovie.js"></script>
 
 </head>
 <body>
-	<div id="header" class="clearfix">
-		<div class="header-title v-center">想看电影</div>
-		<div class="header-select v-center">
-			<a href="../index/index">主页</a>
-		</div>
-		<div class="header-mainpage v-center">
-			<a href="../smovie/selectMovie"> 选电影</a>
-		</div>
-		
-		<div class="header-mainpage v-center">
-			<a href="../Rank/NewRank">排行榜</a>
-		</div>
-		
-		<div class="header-comment v-center">
-			<a href="../review/Review">影评</a>
-		</div>
+	<div id="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="../index/index">想看电影</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-		<div class="div-dropmenu">
-			<nav class="navbar navbar-expand-lg">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item "><a class="nav-link" href="../index/index">主页</a></li>
+					<li class="nav-item"><a class="nav-link" href="../smovie/selectMovie">选电影<span
+							class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="../Rank/NewRank">排行榜</a></li>
+					<li class="nav-item"><a class="nav-link" href="../review/Review">影评</a></li>
+
+				</ul>
+				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Search" aria-label="Search" name="keyword">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+
 				<ul class="navbar-nav">
-
-					<c:if test="${isLogin == false }">
+					<c:if test="${isLogin == false}">
 						<li class="nav-item" id="regist-login"><a class="nav-link"
 							href="../index/login">注册/登录</a></li>
 					</c:if>
@@ -59,10 +66,9 @@
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
 					</c:if>
-
 				</ul>
-			</nav>
-		</div>
+			</div>
+		</nav>
 	</div>
 
 	<div id="top">
@@ -179,14 +185,17 @@
 										<span class="item-tag">${item.mtag } </span> 
 										<span class="item-tag">${item.mdirect }</span> <span class="item-tag">${item.mactor }</span>
 									</div>
+									<!--  
 									<hr>
 									<c:if test="${isLogin == true }">
+										
 										<div class="isWatched">
 											<span class="item-tag"
 												style="background-color: #212529; color: white;">这里为登录用户标记是否看过
 												想看</span>
 										</div>
 									</c:if>
+									-->
 
 								</div>
 							</div>
@@ -201,24 +210,21 @@
 		<nav aria-label="" class="page">
 			<ul class="pagination h-center v-center" id="select-movie-pagination">
 				<c:if test="${infoPage.hasPreviousPage==true}">
-				<li class="page-item " id="pre-page-selectMovie" value="showHotMovies?page=${ infoPage.prePage}"><a
-						class="page-link" href="#">上页</a></li>
+				<li class="page-item page-link pre-page" id="pre-page-selectMovie" value="showHotMovies?page=${ infoPage.prePage}">上页</li>
 				</c:if>
 				<c:if test="${infoPage.hasPreviousPage==false}">
-					<li class="page-item disabled" tabindex="-1"><a
-						class="page-link" href="#">上页</a></li>
+					<li class="page-item disabled page-link pre-page " tabindex="-1">上页</li>
 				</c:if>
 
-				<li class="page-item disabled"><a class="page-link" href="#">${infoPage.pageNum}
-						/ ${ infoPage.pages}</a></li>
+				<li class="page-item page-link">${infoPage.pageNum}
+						/ ${ infoPage.pages}</li>
 
 				<c:if test="${infoPage.hasNextPage==true}">
-					<li class="page-item " id="next-page-selectMovie"
-						value=${ infoPage.nextPage}><a class="page-link" href="#">下页</a></li>
+					<li class="page-item page-link next-page" id="next-page-selectMovie"
+						value="showHotMovies?page=${ infoPage.nextPage}">下页</li>
 				</c:if>
 				<c:if test="${infoPage.hasNextPage==false}">
-					<li class="page-item disabled" tabindex="-1"><a
-						class="page-link" href="#">下页</a></li>
+					<li class="page-item disabled page-link next-page " tabindex="-1">下页</li>
 				</c:if>
 
 			</ul>

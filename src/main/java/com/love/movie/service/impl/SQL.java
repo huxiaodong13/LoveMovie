@@ -18,7 +18,7 @@ public class SQL {
 	}
 
 	public String selectCommentByCid(int cid) {
-		String sql = "select comment.mid,`ctitle`,`content`,`username`,`uimg`,`cdate`,`clike`,`cdislike`,`cscore` from `movie`,`comment`,`user` where user.uid = comment.uid and movie.mid = comment.mid and comment.cid =  "
+		String sql = "select comment.cid, comment.uid , comment.mid,`ctitle`,`content`,`username`,`uimg`,`cdate`,`clike`,`cdislike`,`cscore` from `movie`,`comment`,`user` where user.uid = comment.uid and movie.mid = comment.mid and comment.cid =  "
 				+ cid;
 		return sql;
 	}
@@ -207,5 +207,42 @@ public class SQL {
 		return sql;
 	}
 	
+	/**
+	 * 获取指定cid影评被收藏的次数
+	 * 
+	 * @param cid
+	 * @return
+	 */
+	public String selectCommentStroeCount(int cid) {
+		String sql = "SELECT COUNT(*) FROM storeup GROUP BY storeup.cid HAVING storeup.cid = " + cid;
+		return sql;
+	}
+	
+	
+	/**
+	 * 获取对指定影评的回复SQL
+	 * 
+	 * @param cid
+	 * @return
+	 */
+	public String selectReplyToCommentByCid(int cid) {
+		String sql = " SELECT `rid`, `cid`, `replyid`, `replytype`, `rcontent`, reply.uid, `touid`, `report`, `rdate`,  `username`,  `gender`,`uimg`\r\n" + 
+				" FROM reply , user WHERE reply.uid = user.uid AND reply.cid = " + cid;
+		return sql;
+	}
+	
+	/**
+	 * 根据关键词获取电影信息 SQL
+	 * 
+	 * @param keyword
+	 * @return
+	 */
+	public String selectSearchResult(String keyword) {
+		
+		String sql="SELECT * FROM movie WHERE CONCAT(\r\n" + 
+				"movie.mname, movie.mactor, movie.mwriter, movie.mtag, movie.mlanguage, movie.mdirect, movie.mcountry) REGEXP " + "'"+keyword+"'";
+		
+		return sql;
+	}
 	
 }

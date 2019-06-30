@@ -81,7 +81,7 @@ public class SakuraMovieController {
 		System.out.println("hot movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> hotMovies = sakuraMovieServiceId.getHotMovies();
 		PageInfo<Map<String, Object>> hotMoviePageInfo = new PageInfo<Map<String, Object>>(hotMovies);
@@ -105,7 +105,7 @@ public class SakuraMovieController {
 		System.out.println("New movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getNewMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -129,7 +129,7 @@ public class SakuraMovieController {
 		System.out.println("classic movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getClassicMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -153,7 +153,7 @@ public class SakuraMovieController {
 		System.out.println("palyable movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getPalyableMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -177,7 +177,7 @@ public class SakuraMovieController {
 		System.out.println("high score movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getHighScoreMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -201,7 +201,7 @@ public class SakuraMovieController {
 		System.out.println("dark house movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getDarkHorseMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -225,7 +225,7 @@ public class SakuraMovieController {
 		System.out.println("chinese movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getChineseMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -249,7 +249,7 @@ public class SakuraMovieController {
 		System.out.println("Korean movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getKoreanMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -273,7 +273,7 @@ public class SakuraMovieController {
 		System.out.println("EA movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getEuropeanAndAmericanMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -297,7 +297,7 @@ public class SakuraMovieController {
 		System.out.println("Japanese movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getJapaneseMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -321,7 +321,7 @@ public class SakuraMovieController {
 		System.out.println("Action movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getActionMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -345,7 +345,7 @@ public class SakuraMovieController {
 		System.out.println("Comedy movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getComedyMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -369,7 +369,7 @@ public class SakuraMovieController {
 		System.out.println("Love movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getLoveMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -393,7 +393,7 @@ public class SakuraMovieController {
 		System.out.println("SF movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getScienceFictionMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -417,7 +417,7 @@ public class SakuraMovieController {
 		System.out.println("cure movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getCartoonMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -441,7 +441,7 @@ public class SakuraMovieController {
 		System.out.println("Suspense movies page===" + page);
 
 		// 获取看过的电影
-		int pageSize = 4;
+		int pageSize = 12;
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> movies = sakuraMovieServiceId.getSuspenseMovies();
 		PageInfo<Map<String, Object>> moviesPageInfo = new PageInfo<Map<String, Object>>(movies);
@@ -476,26 +476,5 @@ public class SakuraMovieController {
 		return jsonMoviesPageInfo;
 	}
 
-//	/**
-//	 * 电影排行榜
-//	 * 
-//	 * @return
-//	 */
-//	@RequestMapping("movieRank")
-//	public ModelAndView movieRandk() {
-//		ModelAndView mv = new ModelAndView("movieRank");
-//
-//		return mv;
-//	}
-	
-	/**
-	 * 搜索
-	 * 
-	 * @return
-	 */
-	@RequestMapping("search")
-	public String search() {
-		return "search";
-	}
 
 }

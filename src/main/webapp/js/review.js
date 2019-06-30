@@ -4,95 +4,95 @@
 
 $(function(){
 	
-	/*------------------获取最受欢迎影评---------------------*/
-	$('#main-badge').click(function(){
-		console.log("点击所有最受欢迎影评");
-		
-		var requestUrl = "showPopuplarComment?page=1";
-//		alert("fasong数据");
-		
-		$.get(requestUrl,function(data,status){
-//		    alert("Data: " + data + "\nStatus: " + status);
-
-			// 将字符串数据转换为json数据
-			var info = JSON.parse(data);
-			console.log("000info" + info);
-			
-			//添加评论节点
-			 var comments = info.commentPageInfo.list;
-			 var commentReply = info.commentReplyCount;
-			 
-			 
-			// 找到item父节点 删除其子节点，然后追加新的子节点
-			 $(".review-items").empty();
-			 
-			 $.each(comments, function(key, value) { // 遍历json中的key和value
-				 console.log(value.ctitle);
-				 
-				 var item = '<div class="comment-item">\
-						<div class="media">\
-					<div class="media-left">\
-						<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank"\
-							style="width: 10rem"> <img class="media-object"\
-							src="'+value.img+'" alt="">\
-						</a>\
-					</div>\
-					<div class="media-body comment-info">\
-						<div id="review-meta">\
-							<a href="../index/userInfo?uid='+value.uid +'"><img src="'+value.uimg +'" alt=""></a> <a\
-								href="../index/userInfo?uid='+value.uid +'">'+value.username +'</a> <strong class="item-degree"\
-								title="推荐"> ' + value.cscore +' </strong>\
-							<p>'+toTime(value.cdate) +'</p>\
-						</div>\
-						<h4 class="media-heading">\
-							<a href="../review/reviewDetail?cid='+value.cid+'">'+value.ctitle +'</a>\
-						</h4>\
-						<p style="color: #666667;">'+value.content.substring(0,60)+'...\
-							<a href="../review/reviewDetail?cid='+value.cid+'" class="btn btn-link">全文</a>\
-						</p>\
-						<div class="action">\
-							<a href="#" title="有用">▲  '+value.clike + '</span></a> <a href="#"\
-								title="无用">▼ '+ value.cdislike +'</span></a> <a href="" class="reply"\
-								style="margin: 0 1rem;">'+commentReply[key]+'回复</a>\
-						</div>\
-					</div>\
-				</div>\
-			</div>';
-				$(".review-items").append(item);
-			 }); 
-
-			 var prePage = "";
-			 var nextPage = "";
-			 
-			//修改页码
-			 var infoPage = info.commentPageInfo;
-			 if(infoPage.hasPreviousPage){
-				 console.log('有前一页');
-				 prePage = '<li class="page-item page-link pre-page" \
-						value="showPopuplarComment?page='+infoPage.prePage+'" id="pre-page-comment">上页</li>';
-				 
-				 
-			 }else{
-				 prePage = '<li class="page-item disabled page-link pre-page " tabindex="-1">上页</li>';
-			 }
-			 
-			 var nowPage = '<li class="page-item page-link">'+infoPage.pageNum + '/' + infoPage.pages+'</li>';
-			 
-			 if(infoPage.hasNextPage){
-				 nextPage = '<li class="page-item page-link next-page" \
-						value="showPopuplarComment?page='+infoPage.nextPage+'" id="next-page-comment">下页</li>';
-				 console.log('有后一页');
-			 }else{
-				 nextPage = '<li class="page-item disabled page-link next-page " tabindex="-1">下页</li>';
-			 }
-			 
-			 $("#comments-pagination").empty();
-			 $("#comments-pagination").append(prePage);
-			 $("#comments-pagination").append(nowPage);
-			 $("#comments-pagination").append(nextPage);
-		    
-		  });
-	});
+//	/*------------------获取最受欢迎影评---------------------*/
+//	$('#main-badge').click(function(){
+//		console.log("点击所有最受欢迎影评");
+//		
+//		var requestUrl = "showPopuplarComment?page=1";
+////		alert("fasong数据");
+//		
+//		$.get(requestUrl,function(data,status){
+////		    alert("Data: " + data + "\nStatus: " + status);
+//
+//			// 将字符串数据转换为json数据
+//			var info = JSON.parse(data);
+//			console.log("000info" + info);
+//			
+//			//添加评论节点
+//			 var comments = info.commentPageInfo.list;
+//			 var commentReply = info.commentReplyCount;
+//			 
+//			 
+//			// 找到item父节点 删除其子节点，然后追加新的子节点
+//			 $(".review-items").empty();
+//			 
+//			 $.each(comments, function(key, value) { // 遍历json中的key和value
+//				 console.log(value.ctitle);
+//				 
+//				 var item = '<div class="comment-item">\
+//						<div class="media">\
+//					<div class="media-left">\
+//						<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank"\
+//							style="width: 10rem"> <img class="media-object"\
+//							src="'+value.img+'" alt="">\
+//						</a>\
+//					</div>\
+//					<div class="media-body comment-info">\
+//						<div id="review-meta">\
+//							<a href="../index/userInfo?uid='+value.uid +'"><img src="'+value.uimg +'" alt=""></a> <a\
+//								href="../index/userInfo?uid='+value.uid +'">'+value.username +'</a> <strong class="item-degree"\
+//								title="推荐"> ' + value.cscore +' </strong>\
+//							<p>'+toTime(value.cdate) +'</p>\
+//						</div>\
+//						<h4 class="media-heading">\
+//							<a href="../review/reviewDetail?cid='+value.cid+'">'+value.ctitle +'</a>\
+//						</h4>\
+//						<p style="color: #666667;">'+value.content.substring(0,60)+'...\
+//							<a href="../review/reviewDetail?cid='+value.cid+'" class="btn btn-link">全文</a>\
+//						</p>\
+//						<div class="action">\
+//							<a href="#" title="有用">▲  '+value.clike + '</span></a> <a href="#"\
+//								title="无用">▼ '+ value.cdislike +'</span></a> <a href="" class="reply"\
+//								style="margin: 0 1rem;">'+commentReply[key]+'回复</a>\
+//						</div>\
+//					</div>\
+//				</div>\
+//			</div>';
+//				$(".review-items").append(item);
+//			 }); 
+//
+//			 var prePage = "";
+//			 var nextPage = "";
+//			 
+//			//修改页码
+//			 var infoPage = info.commentPageInfo;
+//			 if(infoPage.hasPreviousPage){
+//				 console.log('有前一页');
+//				 prePage = '<li class="page-item page-link pre-page" \
+//						value="showPopuplarComment?page='+infoPage.prePage+'" id="pre-page-comment">上页</li>';
+//				 
+//				 
+//			 }else{
+//				 prePage = '<li class="page-item disabled page-link pre-page " tabindex="-1">上页</li>';
+//			 }
+//			 
+//			 var nowPage = '<li class="page-item page-link">'+infoPage.pageNum + '/' + infoPage.pages+'</li>';
+//			 
+//			 if(infoPage.hasNextPage){
+//				 nextPage = '<li class="page-item page-link next-page" \
+//						value="showPopuplarComment?page='+infoPage.nextPage+'" id="next-page-comment">下页</li>';
+//				 console.log('有后一页');
+//			 }else{
+//				 nextPage = '<li class="page-item disabled page-link next-page " tabindex="-1">下页</li>';
+//			 }
+//			 
+//			 $("#comments-pagination").empty();
+//			 $("#comments-pagination").append(prePage);
+//			 $("#comments-pagination").append(nowPage);
+//			 $("#comments-pagination").append(nextPage);
+//		    
+//		  });
+//	});
 	
 	/*------------------获取最受欢迎影评---------------------*/
 	$('#main-badge').click(function(){

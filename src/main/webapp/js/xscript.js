@@ -215,7 +215,7 @@ $(document).ready(function() {
 		});
 	});
 
-	//热门影评
+	//主页-------热门影评
 	$("#indexHotComment").on("click",function(){
 		$.ajax({
 			url : "showHotComment",
@@ -223,26 +223,34 @@ $(document).ready(function() {
 	        dataType: 'json', 
 	        data: { },
 			success : function(data) {
+				
+				
+//				var info = JSON.parse(data);
+				var movies = data.commentMovie;
+				var users = data.commentUser;
+				var comments = data.comments;
+				
+				
 				$("#comments").empty();//清空
 				// 将字符串数据转换为json数据
-				 $.each(data, function(key, value) { // 遍历json中的key和value
+				 $.each(comments, function(key, value) { // 遍历json中的key和value
 					 console.log(value.mid);
-					 var content = value.content.substring(100);
 					 var item = '<div class="comment-item">'+
 					 				'<div class="media">'+
 					 					'<div class="media-left">'+
-					 						'<a href="#" class="comment-cover " target="_blank" style="width: 10rem">'+
-					 							'<img class="media-object" src="'+value.img+'" alt=""></a>'+
+					 						'<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank" style="width: 10rem">'+
+					 							'<img class="media-object" src="'+movies[key].img+'" alt=""></a>'+
 					 					'</div>'+
 					 				'<div class="media-body comment-info">'+
 					 					'<h4 class="media-heading">'+
-					 					 '<a href="../review/reviewDetail?mname='+value.mname+ '&cid='+value.cid+ '">'+value.ctitle+'</a>'+
+					 					 '<a href="../review/reviewDetail?cid='+value.comcid+ '">'+value.ctitle+'</a>'+
 					 					 '</h4>'+
 					 				'<div id="review-meta">'+
-					 					'<a href="#">'+value.username+'</a> &nbsp;评论&nbsp; <a href="#">'+value.mname+'</a>'+
+					 					'<a href="../index/userInfo?uid='+value.comuid+'">'+users[key].username+'</a> &nbsp;评论&nbsp; \
+					 					<a href="../movie/movieDetail?mid='+value.mid+'">'+movies[key].mname+'</a>'+
 					 					'<strong class="item-degree">'+value.cscore+'</strong>'+
 					 				'</div>'+
-					 				'<p style="color: #666667;">'+content+
+					 				'<p style="color: #666667;">'+value.content.substring(0,60)+
 					 					'<a href="#" class="btn btn-link">全文</a>'+
 					 				'</p>'+
 					 			'</div>'+
@@ -252,40 +260,43 @@ $(document).ready(function() {
 				 }); 
 
 			},error : function(errordata) {
-				console.log(errordata);
 				console.log(errordata);
 			}
 		});
 	});
 	
-	//新片影评
+	//----主页---新片影评
 	$("#indexNewComment").on("click",function(){
 		$.ajax({
-			url : "showDateComment",
+			url : "showIndexNewComment",
 			type : "post",
 	        dataType: 'json', 
 	        data: { },
 			success : function(data) {
+				
+				var movies = data.commentMovie;
+				var users = data.commentUser;
+				var comments = data.comments;
+				
 				$("#comments").empty();//清空
 				// 将字符串数据转换为json数据
 				 $.each(data, function(key, value) { // 遍历json中的key和value
-					 var content = value.content.substring(100);
 					 var item = '<div class="comment-item">'+
 					 				'<div class="media">'+
 					 					'<div class="media-left">'+
-					 						'<a href="#" class="comment-cover " target="_blank" style="width: 10rem">'+
+					 						'<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank" style="width: 10rem">'+
 					 							'<img class="media-object" src="'+value.img+'" alt=""></a>'+
 					 					'</div>'+
 					 				'<div class="media-body comment-info">'+
 					 					'<h4 class="media-heading">'+
-					 					 '<a href="../review/reviewDetail?mname='+value.mname+ '&cid='+value.cid+ '">'+value.ctitle+'</a>'+
+					 					 '<a href="../review/reviewDetail?cid='+value.cid+ '">'+value.ctitle+'</a>'+
 					 					 '</h4>'+
 					 				'<div id="review-meta">'+
-					 					'<a href="#">'+value.username+'</a> &nbsp;评论&nbsp; <a href="#">'+value.mname+'</a>'+
-					 					'<strong class="item-degree">'+value.cscore+'</strong>'+
+					 					'<a href="../index/userInfo?uid='+value.uid+'">'+value.username+'</a> &nbsp;评论&nbsp; <a href="#">'+value.mname+'</a>'+
+					 					'<strong class="item-degree">'+ value.cscore+'</strong>'+
 					 				'</div>'+
-					 				'<p style="color: #666667;">'+content+
-					 					'<a href="#" class="btn btn-link">全文</a>'+
+					 				'<p style="color: #666667;">'+value.content.substring(0,60)+
+					 					'...<a href="../review/reviewDetail?cid='+value.cid+ '" class="btn btn-link">全文</a>'+
 					 				'</p>'+
 					 			'</div>'+
 					 			'</div>'+
@@ -294,7 +305,6 @@ $(document).ready(function() {
 				 }); 
 
 			},error : function(errordata) {
-				console.log(errordata);
 				console.log(errordata);
 			}
 		});
@@ -393,7 +403,7 @@ $(document).ready(function() {
 		});
 	});
 
-	//经典排行榜10
+	//-----排行榜---经典排行榜10
 	$("#classicsRank").on("click",function(){
 		$.ajax({
 			url : "classicsRankMovies",
@@ -437,8 +447,8 @@ $(document).ready(function() {
 		});
 	});
 	
-	//新片排行榜
-	$("#NewRank").on("click",function(){
+	//---排行榜----新片排行榜 新片排行---
+ 	$("#NewRank").on("click",function(){
 		$.ajax({
 			url : "newRankMovies",
 			type : "post",

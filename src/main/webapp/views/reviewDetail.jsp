@@ -22,6 +22,7 @@
 <script src="../js/jquery-ui.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/script.js"></script>
+<script src="../js/reviewDetail.js"></script>
 
 </head>
 <body>
@@ -47,9 +48,9 @@
 						href="../review/Review">影评<span class="sr-only">(current)</span></a></li>
 
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
+						placeholder="Search" aria-label="Search" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
@@ -64,9 +65,10 @@
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> ${user.username } </a>
+							aria-expanded="false"> ${userLogin.username } </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<a class="dropdown-item"
+									href="../index/userInfo?uid=${userLogin.uid }">个人中心</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../index/logout">退出</a>
 							</div></li>
@@ -82,50 +84,114 @@
 		<div id="review-card" class="container">
 			<div class="card">
 				<div class="card-header">
-					<h3>不会被遗忘的时光</h3>
+					<h3 id="commentId" value=${comment.cid }>${comment.ctitle }</h3>
 				</div>
 				<div class="card-body">
 					<div id="review-meta">
-						<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a> <a
-							href="#">可惜没如果</a> &nbsp;评论&nbsp; <a href="#">《小森林》</a> <strong
-							class="item-degree" title="推荐">8.9</strong>
-						<p>2018-09-23 12:22:22</p>
+						<a href="../index/userInfo?uid=${userPost.uid }"><img
+							src="${userPost.uimg }" alt=""></a> <a
+							href="../index/userInfo?uid=${userPost.uid }" id="touidUrl">${userPost.username }</a>
+						&nbsp;评论&nbsp; <a href="../movie/movieDetail?mid=${movie.mid }">${ movie.mname}</a>
+						<strong class="item-degree" title="推荐">${comment.cscore }</strong>
+						<p>${comment.cdate }</p>
 					</div>
 
 					<blockquote class="review-content">
-						<p style="color: #666667;">
-							托尼（维果·莫腾森 Viggo Mortensen
-							饰）是一个吊儿郎当游手好闲的混混，在一家夜总会做侍者。这间夜总会因故要停业几个月，可托尼所要支付的房租和生活费不会因此取消，所以他的当务之急是去寻找另一份工作来填补这几个月的空缺。在这个节骨眼上，一位名叫唐雪莉（马赫沙拉·阿里
-							Mahershala Ali 饰）的黑人钢琴家提出雇佣托尼。 <br>
-							唐雪莉即将开始为期八个星期的南下巡回演出，可是，那个时候南方对黑人的歧视非常的严重，于是托尼便成为了唐雪莉的司机兼保镖。一路上，两人迥异的性格使得他们之间产生了很多的矛盾，与此同时，唐雪莉在南方所遭受的种种不公平的对待也让托尼对种族歧视感到深恶痛绝。
-						</p>
+						<p style="color: #666667;">${comment.content }</p>
 						<footer class="blockquote-footer">
 							源自<cite title="Source Title">想看电影</cite>
 						</footer>
 					</blockquote>
-					<div class="review-response">
-						<button type="button" class="btn btn-outline-dark" id="thumb-up">
-							<img src="../img/open-iconic-master/thumb-up-3x.png" alt="">
-							有用 <span>36</span>
-						</button>
-						<button type="button" class="btn btn-outline-dark" id="thumb-down">
-							<img src="../img/open-iconic-master/thumb-down-3x.png" alt="">
-							没用 <span>1</span>
-						</button>
+
+					<div class="review-response" id="likeId">
+
+						<!-- 若是用户没有登录 -->
+						<c:if test="${empty isLike}">
+							<button type="button" class="btn btn-outline-dark" id="thumb-up"
+								value="0">
+								<img src="../img/open-iconic-master/thumb-up-3x.png" alt="">
+								有用 <span>${comment.clike }</span>
+							</button>
+
+							<button type="button" class="btn btn-outline-dark"
+								id="thumb-down" value="0">
+								<img src="../img/open-iconic-master/thumb-down-3x.png" alt="">
+								没用 <span>${comment.cdislike }</span>
+							</button>
+						</c:if>
+
+						<c:if test="${!empty isLike }">
+							<!-- 该用户踩了影评 -->
+							<c:if test="${isLike == 0 }">
+								<button type="button" class="btn btn-outline-dark" id="thumb-up"
+									value="10">
+									<img src="../img/open-iconic-master/thumb-up-3x.png" alt="">
+									有用 <span>${comment.clike }</span>
+								</button>
+
+								<!-- 修改踩的样式 -->
+								<button type="button" class="btn btn-dark" id="thumb-down"
+									value="01">
+									<img src="../img/open-iconic-master/thumb-down-white-3x.png"
+										alt=""> 没用 <span>${comment.cdislike }</span>
+								</button>
+							</c:if>
+
+							<!-- 该用户赞了该影评 -->
+							<c:if test="${isLike == 1 }">
+								<!-- 修改赞的样式 -->
+								<button type="button" class="btn btn-dark" id="thumb-up"
+									value="11">
+									<img src="../img/open-iconic-master/thumb-up-white-3x.png"
+										alt=""> 有用 <span>${comment.clike }</span>
+								</button>
+
+								<button type="button" class="btn btn-outline-dark"
+									id="thumb-down" value="00">
+									<img src="../img/open-iconic-master/thumb-down-3x.png" alt="">
+									没用 <span>${comment.cdislike }</span>
+								</button>
+							</c:if>
+
+							<!-- 既没有踩也没有赞 -->
+							<c:if test="${isLike == -1 }">
+								<button type="button" class="btn btn-outline-dark" id="thumb-up"
+									value="10">
+									<img src="../img/open-iconic-master/thumb-up-3x.png" alt="">
+									有用 <span>${comment.clike }</span>
+								</button>
+
+								<button type="button" class="btn btn-outline-dark"
+									id="thumb-down" value="00">
+									<img src="../img/open-iconic-master/thumb-down-3x.png" alt="">
+									没用 <span>${comment.cdislike }</span>
+								</button>
+							</c:if>
+
+
+						</c:if>
+
 						<hr>
 					</div>
-					<div id="review-action">
-						<button type="button" class="btn btn-outline-dark favorites">
-							收藏 <span>178</span>
-						</button>
-						<button type="button" class="btn btn-dark isfavorites">
-							已收藏 <span>178</span>
-						</button>
+
+					<div id="review-action" class="stroupId">
 						<button type="button" class="btn btn-outline-dark report"
 							data-toggle="modal" data-target="#reportModal">举报</button>
+
+						<c:if test="${isStoreup==false }">
+							<button type="button" class="btn btn-outline-dark favorites">
+								收藏 <span>${storeCount }</span>
+							</button>
+						</c:if>
+
+						<c:if test="${isStoreup==true }">
+							<button type="button" class="btn btn-dark isfavorites">
+								已收藏 <span>${storeCount }</span>
+							</button>
+						</c:if>
+
+
 					</div>
-
-
 
 				</div>
 			</div>
@@ -147,32 +213,33 @@
 						<div id="report_value">
 							<ul>
 								<li><label for=""><input type="radio" name="reason"
-										value='0'>广告或垃圾信息</label></li>
+										value='广告或垃圾信息'>广告或垃圾信息</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='1'> 低俗或色情 </label></li>
+										value='低俗或色情 '> 低俗或色情 </label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='2'>违反相关法律法规或管理规定</label></li>
+										value='违反相关法律法规或管理规定'>违反相关法律法规或管理规定</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='3'> 未经授权的下载资源</label></li>
+										value='未经授权的下载资源'> 未经授权的下载资源</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='4'> 辱骂或不友善 </label></li>
+										value='辱骂或不友善 '> 辱骂或不友善 </label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='5'>引战或过于偏激的主观判断</label></li>
+										value='引战或过于偏激的主观判断'>引战或过于偏激的主观判断</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='6'> 泄露他人隐私</label></li>
+										value='泄露他人隐私'> 泄露他人隐私</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='7'> 影响评分公正性</label></li>
+										value='影响评分公正性'> 影响评分公正性</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='8'> 与作品或讨论区主题无关</label></li>
+										value='与作品或讨论区主题无关'> 与作品或讨论区主题无关</label></li>
 								<li><label for=""><input type="radio" name="reason"
-										value='9'> 其他原因</label></li>
+										value='其他原因'> 其他原因</label></li>
 							</ul>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-dark" data-dismiss="modal">举报</button>
+						<button type="button" class="btn btn-dark" data-dismiss="modal"
+							id="comment-report">举报</button>
 					</div>
 				</div>
 			</div>
@@ -186,33 +253,38 @@
 					<h5>回复</h5>
 				</div>
 				<div class="card-body">
-					<div class="review-comment">
-						<div class="comment_meta">
-							<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
-							<a href="#">可惜没如果</a> <span>2018-09-23 12:22:22</span>
+					<c:forEach items="${replyToComment}" var="item">
+						<div class="review-comment">
+							<div class="comment_meta">
+								<a href="../index/userInfo?uid=${item.uid }"><img src="${item.uimg }" alt="" style="width: 50px; height: 50px;"></a>
+								<a href="../index.userInfo?uid=${item.uid }">${item.username }</a> <span>${item.rdate }</span>
+							</div>
+							<blockquote class="comment_content" style="color: #666667;">
+								<span>${item.rcontent }</span>
+							</blockquote>
+
+							<div class="comment_action">
+								<span class="response-btn">回应</span> <span data-toggle="modal"
+									data-target="#reportModal">举报</span>
+							</div>
+
+							<div class="reply-editor">
+								<form>
+									<div class="form-input-wrapper">
+										<input type="text" placeholder="回应@可惜没如果">
+										<button type="button" class="btn btn-dark reply-btn">添加回复</button>
+										<button type="button" class="btn btn-dark cancel-btn">取消</button>
+									</div>
+								</form>
+
+							</div>
 						</div>
-						<blockquote class="comment_content" style="color: #666667;">
-							<span>赞楼主，不容易</span>
-						</blockquote>
 
-						<div class="comment_action">
-							<span class="response-btn">回应</span> <span data-toggle="modal"
-								data-target="#reportModal">举报</span>
-						</div>
+					</c:forEach>
 
-						<div class="reply-editor">
-							<form>
-								<div class="form-input-wrapper">
-									<input type="text" placeholder="回应@可惜没如果">
-									<button type="button" class="btn btn-dark reply-btn">添加回复</button>
-									<button type="button" class="btn btn-dark cancel-btn">取消</button>
-								</div>
-							</form>
 
-						</div>
 
-					</div>
-
+					<!--   
 					<div class="comment_reply">
 						<div class="reply_meta">
 							<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
@@ -238,50 +310,56 @@
 
 						</div>
 					</div>
+					-->
+					
 				</div>
+				
 			</div>
-		</div>
+</div>
+ 
+					<div id="add-comment-card" class="container">
+						<div class="card">
+							<div class="card-header">
+								<h5>添加回复</h5>
+							</div>
+							<div class="card-body clearfix">
 
+								<div class="comment_user_avatar">
+									<c:if test="${isLogin == true }">
+										<a href="../index/userInfo?uid=${userLogin.uid }"><img
+											src="${userLogin.uimg }" alt="用户头像"
+											style="width: 50px; height: 50px;"></a>
+									</c:if>
+									<c:if test="${isLogin == false }">
+										<a href="#"><img src="../img/u163694915-1.jpg" alt="默认头像"></a>
+									</c:if>
+								</div>
 
-		<div id="add-comment-card" class="container">
-			<div class="card">
-				<div class="card-header">
-					<h5>添加回复</h5>
-				</div>
-				<div class="card-body clearfix">
+								<textarea name="comment-text" id="comment-text" cols="30"
+									rows="6" placeholder="添加回复"></textarea>
 
-					<div class="comment_user_avatar">
-						<a href="#"><img src="../img/u163694915-1.jpg" alt=""></a>
+								<button type="button" class="btn btn-dark add-comment-btn"
+									id="addReply">添加</button>
+							</div>
+
+						</div>
 					</div>
-					<textarea name="comment-text" id="comment-text" cols="30" rows="6"
-						placeholder="添加回复"></textarea>
 
-					<button type="button" class="btn btn-dark add-comment-btn">添加</button>
+
 				</div>
 
-			</div>
-		</div>
+
+				<div id="footer">
+					<div class="my-hr">
+						<div id="copyright" class="h-center v-center">
+							<p>想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
+						</div>
+					</div>
+				</div>
 
 
-
-
-
-		<!-- <div class="my-hr" >
-			
-		</div> -->
-	</div>
-	<div id="footer">
-		<div class="my-hr">
-			<div id="copyright" class="h-center v-center">
-				<p>想看电影 &copy;第七小组： 夏靖雯 胡小东 胡新倩 王一凡 邓雯 王琴</p>
-			</div>
-		</div>
-	</div>
-
-
-	<script type="text/javascript">
-		
-	</script>
-
+				<script type="text/javascript">
+					
+				</script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <body>
 	<div id="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">想看电影</a>
+			<a class="navbar-brand" href="../index/index">想看电影</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,33 +32,42 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#">主页<span
 							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="../smovie/selectMovie">选电影</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Rank/NewRank">排行榜</a></li>
-					<li class="nav-item"><a class="nav-link" href="../review/Review">影评</a></li>
-
+					<li class="nav-item"><a class="nav-link"
+						href="../smovie/selectMovie">选电影</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../Rank/NewRank">排行榜</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../review/Review">影评</a></li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+
+				<form class="form-inline my-2 my-lg-0" action="../index/search"
+					method="post">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
+						placeholder="Search" aria-label="Search" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
 				<ul class="navbar-nav">
-					<!-- <li class="nav-item" id="regist-login">
-	        		<a class="nav-link" href="#">注册/登录</a>
-	     		</li> -->
-					<li class="nav-item dropdown" id="user-drop"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> 用户名 </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="userInfo">个人中心</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">退出</a>
-						</div></li>
+					<c:if test="${isLogin == false}">
+						<li class="nav-item" id="regist-login"><a class="nav-link"
+							href="../index/login">注册/登录</a></li>
+					</c:if>
+
+					<c:if test="${isLogin == true }">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> ${user.username } </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="../index/userInfo">个人中心</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../index/logout">退出</a>
+							</div></li>
+					</c:if>
 				</ul>
 			</div>
 		</nav>
@@ -74,7 +83,8 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="../img/lunbo01.jpg" alt="First slide">
+					<img class="d-block w-100" src="../img/lunbo01.jpg"
+						alt="First slide">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second Thumbnail label</h5>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -83,7 +93,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="../img/lunbo02.jpg" alt="Second slide">
+					<img class="d-block w-100" src="../img/lunbo02.jpg"
+						alt="Second slide">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second Thumbnail label</h5>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -92,7 +103,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="../img/lunbo03.jpg" alt="Third slide">
+					<img class="d-block w-100" src="../img/lunbo04.jpg"
+						alt="Third slide">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second Thumbnail label</h5>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -101,7 +113,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="../img/lunbo05.jpg" alt="Third slide">
+					<img class="d-block w-100" src="../img/lunbo05.jpg"
+						alt="Third slide">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second Thumbnail label</h5>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -125,36 +138,33 @@
 				<ul class="clearfix">
 					<li><span class="badge badge-dark" id="main-badge">最近热门电影</span>
 					</li>
-					<li><span class="badge badge-yellow" id="block-hot">
-					热门 <input
-							type="radio" name="tag" value="热门" class="tag">
+					<li><span class="badge badge-yellow" id="block-hot"> 热门
+							<input type="radio" name="tag" value="热门" class="tag">
 					</span></li>
 
 					<li><span class="badge badge-yellow" id="block-date">
-					最新 <input
-							type="radio" name="tag" value="最新" class="tag">
+							最新 <input type="radio" name="tag" value="最新" class="tag">
 					</span></li>
 
 					<li><span class="badge badge-yellow" id="block-score">
-					高分 <input
-							type="radio" name="tag" value="豆瓣高分" class="tag">
+							高分 <input type="radio" name="tag" value="豆瓣高分" class="tag">
 					</span></li>
 					<li><span class="badge badge-yellow" id="block-cold">
-					冷门佳片 <input
-							type="radio" name="tag" value="冷门佳片" class="tag">
+							冷门佳片 <input type="radio" name="tag" value="冷门佳片" class="tag">
 					</span></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="my-hr">
-			<a href="#">或许你想看更多？</a>
+			<a href="../smovie/selectMovie">或许你想看更多？</a>
 		</div>
 		<div id="hot-movie-content">
 			<div id="hot-movies">
 				<div class="clearfix" id="newDate-movies-items">
 					<c:forEach items="${moviesNewDate}" var="movie" varStatus="k">
-						<a href="../movie/movieDetail?mid=${movie.mid }" class="movie-item" target="_blank">
+						<a href="../movie/movieDetail?mid=${movie.mid }"
+							class="movie-item" target="_blank">
 							<div class="card" style="width: 12rem;">
 								<img class="card-img-top" src="${movie.img }"
 									alt="Card image cap">
@@ -167,25 +177,28 @@
 								<h4>${movie.mname }</h4>
 								<strong class="item-degree card-text">${movie.mscore}</strong>
 								<div class="item-tags">
-									<span class="item-tag">${movie.mlong}</span> 
+									<span class="item-tag">${movie.mlong}</span>
 									<c:forEach items="${tagsList[k.index] }" var="tag">
-									<span class="item-tag">${tag}</span>
+										<span class="item-tag">${tag}</span>
 									</c:forEach>
 									<c:forEach items="${directList[k.index] }" var="direct">
-									<span class="item-tag">${direct}</span>
+										<span class="item-tag">${direct}</span>
 									</c:forEach>
-									
+
 								</div>
+								<!-- 
 								<hr>
 								<div class="isWatched">
 									<span class="item-tag"
 										style="background-color: #212529; color: white;">想看</span>
 								</div>
+								 -->
+
 							</div>
 						</a>
 					</c:forEach>
 				</div>
-			</div>			
+			</div>
 		</div>
 
 		<!-- ********************************************************************** -->
@@ -200,15 +213,13 @@
 					<li><span class="badge badge-dark" id="main-badge">最受欢迎的</span>
 					</li>
 					<li><span class="badge badge-yellow" id="indexHotComment">
-					热门影评 <input
-							type="radio" name="tag" value="热门" class="tag">
+							热门影评 <input type="radio" name="tag" value="热门" class="tag">
 					</span></li>
 
 					<li><span class="badge badge-yellow" id="indexNewComment">
-					新片影评 <input
-							type="radio" name="tag" value="最新" class="tag">
+							新片影评 <input type="radio" name="tag" value="最新" class="tag">
 					</span></li>
-					<li id="more-link" class="v-center"><a href="#"
+					<li id="more-link" class="v-center"><a href="../review/Review"
 						style="color: black" class="v-center">或许你想看更多？>></a></li>
 
 				</ul>
@@ -218,34 +229,35 @@
 		<div class="my-hr"></div>
 
 		<div id="comments-content">
-			<div id="comments" >
+			<div id="comments">
 				<c:forEach items="${commentLikes}" var="like">
-			
-				<div class="comment-item">
-					<div class="media">
-						<div class="media-left">
-							<a href="#" class="comment-cover " target="_blank"
-								style="width: 10rem"> <img class="media-object" src="${like.img }" alt="">
-							</a>
-						</div>
-						<div class="media-body comment-info">
 
-							<h4 class="media-heading">
-								<a href="../review/reviewDetail?mname=${like.mname }&cid=${like.cid }">${like.ctitle }</a>
-							</h4>
-							<div id="review-meta">
-								<a href="#">${like.username }</a> &nbsp;评论&nbsp; <a href="#">${like.mname }</a> <strong
-									class="item-degree">${like.cscore }</strong>
+					<div class="comment-item">
+						<div class="media">
+							<div class="media-left">
+								<a href="../movie/movieDetail?mid=${like.mid }"
+									class="comment-cover " target="_blank" style="width: 10rem">
+									<img class="media-object" src="${like.img }" alt="">
+								</a>
 							</div>
-							<p style="color: #666667;">
-								${fn:substring(like.content, 0, 100)}
-								<a href="#" class="btn btn-link">全文</a>
-							</p>
+							<div class="media-body comment-info">
+
+								<h4 class="media-heading">
+									<a href="../review/reviewDetail?cid=${like.cid }">${like.ctitle }</a>
+								</h4>
+								<div id="review-meta">
+									<a href="../index/userInfo?uid=${like.uid }">${like.username }</a>
+									&nbsp;评论&nbsp; <a href="../movie/movieDetail?mid=${like.mid }">${like.mname }</a>
+									<strong class="item-degree">${like.cscore }</strong>
+								</div>
+								<p style="color: #666667;">
+									${fn:substring(like.content, 0, 60)}... <a
+										href="../review/reviewDetail?cid=${like.cid }"
+										class="btn btn-link">全文</a>
+								</p>
+							</div>
 						</div>
 					</div>
-
-
-				</div>
 				</c:forEach>
 			</div>
 		</div>

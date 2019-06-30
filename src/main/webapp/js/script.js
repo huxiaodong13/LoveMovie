@@ -24,80 +24,27 @@ $(function(){
 
 	// 点赞
 	$('.review-response .btn-outline-dark').mouseover(function () {
-		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-up-3x.png'){
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-up-white-3x.png')
+		if($(this).find('img').attr('src') == '../img/open-iconic-master/thumb-up-3x.png'){
+			$(this).find('img').attr('src','../img/open-iconic-master/thumb-up-white-3x.png')
 		}
-		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-down-3x.png'){
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-down-white-3x.png')
+		if($(this).find('img').attr('src') == '../img/open-iconic-master/thumb-down-3x.png'){
+			$(this).find('img').attr('src','../img/open-iconic-master/thumb-down-white-3x.png')
 		}
 	});
 
 	$('.review-response .btn-outline-dark').mouseleave(function () {
-		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-up-white-3x.png'){
+		if($(this).find('img').attr('src') == '../img/open-iconic-master/thumb-up-white-3x.png'){
 			if ($('#thumb-up').attr('class') == 'btn btn-outline-dark') {
-				$(this).find('img').attr('src','img/open-iconic-master/thumb-up-3x.png')
+				$(this).find('img').attr('src','../img/open-iconic-master/thumb-up-3x.png')
 			}
 			
 		}
-		if($(this).find('img').attr('src') == 'img/open-iconic-master/thumb-down-white-3x.png'){
+		if($(this).find('img').attr('src') == '../img/open-iconic-master/thumb-down-white-3x.png'){
 			if ($('#thumb-down').attr('class') == 'btn btn-outline-dark') {
-				$(this).find('img').attr('src','img/open-iconic-master/thumb-down-3x.png')
+				$(this).find('img').attr('src','../img/open-iconic-master/thumb-down-3x.png')
 			}
 		}
 	});
-
-	$('#thumb-up').click(function () {
-		if ($(this).attr('class') == 'btn btn-outline-dark') {
-			$(this).removeClass('btn-outline-dark');
-			$(this).addClass('btn-dark');
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-up-white-3x.png')
-			var count = $(this).find('span').text();
-			count = parseInt(count)+1;
-			$(this).find('span').text(count);
-		}else{
-			$(this).removeClass('btn-dark');
-			$(this).addClass('btn-outline-dark');
-			var count = $(this).find('span').text();
-			count = parseInt(count)-1;
-			$(this).find('span').text(count);
-		}
-		if($("#thumb-down").attr('class') == 'btn btn-dark'){
-			$("#thumb-down").removeClass('btn-dark');
-			$("#thumb-down").addClass('btn-outline-dark');
-			$("#thumb-down").find('img').attr('src','img/open-iconic-master/thumb-down-3x.png')
-			var count = $("#thumb-down").find('span').text();
-			count = parseInt(count)-1;
-			$("#thumb-down").find('span').text(count);
-		}	
-	});
-
-
-
-	$('#thumb-down').click(function () {
-		if ($(this).attr('class') == 'btn btn-outline-dark') {
-			$(this).removeClass('btn-outline-dark');
-			$(this).addClass('btn-dark');
-			$(this).find('img').attr('src','img/open-iconic-master/thumb-down-white-3x.png')
-			var count = $(this).find('span').text();
-			count = parseInt(count)+1;
-			$(this).find('span').text(count);
-		}else{
-			$(this).removeClass('btn-dark');
-			$(this).addClass('btn-outline-dark');
-			var count = $(this).find('span').text();
-			count = parseInt(count)-1;
-			$(this).find('span').text(count);
-		}
-		if($("#thumb-up").attr('class') == 'btn btn-dark'){
-			$("#thumb-up").removeClass('btn-dark');
-			$("#thumb-up").addClass('btn-outline-dark');
-			$("#thumb-up").find('img').attr('src','img/open-iconic-master/thumb-up-3x.png')
-			var count = $("#thumb-up").find('span').text();
-			count = parseInt(count)-1;
-			$("#thumb-up").find('span').text(count);
-		}
-	});
-
 
 	$('.review-comment').mouseover(function () {
 		$(this).find('.comment_action').css('visibility','visible');
@@ -152,26 +99,6 @@ $(function(){
 	});
 
 	
-	
-	// 收藏电影
-
-	$('.favorites').click(function () {
-		$(this).hide();
-		var count = $(this).find('span').text();
-		count = parseInt(count)+1;
-		$('.isfavorites').find('span').text(count);	
-		$('.isfavorites').show();	
-	});
-
-	$('.isfavorites').click(function () {
-		$(this).hide();
-		var count = $(this).find('span').text();
-		count = parseInt(count)-1;
-		$('.favorites').find('span').text(count);	
-		$('.favorites').show();	
-	});
-
-
 	//设置最大值
     ScrollBar.maxValue = 100;
     //初始化

@@ -1,0 +1,101 @@
+.self-introduce {
+    width: 50px;
+    line-height: 100%;
+}
+/* 顶部加关注按钮 */
+.attention {
+    height: 45px;
+    width: 60px;
+    float: left;
+    margin-left: 300px;
+}
+/* 顶部用户关注数与粉丝数 */
+.fans {
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: white;
+}
+label:hover {
+    color: #F8EA21;
+}
+/* 看过的电影 想看的电影 参与的评论 */
+.clicked{
+    background-color: grey;
+    color: white;
+}
+
+.saw {
+    margin-top: 10px;
+}
+.plan {
+    margin-top: 10px;
+}
+#comments-content {
+    padding-top: 5px;
+}
+/* 关注页面 */
+.center-bottom-attention {
+    display: none;
+    padding: 10px;
+}
+/* 粉丝页面 */
+.center-bottom-fans {
+    display: none;
+    padding: 10px;
+}
+/*关注与粉丝列表项*/
+.list {
+    height: 80px;
+    width: 800px;
+    margin-left: 18px;
+    margin-top: 15px;
+    border-bottom: 1px solid white;
+}
+.list-avatar {
+    height: 80px;
+    width: 80px;
+    float: left;
+}
+.list-img {
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+}
+.list-username {
+    height: 60px;
+    width: 150px;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    overflow: hidden;
+}
+.list-brief {
+    height: 30px;
+    width: 500px;
+    margin-left: 10px;
+    margin-top: 7px;
+    line-height: 30px;
+    float: left;
+    overflow: hidden;
+    color: white;
+}
+.list-fans {
+    width: 170px;
+    margin-left: 12px;
+    margin-top: 7px;
+    float: left;
+}
+/*取消与关注按钮*/
+.list-attention {
+    font-size: 8px;
+    line-height: 10px;
+    margin-top: 10px;
+}
+.list-not-attention {
+    font-size: 8px;
+    line-height: 10px;
+    margin-top: 10px;
+}

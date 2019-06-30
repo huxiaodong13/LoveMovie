@@ -107,7 +107,7 @@ $(document).ready(function() {
 				 $.each(movies, function(key, value) { // 遍历json中的key和value
 					 console.log(value.mactor);
 					 
-					 var item = '<a href="#" class="movie-item" target="_blank"\
+					 var item = '<a href="../movie/movieDetail?mid='+value.mid+'" class="movie-item" target="_blank"\
 									style="margin-left: 5px;">\
 									<div class="card" style="width: 10rem;">\
 										<img class="card-img-top" src="'+value.img+'"\
@@ -140,22 +140,18 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-sm"\
-								value='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-sm" value='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页/li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-sm"\
-								value='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-sm" value='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" tabindex="-1">下页/li>';
 				 }
 				 
 				 $("#seen-movie-pagination").empty();
@@ -193,7 +189,7 @@ $(document).ready(function() {
 				 $.each(movies, function(key, value) { // 遍历json中的key和value
 					 console.log(value.mactor);
 					 
-					 var item = '<a href="#" class="movie-item" target="_blank"\
+					 var item = '<a href="../movie/movieDetail?mid='+value.mid+'" class="movie-item" target="_blank"\
 									style="margin-left: 5px;">\
 									<div class="card" style="width: 10rem;">\
 										<img class="card-img-top" src="'+value.img+'"\
@@ -226,22 +222,19 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-sm"\
-								value='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-sm"\
+								value='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页/li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-sm"\
-								value='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-sm" value='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" tabindex="-1">下页/li>';
 				 }
 				 
 				 $("#seen-movie-pagination").empty();
@@ -279,7 +272,7 @@ $(document).ready(function() {
 				 $.each(movies, function(key, value) { // 遍历json中的key和value
 					 console.log(value.mactor);
 					 
-					 var item = '<a href="#" class="movie-item" target="_blank"\
+					 var item = '<a href="../movie/movieDetail?mid='+value.mid+'" class="movie-item" target="_blank"\
 									style="margin-left: 5px;">\
 									<div class="card" style="width: 10rem;">\
 										<img class="card-img-top" src="'+value.img+'"\
@@ -312,22 +305,19 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-ws"\
-								value='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-ws"\
+								value='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页/li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
-				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-ws"\
-								value='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+				  if(info.hasNextPage){
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-ws" value='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" tabindex="-1">下页/li>';
 				 }
 				 
 				 $("#ws-movie-pagination").empty();
@@ -364,7 +354,7 @@ $(document).ready(function() {
 				 $.each(movies, function(key, value) { // 遍历json中的key和value
 					 console.log(value.mactor);
 					 
-					 var item = '<a href="#" class="movie-item" target="_blank"\
+					 var item = '<a href="../movie/movieDetail?mid='+value.mid+'" class="movie-item" target="_blank"\
 									style="margin-left: 5px;">\
 									<div class="card" style="width: 10rem;">\
 										<img class="card-img-top" src="'+value.img+'"\
@@ -394,25 +384,23 @@ $(document).ready(function() {
 				 var prePage = "";
 				 var nextPage = "";
 		 
-				 //修改页码
+				 
+				  //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-ws"\
-								value='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-ws"\
+								value='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页/li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
-				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-ws"\
-								value='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+				  if(info.hasNextPage){
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-ws" value='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" tabindex="-1">下页/li>';
 				 }
 				 
 				 $("#ws-movie-pagination").empty();
@@ -452,21 +440,21 @@ $(document).ready(function() {
 					 var item = '<div class="comment-item" style="margin-left: 0px; width: 830px;">\
 							<div class="media" style="width: 830px;">\
 						<div class="media-left">\
-							<a href="#" class="comment-cover " target="_blank"\
+							<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank"\
 								style="width: 10rem"> <img class="media-object"\
 								src="'+value.img +'" alt="">\
 							</a>\
 						</div>\
 						<div class="media-body comment-info">\
 							<h4 class="media-heading">\
-								<a href="#">'+value.ctitle +'</a>\
+								<a href="../review/reviewDetail?cid='+value.cid+'">'+value.ctitle +'</a>\
 							</h4>\
 							<div id="review-meta">\
-								<a href="#">'+info.username+'</a> &nbsp;评论&nbsp; <a\
-									href="#">'+value.mname +'</a> <strong class="item-degree">'+value.mscore +'</strong>\
+								<a href="../index/userInfo?uid='+value.uid+'">'+info.username+'</a> &nbsp;评论&nbsp; <a\
+									href="../movie/movieDetail?mid='+value.mid+'">'+value.mname +'</a> <strong class="item-degree">'+value.mscore +'</strong>\
 							</div>\
 							<p style="color: #666667;">\
-								'+value.content +'<a href="#" class="btn btn-link">全文</a>\
+								'+value.content.substring(0,60) +'...<a href="../review/reviewDetail?cid='+value.cid+'" class="btn btn-link">全文</a>\
 							</p>\
 						</div>\
 					</div>\
@@ -481,22 +469,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.cPageInfo.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-comment"\
-								value='+info.cPageInfo.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-comment"\
+								value='+info.cPageInfo.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.cPageInfo.pageNum+'/'+info.cPageInfo.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.cPageInfo.pageNum+'/'+info.cPageInfo.pages+'</li>'
 				 
 				 if(info.cPageInfo.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-comment"\
-								value='+info.cPageInfo.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-comment"\
+								value='+info.cPageInfo.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage ='<li class="page-item page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#comment-pagination").empty();
@@ -535,21 +521,21 @@ $(document).ready(function() {
 					 var item = '<div class="comment-item" style="margin-left: 0px; width: 830px;">\
 							<div class="media" style="width: 830px;">\
 						<div class="media-left">\
-							<a href="#" class="comment-cover " target="_blank"\
+							<a href="../movie/movieDetail?mid='+value.mid+'" class="comment-cover " target="_blank"\
 								style="width: 10rem"> <img class="media-object"\
 								src="'+value.img +'" alt="">\
 							</a>\
 						</div>\
 						<div class="media-body comment-info">\
 							<h4 class="media-heading">\
-								<a href="#">'+value.ctitle +'</a>\
+								<a href="../review/reviewDetail?cid='+value.cid+'">'+value.ctitle +'</a>\
 							</h4>\
 							<div id="review-meta">\
-								<a href="#">'+info.username+'</a> &nbsp;评论&nbsp; <a\
-									href="#">'+value.mname +'</a> <strong class="item-degree">'+value.mscore +'</strong>\
+								<a href="../index/userInfo?uid='+value.uid+'">'+info.username+'</a> &nbsp;评论&nbsp; <a\
+									href="../movie/movieDetail?mid='+value.mid+'">'+value.mname +'</a> <strong class="item-degree">'+value.mscore +'</strong>\
 							</div>\
 							<p style="color: #666667;">\
-								'+value.content +'<a href="#" class="btn btn-link">全文</a>\
+								'+value.content.substring(0,60) +'...<a href="../review/reviewDetail?cid='+value.cid+'" class="btn btn-link">全文</a>\
 							</p>\
 						</div>\
 					</div>\
@@ -564,22 +550,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.cPageInfo.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-comment"\
-								value='+info.cPageInfo.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-comment"\
+								value='+info.cPageInfo.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.cPageInfo.pageNum+'/'+info.cPageInfo.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.cPageInfo.pageNum+'/'+info.cPageInfo.pages+'</li>'
 				 
 				 if(info.cPageInfo.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-comment"\
-								value='+info.cPageInfo.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-comment"\
+								value='+info.cPageInfo.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage ='<li class="page-item page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#comment-pagination").empty();

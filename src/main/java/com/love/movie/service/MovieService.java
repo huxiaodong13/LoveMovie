@@ -64,23 +64,16 @@ public interface MovieService {
 	public boolean  modifyUserMovieScore(Score score);
 	
 	
-	
-	
-	
-
-	//管理员获取所有电影
-	public List<Map<String, Object>> getMAllMovie();
-	
-	//管理员修改电影信息
-	public boolean updateMovie(Movie movie);
-	
-	//下架(删除电影)
-	public boolean delMovieByMid(int mid);
-	
-	//上架(插入电影)
-	public boolean insertMovie(Movie movie);
-	
 	public List<Map<String, Object>> getAllNewDateMovie();
+	
+	
+	/**
+	 * 根据关键词获取电影
+	 * 
+	 * @param keyword
+	 * @return
+	 */
+	public List<Map<String, Object>> getSearchResult(String keyword);
 
 	
 }

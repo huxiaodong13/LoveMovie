@@ -57,22 +57,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value=showHotMovies?page='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value=showHotMovies?page='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled pre-page page-link" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value=showHotMovies?page='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value=showHotMovies?page='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -138,22 +136,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value=showNewMovies?page='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value=showNewMovies?page='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled pre-page page-link" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value=showNewMovies?page='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value=showNewMovies?page='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -220,22 +216,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value=showNewMovies?page='+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item pre-page page-link" id="pre-page-selectMovie"\
+								value=showNewMovies?page='+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value=showNewMovies?page='+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value=showNewMovies?page='+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -304,22 +298,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -388,22 +380,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -472,22 +462,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link"> '+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled page-link next-page" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -556,22 +544,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item next-page page-link" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -640,22 +626,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -724,22 +708,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -808,22 +790,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -892,22 +872,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -976,22 +954,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1060,22 +1036,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1144,22 +1118,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1228,22 +1200,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1312,22 +1282,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1396,22 +1364,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1480,22 +1446,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrl+info.prePage+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrl+info.prePage+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrl+info.nextPage+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrl+info.nextPage+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1569,22 +1533,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrlPre+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrlPre+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrlNext+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrlNext+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();
@@ -1656,22 +1618,20 @@ $(document).ready(function() {
 				 //修改页码
 				 if(info.hasPreviousPage){
 					 console.log('有前一页');
-					 prePage = '<li class="page-item " id="pre-page-selectMovie"\
-								value='+requestUrlPre+'><a class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item page-link pre-page" id="pre-page-selectMovie"\
+								value='+requestUrlPre+'>上页</li>';
 				 }else{
-					 prePage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">上页</a></li>';
+					 prePage = '<li class="page-item disabled page-link pre-page" tabindex="-1">上页</li>';
 				 }
 				 
-				 var nowPage = '<li class="page-item disabled"><a class="page-link" href="#">'+info.pageNum+'/'+info.pages+'</a></li>'
+				 var nowPage = '<li class="page-item page-link">'+info.pageNum+'/'+info.pages+'</li>'
 				 
 				 if(info.hasNextPage){
-					 nextPage = '<li class="page-item " id="next-page-selectMovie"\
-								value='+requestUrlNext+'><a class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item page-link next-page" id="next-page-selectMovie"\
+								value='+requestUrlNext+'>下页</li>';
 					 console.log('有后一页');
 				 }else{
-					 nextPage = '<li class="page-item disabled" tabindex="-1"><a\
-								class="page-link" href="#">下页</a></li>';
+					 nextPage = '<li class="page-item disabled next-page page-link" tabindex="-1">下页</li>';
 				 }
 				 
 				 $("#select-movie-pagination").empty();

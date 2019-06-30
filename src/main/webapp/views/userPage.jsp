@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,31 +40,37 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">主页<span
+					<li class="nav-item"><a class="nav-link" href="../index/index">主页</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../smovie/selectMovie">选电影</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../Rank/NewRank">排行榜</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../review/Review">影评</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">个人主页<span
 							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="selectMovie">选电影</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">影评</a></li>
 
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+
+				<form class="form-inline my-2 my-lg-0" action ="../index/search" method="post">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
+						placeholder="Search" aria-label="Search" name="keyword">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
 				<ul class="navbar-nav">
-					<li class="nav-item" id="regist-login" hidden><a
-						class="nav-link" href="#">注册/登录</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> ${userInfo.username } </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="userInfo">个人中心</a>
+							<a class="dropdown-item"
+								href="../index/userInfo?uid=${userInfo.username }">个人中心</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="logout">退出</a>
+							<a class="dropdown-item" href="../index/logout">退出</a>
 						</div></li>
 				</ul>
+
 			</div>
 		</nav>
 	</div>
@@ -231,8 +238,8 @@
 						<div class="clearfix" id="seen-movies-items">
 
 							<c:forEach items="${smPageInfo.list }" var="item">
-								<a href="#" class="movie-item" target="_blank"
-									style="margin-left: 5px;">
+								<a href="../movie/movieDetail?mid=${item.mid }"
+									class="movie-item" target="_blank" style="margin-left: 5px;">
 									<div class="card" style="width: 10rem;">
 										<img class="card-img-top" src="${item.img }"
 											alt="Card image cap">
@@ -263,24 +270,21 @@
 				<nav aria-label="" class="page" style="margin-bottom: 20px;">
 					<ul class="pagination h-center v-center" id="seen-movie-pagination">
 						<c:if test="${smPageInfo.hasPreviousPage==true}">
-							<li class="page-item " id="pre-page-sm"
-								value=${ smPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+							<li class="page-item page-link pre-page" id="pre-page-sm"
+								value=${ smPageInfo.prePage}>上页</li>
 						</c:if>
 						<c:if test="${smPageInfo.hasPreviousPage==false}">
-							<li class="page-item disabled" tabindex="-1"><a
-								class="page-link" href="#">上页</a></li>
+							<li class="page-item page-link pre-page" tabindex="-1">上页</li>
 						</c:if>
 
-						<li class="page-item disabled"><a class="page-link" href="#">${smPageInfo.pageNum}
-								/ ${ smPageInfo.pages}</a></li>
+						<li class="page-item  page-link">${smPageInfo.pageNum}/${ smPageInfo.pages}</li>
 
 						<c:if test="${smPageInfo.hasNextPage==true}">
-							<li class="page-item " id="next-page-sm"
-								value=${ smPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+							<li class="page-item page-link next-page" id="next-page-sm"
+								value=${ smPageInfo.nextPage}>下页</li>
 						</c:if>
 						<c:if test="${smPageInfo.hasNextPage==false}">
-							<li class="page-item disabled" tabindex="-1"><a
-								class="page-link" href="#">下页</a></li>
+							<li class="page-item page-link next-page " tabindex="-1">下页</li>
 						</c:if>
 
 					</ul>
@@ -293,8 +297,8 @@
 					<div id="hot-movies" style="margin: 0; width: 100%">
 						<div class="clearfix" id="ws-movies-items">
 							<c:forEach items="${wmPageInfo.list }" var="item">
-								<a href="#" class="movie-item" target="_blank"
-									style="margin-left: 5px;">
+								<a href="../movie/movieDetail?mid=${item.mid }"
+									class="movie-item" target="_blank" style="margin-left: 5px;">
 									<div class="card" style="width: 10rem;">
 										<img class="card-img-top" src="${item.img }"
 											alt="Card image cap">
@@ -324,27 +328,25 @@
 				<!-- --------------------------想看的电影分页------------------------------->
 				<nav aria-label="" class="page" style="margin-bottom: 20px;">
 					<ul class="pagination h-center v-center" id="ws-movie-pagination">
+
 						<c:if test="${wmPageInfo.hasPreviousPage==true}">
-							<li class="page-item" id="pre-page-ws"
-								value=${ wmPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+							<li class="page-item page-link pre-page" id="pre-page-ws"
+								value=${ wmPageInfo.prePage}>上页</li>
 						</c:if>
-
 						<c:if test="${wmPageInfo.hasPreviousPage==false}">
-							<li class="page-item disabled" tabindex="-1"><a
-								class="page-link" href="#">上页</a></li>
+							<li class="page-item page-link pre-page" tabindex="-1">上页</li>
 						</c:if>
 
-						<li class="page-item disabled"><a class="page-link" href="#">${wmPageInfo.pageNum}
-								/ ${ wmPageInfo.pages}</a></li>
+						<li class="page-item  page-link">${wmPageInfo.pageNum}/${ wmPageInfo.pages}</li>
 
 						<c:if test="${wmPageInfo.hasNextPage==true}">
-							<li class="page-item " id="next-page-ws"
-								value=${ wmPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+							<li class="page-item page-link next-page" id="next-page-ws"
+								value=${ wmPageInfo.nextPage}>下页</li>
 						</c:if>
 						<c:if test="${wmPageInfo.hasNextPage==false}">
-							<li class="page-item disabled" tabindex="-1"><a
-								class="page-link" href="#">下页</a></li>
+							<li class="page-item page-link next-page " tabindex="-1">下页</li>
 						</c:if>
+
 					</ul>
 				</nav>
 
@@ -360,22 +362,26 @@
 							<div class="comment-item" style="margin-left: 0px; width: 830px;">
 								<div class="media" style="width: 830px;">
 									<div class="media-left">
-										<a href="#" class="comment-cover " target="_blank"
-											style="width: 10rem"> <img class="media-object"
-											src="${item.img }" alt="">
+										<a href="../movie/movieDetail?mid=${item.mid }"
+											class="comment-cover " target="_blank" style="width: 10rem">
+											<img class="media-object" src="${item.img }" alt="">
 										</a>
 									</div>
+
 									<div class="media-body comment-info">
 
 										<h4 class="media-heading">
-											<a href="#">${item.ctitle }</a>
+											<a href="../review/reviewDetail?cid=${item.cid }">${item.ctitle }</a>
 										</h4>
 										<div id="review-meta">
-											<a href="#">${userInfo.username }</a> &nbsp;评论&nbsp; <a
-												href="#">${item.mname }</a> <strong class="item-degree">${item.mscore }</strong>
+											<a href="../index/userInfo?uid=${item.uid }">${userInfo.username }</a>
+											&nbsp;评论&nbsp; <a href="../index/userInfo?uid=${item.uid }">${item.mname }</a>
+											<strong class="item-degree">${item.mscore }</strong>
 										</div>
 										<p style="color: #666667;">
-											${item.content } <a href="#" class="btn btn-link">全文</a>
+											${fn:substring(item.content, 0, 60)}... <a
+												href="../review/reviewDetail?cid=${item.cid }"
+												class="btn btn-link">全文</a>
 										</p>
 									</div>
 								</div>
@@ -386,27 +392,25 @@
 					<!-- --------------------------参与的影评分页------------------------------->
 					<nav aria-label="" class="page" style="margin-bottom: 20px;">
 						<ul class="pagination h-center v-center" id="comment-pagination">
+
 							<c:if test="${cPageInfo.hasPreviousPage==true}">
-								<li class="page-item " id="pre-page-comment"
-									value=${ cPageInfo.prePage}><a class="page-link" href="#">上页</a></li>
+								<li class="page-item page-link pre-page" id="pre-page-comment"
+									value=${ cPageInfo.prePage}>上页</li>
 							</c:if>
-
 							<c:if test="${cPageInfo.hasPreviousPage==false}">
-								<li class="page-item disabled" tabindex="-1"><a
-									class="page-link" href="#">上页</a></li>
+								<li class="page-item page-link pre-page" tabindex="-1">上页</li>
 							</c:if>
 
-							<li class="page-item"><a class="page-link" href="#">${cPageInfo.pageNum}
-									/ ${ cPageInfo.pages}</a></li>
+							<li class="page-item  page-link">${cPageInfo.pageNum}/${ cPageInfo.pages}</li>
 
 							<c:if test="${cPageInfo.hasNextPage==true}">
-								<li class="page-item " id="next-page-comment"
-									value=${ cPageInfo.nextPage}><a class="page-link" href="#">下页</a></li>
+								<li class="page-item page-link next-page" id="next-page-comment"
+									value=${ cPageInfo.nextPage}>下页</li>
 							</c:if>
 							<c:if test="${cPageInfo.hasNextPage==false}">
-								<li class="page-item disabled" tabindex="-1"><a
-									class="page-link" href="#">下页</a></li>
+								<li class="page-item page-link next-page " tabindex="-1">下页</li>
 							</c:if>
+
 						</ul>
 					</nav>
 				</div>

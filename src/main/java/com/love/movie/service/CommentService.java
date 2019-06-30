@@ -3,7 +3,9 @@ package com.love.movie.service;
 import java.util.List;
 import java.util.Map;
 
+import com.love.movie.model.Attitude;
 import com.love.movie.model.Comment;
+import com.love.movie.model.Storeup;
 
 public interface CommentService {
 
@@ -76,5 +78,115 @@ public interface CommentService {
 	 * @return
 	 */
 	public int getCommentReplyCountByCid(int cid);
+	
+	
+	/**
+	 * 获取指定影评的收藏数
+	 * 
+	 * @param cid
+	 * @return
+	 */
+	public Integer getCommentStroeCount(int cid);
+	
+	
+	/**
+	 * 获取用户对影评的态度
+	 * 
+	 * @param attitude
+	 * @return
+	 */
+	public Integer getUserAttitudeToComment(Attitude attitude);
+	
+	/**
+	 * 判断用户是否收藏过该评论
+	 * 
+	 * @param storeup
+	 * @return
+	 */
+	public Boolean isStoreComment(int cid, int uid);
+	
+	
+	/**
+	 * 取消收藏评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean cancelStoreComment(int cid, int uid);
+	
+	/**
+	 * 收藏评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean storeComment(int cid, int uid);
+	
+	
+	/**
+	 * 点赞评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean doThumbUpComment(int cid, int uid);
+	
+	/**
+	 * 取消点赞评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean cancelThumbUpComment(int cid, int uid);
+	
+	/**
+	 * 踩评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean doThumDownComment(int cid, int uid);
+	
+	/**
+	 * 取消踩评论
+	 * 
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean cancelThumDownComment(int cid, int uid);
+	
+	/**
+	 * 处理举报
+	 * 
+	 * @param reason
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public Boolean doReport(String reason, int cid, int uid);
+	
+	/**
+	 * 处理回复
+	 * 
+	 * @param comment
+	 * @param cid
+	 * @param uid
+	 * @return
+	 */
+	public boolean doAddReplyToComment(String comment, int cid, int uid, int toUid);
+	
+	/**
+	 * 获取对指定影评的直接回复
+	 * 
+	 * @return
+	 */
+	public List<Map<String, Object>> getReplyToCommentByCid(int cid);
+	
 
 }

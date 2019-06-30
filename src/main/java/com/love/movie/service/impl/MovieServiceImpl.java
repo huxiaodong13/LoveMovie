@@ -70,42 +70,6 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getMAllMovie() {
-		List<Map<String, Object>> movies = customedMovieMapper.getMAllMovie();
-		return movies;
-	}
-
-	@Override
-	public boolean updateMovie(Movie movie) {
-		int n = movieMapper.updateByPrimaryKeySelective(movie);
-		if (n >= 1) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean delMovieByMid(int mid) {
-		int n = movieMapper.deleteByPrimaryKey(mid);
-
-		// 与该电影有关的影评信息也得删除
-		if (n >= 1) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean insertMovie(Movie movie) {
-		// TODO Auto-generated method stub
-		int n = movieMapper.insert(movie);
-		if (n == 1) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
 	public List<Map<String, Object>> getAllNewDateMovie() {
 		List<Map<String, Object>> movies = customedMovieMapper.getAllNewDateMovie();
 		return movies;
@@ -157,5 +121,10 @@ public class MovieServiceImpl implements MovieService {
 			customedMovieMapper.modifyScoreByMidAndUid(score);
 		}
 		return true;
+	}
+
+	@Override
+	public List<Map<String, Object>> getSearchResult(String keyword) {
+		return customedMovieMapper.getSearchResult(keyword);
 	}
 }

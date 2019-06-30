@@ -45,9 +45,39 @@ public class UserController {
 	 */
 	@RequestMapping("userInfo")
 	public ModelAndView userInfo(HttpServletRequest request) {
+		// 分页
+		int page = 1;
+		int pageSize = 4;
 
+		// 若用户没有登录
 		if (!UserUtil.isLogin(request)) {
-			return new ModelAndView("error");
+
+			int uid = Integer.parseInt(request.getParameter("uid"));
+			User others = userServiceId.getUserByUid(uid);
+			// 若是没有找到指定用户
+			if (others == null) {
+				return new ModelAndView("error");
+			}
+			ModelAndView mv = new ModelAndView("userDisplay");
+			mv.addObject("userInfo", others);
+			
+			// 看过的电影 想看的电影 参与的评论
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> seenMovies = userServiceId.getSeenMovies(uid);
+			PageInfo<Map<String, Object>> smPageInfo = new PageInfo<Map<String, Object>>(seenMovies);
+
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> wSeenMovies = userServiceId.getWantSeeMovie(uid);
+			PageInfo<Map<String, Object>> wmPageInfo = new PageInfo<Map<String, Object>>(wSeenMovies);
+
+			PageHelper.startPage(page, pageSize);
+			List<Map<String, Object>> userComments = userServiceId.getCommentByUserId(uid);
+			PageInfo<Map<String, Object>> cPageInfo = new PageInfo<Map<String, Object>>(userComments);
+
+			mv.addObject("smPageInfo", smPageInfo);
+			mv.addObject("wmPageInfo", wmPageInfo);
+			mv.addObject("cPageInfo", cPageInfo);
+			return mv;
 		}
 
 		HttpSession session = request.getSession();
@@ -59,10 +89,6 @@ public class UserController {
 		mv.addObject("userInfo", userLogin);
 
 		int uid = userLogin.getUid();
-
-		// 分页
-		int page = 1;
-		int pageSize = 4;
 
 		// 看过的电影 想看的电影 参与的评论
 		PageHelper.startPage(page, pageSize);
@@ -131,7 +157,7 @@ public class UserController {
 		// 获取想看的电影
 		int pageSize = 4;
 		System.out.println("ws page====" + page);
-		
+
 		PageHelper.startPage(page, pageSize);
 		List<Map<String, Object>> wSeenMovies = userServiceId.getWantSeeMovie(uid);
 		PageInfo<Map<String, Object>> wsPageInfo = new PageInfo<Map<String, Object>>(wSeenMovies);
@@ -164,13 +190,13 @@ public class UserController {
 
 //		String jsonreviewsPageInfo = JSON.toJSONString(reviewsPageInfo);
 //		System.out.println("jsonreviewsPageInfo====" + jsonreviewsPageInfo);
-		
+
 		Map<String, Object> cInfo = new HashMap<String, Object>();
 		cInfo.put("username", userLogin.getUsername());
 		cInfo.put("cPageInfo", reviewsPageInfo);
-		
+
 		String jsonreviewsPageInfo = JSON.toJSONString(cInfo);
-		
+
 		return jsonreviewsPageInfo;
 
 	}
@@ -250,17 +276,17 @@ public class UserController {
 						user.setBrief(value);
 					} else if (fileName.equals("birth")) {
 //						if (value.equals("") != false) {
-							System.out.println("改生日");
-							
-							try {
-								SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.US);
-								Date ubirth = sdf.parse(value);
-								System.out.println("ubirth == " + ubirth);
-								user.setBirth(ubirth);
-							} catch (Exception e) {
+						System.out.println("改生日");
+
+						try {
+							SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.US);
+							Date ubirth = sdf.parse(value);
+							System.out.println("ubirth == " + ubirth);
+							user.setBirth(ubirth);
+						} catch (Exception e) {
 //								e.printStackTrace();
-								System.out.println("没有修改生日");
-							}
+							System.out.println("没有修改生日");
+						}
 //						}
 					} else if (fileName.equals("gender")) {
 						int gender = Integer.parseInt(value);
@@ -268,7 +294,7 @@ public class UserController {
 					}
 				} else {
 					// 上传文件的控件
-					if(FilenameUtils.getExtension(item.getName()).equals("") == false) {
+					if (FilenameUtils.getExtension(item.getName()).equals("") == false) {
 						// 为图片文件生成UUID
 						avatarUUID = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(item.getName());
 						System.out.println(fileName + "->" + FilenameUtils.getName(item.getName())); // 一个的标签的name，一个是文件的name
@@ -289,7 +315,7 @@ public class UserController {
 		System.out.println("now user=========" + user);
 //		//调用服务更新用户信息
 		userServiceId.updateUserInfo(user);
-		
+
 		return "forward:userInfo";
 	}
 

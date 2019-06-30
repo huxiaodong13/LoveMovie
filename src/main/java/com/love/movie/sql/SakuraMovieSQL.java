@@ -27,7 +27,7 @@ public class SakuraMovieSQL {
 	 * @return
 	 */
 	public String selectClassicMovies() {
-		String sql = "SELECT * FROM movie WHERE mscore > 8 ORDER  BY mtime,mscore ASC";
+		String sql = "SELECT * FROM movie WHERE mscore > 7.8 AND mtime < '2019' ORDER  BY mscore DESC";
 		return sql;
 	}	
 	
